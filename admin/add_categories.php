@@ -15,11 +15,6 @@
                 $target_dir = "../uploads/category_images/";
                 $target_file = $target_dir . basename($_FILES["category_image"]["name"]);
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                // Allow certain file formats
-                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                && $imageFileType != "gif" ) {
-                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                    $uploadOk = 0;
                 }
 
                 if (move_uploaded_file($_FILES["category_image"]["tmp_name"], $target_file)) {

@@ -99,7 +99,7 @@
                                 </div> 
                                 
                                 <div class="input-field col s6">
-                                   Image : <input type="file" name="logo" id="logo" onchange="loadFile(event)">                                     
+                                   Image : <input type="file" name="logo" id="logo" onchange="loadFile(event)" accept="image/*">                                     
                                 </div>
                                 <div class="input-field col s12">
                                     <input id="title" type="text" class="validate" name="footer_text" required value="<?php echo $getSiteSettingsData['footer_text'];?>">

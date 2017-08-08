@@ -23,5 +23,5 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$base_url = "http://localhost/Fioten/";
+$base_url = "http://localhost/sampradaya_ruchulu/";
 ?>

@@ -6,7 +6,7 @@
                             </a>
                         </section>
                         <div class="header-title col s3 m3">      
-                            <span class="chapter-title"><a href = "dashboard.php"/>Fioten Admin </span>
+                            <span class="chapter-title"><a href = "dashboard.php"/>Sampradaya Ruchulu</span>
                         </div>
                         <form class="left search col s6 hide-on-small-and-down">
                             <a href="javascript: void(0)" class="close-search"><i class="material-icons">close</i></a>
