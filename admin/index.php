@@ -21,7 +21,7 @@
         <link href="assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>        
     </head>
-    <body class="signup-page">
+    <body class="signup-page" style="height:589px;">
         
         <div class="mn-content fixed-sidebar">
             <header class="mn-header navbar-fixed" style="margin-top:70px">
