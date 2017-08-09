@@ -9,7 +9,7 @@ if (!isset($_POST['submit']))  {
     //echo "<pre>"; print_r($_POST); die;
     //Save data into database
     $product_name = $_POST['product_name'];
-    $category_id = implode(',',$_POST['category_id']);
+    $category_id[] = explode(',',$_POST['category_id']);
     $product_price = $_POST['product_price'];
     $quantity = $_POST['quantity'];
     $product_info = $_POST['product_info'];
