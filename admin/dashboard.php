@@ -82,8 +82,8 @@
                     <div class="col s12 m12 l3">
                         <div class="card stats-card">
                             <div class="card-content">                                
-                                <span class="card-title">Customers</span>
-                                <span class="stats-counter"><span class="counter"><?php echo getRowsCount('users');?></span></span>
+                                <span class="card-title">Categories</span>
+                                <span class="stats-counter"><span class="counter"><?php echo getRowsCount('categories');?></span></span>
                             </div>
                             <div id="sparkline-bar"></div>
                         </div>

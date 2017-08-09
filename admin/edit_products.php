@@ -11,23 +11,15 @@ if (!isset($_POST['submit']))  {
     $product_name = $_POST['product_name'];
     $category_id = $_POST['category_id'];
     $product_price = $_POST['product_price'];
-    $price_type = $_POST['price_type'];
-    $offer_price = $_POST['offer_price'];
-    $selling_price = $_POST['selling_price'];
-    $deal_start_date = $_POST['deal_start_date'];
-    $deal_end_date = $_POST['deal_end_date'];
     $quantity = $_POST['quantity'];
-    $minimum_order_quantity = $_POST['minimum_order_quantity'];
-    $key_features = $_POST['key_features'];
     $product_info = $_POST['product_info'];
-    $specifications = $_POST['specifications'];
     $availability_id = $_POST['availability_id'];
     $status = $_POST['status'];
     $created_at = date("Y-m-d h:i:s");
     $created_by = $_SESSION['admin_user_id'];
     //save product images into product_images table    
     
-    $sql1 = "UPDATE products SET product_name = '$product_name',category_id ='$category_id',product_price ='$product_price',price_type ='$price_type',offer_price ='$offer_price',selling_price ='$selling_price', deal_start_date = '$deal_start_date', deal_end_date ='$deal_end_date',quantity = '$quantity',minimum_order_quantity = '$minimum_order_quantity',key_features = '$key_features',product_info = '$product_info',specifications = '$specifications',availability_id = '$availability_id',status = '$status' WHERE id = '$id'"; 
+    $sql1 = "UPDATE products SET product_name = '$product_name',category_id ='$category_id',product_price ='$product_price',quantity = '$quantity',product_info = '$product_info',availability_id = '$availability_id',status = '$status' WHERE id = '$id'"; 
     
     if ($conn->query($sql1) === TRUE) {
     echo "Record updated successfully";
@@ -75,7 +67,7 @@ if (!isset($_POST['submit']))  {
                                 ?>
                                 
                                 <div class="input-field col s12">
-                                    <select name="category_id" required>
+                                    <select  size=|"5" name="category_id" required multiple="multiple">
                                         <option value="">Select Category</option>
                                         <?php while($row = $getCategories->fetch_assoc()) {  ?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getAllProductsData['category_id']) { echo "selected=selected"; }?> ><?php echo $row['category_name']; ?></option>
@@ -94,66 +86,16 @@ if (!isset($_POST['submit']))  {
                                 </div>
 
                                 <div class="input-field col s12">
-                                    <select name="price_type" id="price_type" required class="price_type">
-                                        <option value="">Price Type</option>
-                                        <option value="1" <?php if($getAllProductsData['price_type'] == 1) { echo "Selected=Selected"; }?>>Price</option>
-                                        <option value="2" <?php if($getAllProductsData['price_type'] == 2) { echo "Selected=Selected"; }?>>Percentage</option>
-                                    </select> 
-                                </div>
-
-                                <div class="input-field col s12 show_price" style="display:none">
-                                   <input id="offer_price" type="text" class="validate" name="offer_price" onkeypress="return isNumberKey(event)" required value="<?php echo $getAllProductsData['offer_price']; ?>">
-                                   <label for="offer_price" class="price_change_text">Offer Price</label>
-                                </div>
-
-                                <div id="clickview"></div>
-                                <div class="input-field col s12">
-                                   <input id="selling_price" readonly type="text" class="validate" name="selling_price" required value="<?php echo $getAllProductsData['selling_price']; ?>" placeholder="Selling Price">
-                                </div>
-
-                                <div class="row">
-                                    <div class="col s12">
-                                        <label for="deal_start_date">Deal Start date</label>
-                                        <input id="deal_start_date" name="deal_start_date" type="text" class="datepicker" equired value="<?php echo $getAllProductsData['deal_start_date']; ?>">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col s12">
-                                        <label for="deal_end_date">Deal End date</label>
-                                        <input id="deal_end_date" name="deal_end_date" type="text" class="datepicker" required value="<?php echo $getAllProductsData['deal_end_date']; ?>">
-                                    </div>
-                                </div>
-
-                                <div class="input-field col s6">
                                     <input id="quantity" type="text" class="validate" name="quantity" onkeypress="return isNumberKey(event)" required value="<?php echo $getAllProductsData['quantity']; ?>">
                                     <label for="quantity">Quantity</label>
                                 </div>
-                                <div class="input-field col s6">
-                                    <input id="minimum_order_quantity" type="text" class="validate" name="minimum_order_quantity" onkeypress="return isNumberKey(event)" required value="<?php echo $getAllProductsData['minimum_order_quantity']; ?>">
-                                    <label for="minimum_order_quantity">Minimum Order Quantity</label>
-                                </div>
-
-                                <label for="name" class="col-lg-3 col-sm-3 control-label">Key Features</label>
-                                <div class="input-field col s12">
-                                    <div class="col-lg-9">
-                                        <textarea id="key_features" name="key_features" required value="<?php echo $getAllProductsData['key_features']; ?>"><?php echo $getAllProductsData['key_features']; ?></textarea>                                        
-                                    </div>
-                                </div>
-
+                                
                                 <label for="name" class="col-lg-3 col-sm-3 control-label">Product Info</label>
                                 <div class="input-field col s12">
                                     <div class="col-lg-9">
                                         <textarea name="product_info"required id="product_info"><?php echo $getAllProductsData['product_info']; ?></textarea>                                        
                                     </div>
                                 </div>  
-
-                                <label for="name" class="col-lg-3 col-sm-3 control-label">About</label>
-                                <div class="input-field col s12">
-                                    <div class="col-lg-9">
-                                        <textarea name="specifications" required id="specifications"><?php echo $getAllProductsData['specifications']; ?></textarea>
-                                    </div>
-                                </div>
 
                                 <div class="input-field col s12">
                                     <select name="availability_id" required>
