@@ -7,30 +7,16 @@
 
 
             $category_name = $_POST['category_name'];
-            $category_image = $_FILES['category_image']["name"];
             $status = $_POST['status'];                                                    
             
-            if($category_image!='') {
-
-                $target_dir = "../uploads/category_images/";
-                $target_file = $target_dir . basename($_FILES["category_image"]["name"]);
-                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                }
-
-                if (move_uploaded_file($_FILES["category_image"]["tmp_name"], $target_file)) {
-                     $sql = "INSERT INTO categories (`category_name`, `category_image`, `status`) VALUES ('$category_name', '$category_image','$status')";
-                    if($conn->query($sql) === TRUE){
-                       echo "<script>alert('Data Updated Successfully');window.location.href='categories.php';</script>";
-                    } else {
-                       echo "<script>alert('Data Updation Failed');window.location.href='categories.php';</script>";
-                    }
-                    //echo "The file ". basename( $_FILES["category_image"]["name"]). " has been uploaded.";
+                $sql = "INSERT INTO categories (`category_name`, `status`) VALUES ('$category_name', '$status')";
+                if($conn->query($sql) === TRUE){
+                   echo "<script>alert('Data Updated Successfully');window.location.href='categories.php';</script>";
                 } else {
-                    echo "Sorry, there was an error uploading your file.";
+                   echo "<script>alert('Data Updation Failed');window.location.href='categories.php';</script>";
                 }
+                //echo "The file ". basename( $_FILES["category_image"]["name"]). " has been uploaded.";
             }            
-            
-        }
 ?>
 <main class="mn-inner">
     <div class="row">
@@ -50,11 +36,6 @@
                                     <label for="title">Category Name</label>
                                 </div>
                                 
-                                <div class="input-field col s6">
-                                   Image : <img id="output" height="100" width="100"/>
-                                   <input type="file" name="category_image" id="category_image"  accept="image/*" onchange="loadFile(event)" required>                                     
-                                </div>
-
                                 <div class="input-field col s12">
                                     <select name="status" required>
                                         <option value="" disabled selected>Choose your status</option>

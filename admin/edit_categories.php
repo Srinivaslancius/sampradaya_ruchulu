@@ -9,27 +9,7 @@ $id = $_GET['uid'];
 
     $category_name = $_POST['category_name'];  
     $status = $_POST['status'];
-    if($_FILES["category_image"]["name"]!='') {
-                                          
-        $category_image = $_FILES["category_image"]["name"];        
-        $target_dir = "../uploads/category_images/";
-        $target_file = $target_dir . basename($_FILES["category_image"]["name"]);
-        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-        $getImgUnlink = getImageUnlink('category_image','categories','id',$id,$target_dir);
-        //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
-
-        if (move_uploaded_file($_FILES["category_image"]["tmp_name"], $target_file)) {
-            $sql = "UPDATE `categories` SET category_name = '$category_name', category_image = '$category_image', status='$status' WHERE id = '$id' ";
-            if($conn->query($sql) === TRUE){
-               echo "<script>alert('Data Updated Successfully');window.location.href='categories.php';</script>";
-            } else {
-               echo "<script>alert('Data Updation Failed');window.location.href='categories.php';</script>";
-            }
-            //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
-    }  else {
+    
         $sql = "UPDATE `categories` SET category_name = '$category_name', status='$status' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script>alert('Data Updated Successfully');window.location.href='categories.php';</script>";
@@ -37,8 +17,7 @@ $id = $_GET['uid'];
            echo "<script>alert('Data Updation Failed');window.location.href='categories.php';</script>";
         }
     }   
-    
-}
+
 ?>
 <main class="mn-inner">
     <div class="row">
@@ -56,17 +35,6 @@ $id = $_GET['uid'];
                                 <div class="input-field col s12">
                                     <input id="title" type="text" class="validate" name="category_name" required value="<?php echo $getCategories1['category_name'];?>">
                                     <label for="title">Category Name</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name" class="col-lg-3 col-sm-3 control-label"></label>
-                                    <div class="col-lg-9">
-                                        <img src="<?php echo $base_url . 'uploads/category_images/'.$getCategories1['category_image'] ?>" height="100" width="100" id="output"/>
-                                    </div>
-                                </div> 
-                                
-                                <div class="input-field col s6">
-                                   Image : <input type="file" name="category_image" id="category_image" accept="image/*" onchange="loadFile(event)">                                     
                                 </div>
 
                                 <div class="input-field col s12">
