@@ -57,7 +57,7 @@ if (!isset($_POST['submit']))  {
                                     $getWeights = getAllDataCheckActive('product_weights',0);
                                 ?>
                                 <div class="input-field col s12">
-                                    <select size="5" name="category_id" required multiple="multiple">
+                                    <select name="category_id" required multiple="multiple" style="height:100px;">
                                         <option value="">Select Category</option>
                                         <?php while($row = $getCategories->fetch_assoc()) {  ?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
