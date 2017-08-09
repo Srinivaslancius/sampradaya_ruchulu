@@ -63,14 +63,15 @@ if (!isset($_POST['submit']))  {
                                 <?php $getProductsData = getAllDataWhere('products', 'id', $_GET['pid']); $getAllProductsData = $getProductsData->fetch_assoc(); ?>                                
                                
                                 <?php
+                                    $HiddenProducts = explode(',',$getAllProductsData['category_id']);
                                     $getCategories = getAllDataCheckActive('categories',0);
                                 ?>
                                 
-                                <div class="input-field col s12">
+                                <div class="input-field col s12">                                    
                                     <select name="category_id[]" required multiple="multiple" style="height:100px;">
                                         <option value="">Select Category</option>
                                         <?php while($row = $getCategories->fetch_assoc()) {  ?>
-                                            <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getAllProductsData['category_id']) { echo "selected=selected"; }?> ><?php echo $row['category_name']; ?></option>
+                                            <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == in_array($row['id'], $HiddenProducts)) { echo "selected=selected"; }?> ><?php echo $row['category_name']; ?></option>
                                         <?php } ?>
                                     </select> 
                                 </div>
