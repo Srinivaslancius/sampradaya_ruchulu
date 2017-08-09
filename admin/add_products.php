@@ -7,7 +7,7 @@ if (!isset($_POST['submit']))  {
 } else  {
     //Save data into database
     $product_name = $_POST['product_name'];
-    $category_id = $_POST['category_id'];
+    $category_id = implode(',',$_POST['category_id']);
     $product_price = $_POST['product_price'];
     $quantity = $_POST['quantity'];
     $product_info = $_POST['product_info'];
@@ -57,7 +57,7 @@ if (!isset($_POST['submit']))  {
                                     $getWeights = getAllDataCheckActive('product_weights',0);
                                 ?>
                                 <div class="input-field col s12">
-                                    <select name="category_id" required multiple="multiple" style="height:100px;">
+                                    <select name="category_id[]" required multiple="multiple" style="height:100px;">
                                         <option value="">Select Category</option>
                                         <?php while($row = $getCategories->fetch_assoc()) {  ?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>

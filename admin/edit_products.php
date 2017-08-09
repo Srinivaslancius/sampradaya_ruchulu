@@ -9,7 +9,7 @@ if (!isset($_POST['submit']))  {
     //echo "<pre>"; print_r($_POST); die;
     //Save data into database
     $product_name = $_POST['product_name'];
-    $category_id = $_POST['category_id'];
+    $category_id = implode(',',$_POST['category_id']);
     $product_price = $_POST['product_price'];
     $quantity = $_POST['quantity'];
     $product_info = $_POST['product_info'];
@@ -67,8 +67,8 @@ if (!isset($_POST['submit']))  {
                                     $getCategories = getAllDataCheckActive('categories',0);
                                 ?>
                                 
-                                <div class="input-field col s12">
-                                    <select name="category_id" required multiple="multiple" style="height:110px">
+                                <div class="input-field col s12">                                    
+                                    <select name="category_id[]" required multiple="multiple" style="height:100px;">
                                         <option value="">Select Category</option>
                                         <?php while($row = $getCategories->fetch_assoc()) {  ?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == in_array($row['id'], $HiddenProducts)) { echo "selected=selected"; }?> ><?php echo $row['category_name']; ?></option>
