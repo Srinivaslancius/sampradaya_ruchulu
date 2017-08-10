@@ -1,4 +1,4 @@
-// AMD support (Thanks to @FagnerMartinsBrack)
+
 ;(function(factory) {
   'use strict';
 

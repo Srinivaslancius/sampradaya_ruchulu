@@ -41,6 +41,8 @@
     <script src="js/countdown/countdown.js"></script>
     <script src="js/theme-color-selector/theme-color-selector.js"></script>
     <script src="js/wow/wow.min.js"></script>
+    <script src="js/prettyphoto/js/prettyPhoto.js"></script>
+    <script src="js/jquery-migrate-1.1.1.js"></script>
     <script src="js/pulse/jquery.PMSlider.js"></script>        
     <p id="back-top" class="visible-lg visible-md visible-sm"> </p>
     
