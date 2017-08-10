@@ -33,9 +33,9 @@
                         <div class="pm-isotope-filter-container">
                         	<ul class="pm-isotope-filter-system">
                             	<li class="pm-isotope-filter-system-expand">Expand <i class="fa fa-angle-down"></i></li>
-                            	<li><a href="#">Breakfast</a></li>
-                                <li><a href="#">Lunch</a></li>
-                                <li><a href="#" class="current">Dinner</a></li>
+                            	<?php while($getAllMen = $getAllActiveMenus->fetch_assoc()) { ?>
+                                    <li><a href="menus.php"><?php echo $getAllMen['category_name']; ?></a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <!-- Filter menu end -->
