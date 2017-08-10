@@ -18,16 +18,22 @@ if (!isset($_POST['submit']))  {
     $created_at = date("Y-m-d h:i:s");
     $created_by = $_SESSION['admin_user_id'];
     //save product images into product_images table    
+
+    $product_images1 = $_FILES['product_images']['name'];
+    $file_tmp = $_FILES["product_images"]["tmp_name"];
+    $file_destination = '../uploads/product_images/' . $product_images1;
+    move_uploaded_file($file_tmp, $file_destination); 
     
-    $sql1 = "UPDATE products SET product_name = '$product_name',category_id ='$category_id',product_price ='$product_price',quantity = '$quantity',product_info = '$product_info',availability_id = '$availability_id',status = '$status' WHERE id = '$id'"; 
+    $sql1 = "UPDATE products SET product_name = '$product_name',category_id ='$category_id',product_price ='$product_price',quantity = '$quantity',product_info = '$product_info',availability_id = '$availability_id',status = '$status',product_image = '$product_images1' WHERE id = '$id'"; 
     
     if ($conn->query($sql1) === TRUE) {
-    echo "Record updated successfully";
+        echo "<script>alert('Data Updated Successfully');window.location.href='products.php';</script>";
     } else {
-    echo "Error updating record: " . $conn->error;
+        echo "<script>alert('Data Updation Failed');window.location.href='products.php';</script>";
     }
     $result1=$conn->query($sql1);
-    $product_images = $_FILES['product_images']['name'];
+
+    /*$product_images = $_FILES['product_images']['name'];
     foreach($product_images as $key=>$value){
 
         $product_images1 = $_FILES['product_images']['name'][$key];
@@ -44,7 +50,7 @@ if (!isset($_POST['submit']))  {
         echo "<script>alert('Data Updated Successfully');window.location.href='products.php';</script>";
     } else {
        echo "<script>alert('Data Updation Failed');window.location.href='products.php';</script>";
-    }
+    }*/
 }
 ?>
 <a href = "dashboard.php">CLICK</a>
@@ -105,31 +111,17 @@ if (!isset($_POST['submit']))  {
                                         <option value="1" <?php if($getAllProductsData['availability_id'] == 1) { echo "Selected=Selected"; }?>>Out Of Stock</option>                                        
                                     </select> 
                                 </div>
-
-                                 <div class="input-field col s12">
-                                    <?php                                                                 
-                                    $sql = "SELECT id,product_image FROM product_images where product_id = $id";
-                                    $getImages= $conn->query($sql);                                                             
-                                    while($row=$getImages->fetch_assoc()) {
-                                        echo "<img src= '../uploads/product_images/".$row['product_image']."' width=80px; height=80px;/> <a style='cursor:pointer' class='ajax_img_del' id=".$row['id'].">Delete</a> <br />";
-                                    }                               
-                                   ?>
-                                </div>
-
-                                <div class="input-field col s12">
-                                    Product Images : <br /><br />
-                                    <div class="input_fields_wrap">
-                                        <div>
-                                        <?php if($getImages->num_rows > 0){ ?>
-                                            <input type="file" name="product_images[]" accept="image/*" >
-                                            <p>(Please upload this size images 900*400)</p>
-                                        <?php } else { ?>
-                                        <img id="output" width="80" height="80">
-                                            <input type="file" name="product_images[]" accept="image/*" required >
-                                            <p>(Please upload this size images 900*400)</p>
-                                        <?php } ?>
-                                        <!-- <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a> --></div><br/>
+                                 
+                                <div class="form-group">
+                                    <label for="name" class="col-lg-3 col-sm-3 control-label"></label>
+                                    <div class="col-lg-9">
+                                        <img src="<?php echo $base_url . 'uploads/product_images/'.$getAllProductsData['product_image'] ?>" height="200" width="200" id="output" />
                                     </div>
+                                </div> 
+
+                                <div class="input-field col s6">
+                                   Image :  <input type="file" name="product_images" accept="image/*">
+                                   <p>(Please upload this size images 1920*800)</p>
                                 </div>
 
                                 <?php $getStatus = getAllData('user_status'); ?>
