@@ -96,13 +96,13 @@
                 <!-- menu item -->
                 <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
                     <div class="pm-menu-item-container">
-                        <div class="pm-menu-item-img-container" style="background-image:url(img/menu/item1.jpg);">
+                        <div class="pm-menu-item-img-container" style="background-image:url(src="uploads/product_images/<?php echo $getProductsData['product_image']; ?>");">
                             <div class="pm-menu-item-price"><p>&#2352; 14.99</p></div>
                         </div>
                         
                         <div class="pm-menu-item-desc">
-                            <p class="pm-menu-item-title">shrimp salad</p>
-                            <p class="pm-menu-item-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada orci nec tortor tincidunt. </p>
+                            <p class="pm-menu-item-title"><?php echo $getProductsData['product_name']; ?></p>
+                            <p class="pm-menu-item-excerpt"><?php echo $getProductsData['product_info']; ?> </p>
                         </div>
                     </div>
                     
