@@ -1,0 +1,48 @@
+       <footer style="background:#920000">
+        
+            <div class="container">
+                <div class="row">
+                    
+                   <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="pm-footer-social-info-container">
+                            <h4 style="color:#fff">Follow us </h4>
+                            <ul class="pm-footer-social-icons">
+                                <li title="Twitter" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['tw_link']; ?>"  target="_blank"><i class="fa fa-twitter tw"></i></a></li>
+                                <li title="Facebook" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['fb_link']; ?>"  target="_blank"><i class="fa fa-facebook fb"></i></a></li>
+                            </ul>
+                        </div>
+                        
+                   </div>
+                    
+                </div>
+            </div>  
+
+                
+        </footer>                
+    
+    </div><!-- /pm_layout-wrapper -->
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery.viewport.mini.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="bootstrap3/js/bootstrap.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/owl-carousel/owl.carousel.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.tooltip.js"></script>
+    <script src="js/jquery.hoverPanel.js"></script>
+    <script src="js/superfish/superfish.js"></script>
+    <script src="js/superfish/hoverIntent.js"></script>
+    <script src="js/tinynav.js"></script>
+    <script src="js/stellar/jquery.stellar.js"></script>
+    <script src="js/countdown/countdown.js"></script>
+    <script src="js/theme-color-selector/theme-color-selector.js"></script>
+    <script src="js/wow/wow.min.js"></script>
+    <script src="js/pulse/jquery.PMSlider.js"></script>        
+    <p id="back-top" class="visible-lg visible-md visible-sm"> </p>
+    
+  </body>
+</html>
