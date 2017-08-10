@@ -51,7 +51,8 @@
                                 
                                 <div class="input-field col s6">
                                    <img id="output" height="100" width="100"/> 
-                                   <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" onchange="loadFile(event)" required>         
+                                   <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" onchange="loadFile(event)" required>
+                                   <p>(Please upload this size images 1920*800)</p>        
                                 </div>
 
                                 <div class="input-field col s12">

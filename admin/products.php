@@ -38,15 +38,8 @@
                                                     <div class="modal-body" >
                                                         <h5 class="modal-title-set"><b>Name :</b><?php echo $row['product_name'];?></h5>
                                                         <h5 class="modal-title-set"><b>Product Price :</b><?php echo strip_tags($row['product_price']);?></h5>
-                                                        <h5 class="modal-title-set"><b>Offer Price :</b><?php echo strip_tags($row['offer_price']);?></h5>
-                                                        <h5 class="modal-title-set"><b>Selling Price :</b><?php echo strip_tags($row['selling_price']);?></h5>
-                                                        <h5 class="modal-title-set"><b>Starting Date :</b><?php echo strip_tags($row['deal_start_date']);?></h5>
-                                                        <h5 class="modal-title-set"><b>Ending Date :</b><?php echo strip_tags($row['deal_end_date']);?></h5>
                                                         <h5 class="modal-title-set"><b>Quantity:</b><?php echo strip_tags($row['quantity']);?></h5>
-                                                        <h5 class="modal-title-set"><b>Minimum Order Quantity :</b><?php echo strip_tags($row['minimum_order_quantity']);?></h5>
-                                                        <h5 class="modal-title-set"><b>Key Features :</b><?php echo strip_tags($row['key_features']);?></h5>
                                                         <h5 class="modal-title-set"><b>Product Info :</b><?php echo strip_tags($row['product_info']);?></h5>
-                                                        <h5 class="modal-title-set"><b>Specifications :</b><?php echo strip_tags($row['specifications']);?></h5>
                                                    </div>
                                                     <div class="modal-footer" >
                                                           <button type="button" class="btn" data-dismiss="modal" style="background-color:#f00; color:#fff">Close</button>
