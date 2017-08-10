@@ -22,9 +22,7 @@
                         <img src="uploads/banner_images/<?php echo $getBannerData['banner']; ?>" alt="img01" />
                     
                         <div class="pm-holder">
-                            <div class="pm-caption">
-                                  <h1><span><?php echo $getBannerData['title']; ?></span></h1>
-                            </div>
+                            
                         </div>
                     
                     </li>
@@ -50,7 +48,7 @@
                         <img src="img/home/image1.jpg" alt="image1">
                     </div>
                     
-                    <h6>say hello to vienna</h6>
+                    <h6>say hello to Sampradaya Ruchulu</h6>
                     
                     <p>A powerful restaurant theme for restaurants, bars and catering companies.</p>
                     
@@ -66,7 +64,7 @@
                     
                     <h6>we serve authentic cuisine</h6>
                     
-                    <p>Come experience Vienna for yourself...we’ve been told it’s an unforgettable experience</p>
+                    <p>Come experience Sampradaya Ruchulu for yourself...we’ve been told it’s an unforgettable experience</p>
                     
                     <a href="menus.html" class="pm-rounded-btn animated pm-primary">View our Menus <i class="fa fa-angle-right"></i></a>
                     

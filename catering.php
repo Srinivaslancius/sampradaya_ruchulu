@@ -21,7 +21,7 @@
                 	
                     <h2>hosting an event?</h2>
                     
-                    <p>Vienna can provide on-site catering for medium to large size parties and events. </p>
+                    <p>Sampradaya Ruchulu can provide on-site catering for medium to large size parties and events. </p>
                     
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet purus consectetur, rhoncus urna eget, semper sapien. Integer vehicula, dolor gravida lobortis consectetur, lorem elit mollis magna, vitae rutrum velit nulla id dui. </p>
                     
