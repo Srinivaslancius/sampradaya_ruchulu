@@ -55,8 +55,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
     <!-- Pulse Slider -->
     <link rel="stylesheet" type="text/css" href="js/pulse/pm-slider.css" />
     <!-- Pulse Slider -->        
-    <!-- Development Google Fonts -->
-    <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Development Google Fonts -->    
     <link href='http://fonts.googleapis.com/css?family=Cantata+One%7COpen+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
     <!-- Development Google Fonts -->    
  </head>
