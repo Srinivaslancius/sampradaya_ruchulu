@@ -78,7 +78,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
             <a href="#">Menus</a>
             <ul>
                 <?php while($getAllMenus1 = $getMenus1->fetch_assoc()) { ?>
-                    <li><a href="menus.php"><?php echo $getAllMenus1['category_name']; ?></a></li>
+                    <li><a href="menus.php?id=<?php echo $getAllMenus1['id']; ?>"><?php echo $getAllMenus1['category_name']; ?></a></li>
                 <?php } ?>
             </ul>
         </li>
@@ -163,7 +163,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                                     <a href="#">Menus</a>
                                     <ul>
                                         <?php while($getAllMenus = $getMenus->fetch_assoc()) { ?>
-                                            <li><a href="menus.php"><?php echo $getAllMenus['category_name']; ?></a></li>
+                                            <li><a href="menus.php?id=<?php echo $getAllMenus['id']; ?>"><?php echo $getAllMenus['category_name']; ?></a></li>
                                         <?php } ?>
                                     </ul>
                                 </li>
