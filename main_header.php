@@ -3,6 +3,7 @@ ob_start();
 include "admin/includes/config.php";
 include "admin/includes/functions.php"; 
 $getSiteSettingsData = getIndividualDetails('1',"site_settings","id"); 
+$getMenus = getAllDataCheckActive('categories',0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,9 +77,9 @@ $getSiteSettingsData = getIndividualDetails('1',"site_settings","id");
         <li>
             <a href="#">Menus</a>
             <ul>
-                <li><a href="menus.php">Breakfast</a></li>
-                <li><a href="menus.php">Lunch</a></li>
-                <li><a href="menus.php">Dinner</a></li>
+                <?php while($getAllMenus = $getMenus->fetch_assoc()) { ?>
+                    <li><a href="menus.php"><?php echo $getAllMenus['category_name']; ?></a></li>
+                <?php } ?>
             </ul>
         </li>
         <li><a href="gallery.php">Gallery</a></li>    
@@ -161,9 +162,9 @@ $getSiteSettingsData = getIndividualDetails('1',"site_settings","id");
                                 <li>
                                     <a href="#">Menus</a>
                                     <ul>
-                                        <li><a href="menus.php">Breakfast</a></li>
-                                        <li><a href="menus.php">Lunch</a></li>
-                                        <li><a href="menus.php">Dinner</a></li>
+                                        <?php while($getAllMenus = $getMenus->fetch_assoc()) { ?>
+                                            <li><a href="menus.php"><?php echo $getAllMenus['category_name']; ?></a></li>
+                                        <?php } ?>
                                     </ul>
                                 </li>
                                 <li><a href="gallery.php">Gallery</a></li>                                                            

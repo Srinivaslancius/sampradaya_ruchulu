@@ -1,13 +1,4 @@
-/**
- * jquery.PMSlider.js v1.0.0
- * http://www.pulsarmedia.ca
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2013, Pulsar Media
- * http://www.pulsarmedia.ca
- */
+
 ;( function( $, window, undefined ) {
 
 	'use strict';
