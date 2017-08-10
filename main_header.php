@@ -4,6 +4,7 @@ include "admin/includes/config.php";
 include "admin/includes/functions.php"; 
 $getSiteSettingsData = getIndividualDetails('1',"site_settings","id"); 
 $getMenus = getAllDataCheckActive('categories',0);
+$getMenus1 = getAllDataCheckActive('categories',0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,8 +78,8 @@ $getMenus = getAllDataCheckActive('categories',0);
         <li>
             <a href="#">Menus</a>
             <ul>
-                <?php while($getAllMenus = $getMenus->fetch_assoc()) { ?>
-                    <li><a href="menus.php"><?php echo $getAllMenus['category_name']; ?></a></li>
+                <?php while($getAllMenus1 = $getMenus1->fetch_assoc()) { ?>
+                    <li><a href="menus.php"><?php echo $getAllMenus1['category_name']; ?></a></li>
                 <?php } ?>
             </ul>
         </li>

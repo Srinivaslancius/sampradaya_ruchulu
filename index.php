@@ -1,5 +1,5 @@
 <?php include_once 'main_header.php'; ?>
-                
+<?php $getAllActiveMenus = getAllDataCheckActive('categories',0); ?>
         <!-- SLIDER AREA -->
         
         <div class="pm-pulse-container" id="pm-pulse-container">
@@ -138,9 +138,9 @@
                         <div class="pm-isotope-filter-container">
                             <ul class="pm-isotope-filter-system">
                                 <li class="pm-isotope-filter-system-expand">Expand <i class="fa fa-angle-down"></i></li>
-                                <li><a href="#" class="current">Breakfast</a></li>
-                                <li><a href="menus.html">Lunch</a></li>
-                                <li><a href="menus.html">Dinner</a></li>
+                                <?php while($getAllMen = $getAllActiveMenus->fetch_assoc()) { ?>
+                                    <li><a href="menus.php"><?php echo $getAllMen['category_name']; ?></a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <!-- Filter menu end -->
