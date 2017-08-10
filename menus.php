@@ -2,6 +2,8 @@
 <?php 
 $getAllActiveMenus = getAllDataCheckActive('categories',0); 
 $id= $_GET['id'];
+$sqlMultiple="SELECT * FROM products WHERE category_id LIKE '%$id%'";
+$getAllProductData = $conn->query($sqlMultiple);
 ?>
 
         <!-- SUB-HEADER area -->
@@ -37,8 +39,8 @@ $id= $_GET['id'];
                         <div class="pm-isotope-filter-container">
                         	<ul class="pm-isotope-filter-system">
                             	<li class="pm-isotope-filter-system-expand">Expand <i class="fa fa-angle-down"></i></li>
-                            	<?php while($getAllMen = $getAllActiveMenus->fetch_assoc()) { ?>
-                                    <li><a href="menus.php"><?php echo $getAllMen['category_name']; ?></a></li>
+                            	<?php while($getAllMen = $getAllActiveMenus->fetch_assoc()) { $activeclas = "class='current'"; ?>
+                                    <li><a href="menus.php?id=<?php echo $getAllMen['id']; ?>" <?php if($getAllMen['id'] == $id) { echo "$activeclas"; } ?>><?php echo $getAllMen['category_name']; ?></a></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -48,89 +50,22 @@ $id= $_GET['id'];
                     
                 </div><!-- /.col-lg-12 -->
                 
+                <?php while($getAllProducts = $getAllProductData->fetch_assoc()) { ?>
                 <!-- menu item -->
                 <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
                     <div class="pm-menu-item-container">
-                    	<div class="pm-menu-item-img-container" style="background-image:url(img/menu/item1.jpg);">
+                    	<div class="pm-menu-item-img-container" style="background-image:url(uploads/product_images/<?php echo $getAllProducts['product_name']; ?>);">
                         	<div class="pm-menu-item-price"><p>$14.99</p></div>
                         </div>
                         
                         <div class="pm-menu-item-desc">
-                        	<p class="pm-menu-item-title">shrimp salad</p>
-                            <p class="pm-menu-item-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada orci nec tortor tincidunt. </p>
+                        	<p class="pm-menu-item-title"><?php echo $getAllProducts['product_name']; ?></p>
+                            <p class="pm-menu-item-excerpt"><?php echo $getAllProducts['product_info']; ?> </p>
                         </div>
-                    </div>
-                    
+                    </div>                    
                 </div><!-- /.col-lg-4 -->
                 <!-- /menu item -->
-                
-                <!-- menu item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                    <div class="pm-menu-item-container">
-                    	<div class="pm-menu-item-img-container" style="background-image:url(img/menu/item2.jpg);">
-                        	<div class="pm-menu-item-price">
-                        	  <p>$12.99</p></div>
-                        </div>
-                        
-                        <div class="pm-menu-item-desc">
-                        	<p class="pm-menu-item-title">broccoli pesto</p>
-                            <p class="pm-menu-item-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada orci nec tortor tincidunt. </p>
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /menu item -->
-                
-                <!-- menu item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                    <div class="pm-menu-item-container">
-                    	<div class="pm-menu-item-img-container" style="background-image:url(img/menu/item3.jpg);">
-                        	<div class="pm-menu-item-price">
-                        	  <p>$13.99</p></div>
-                        </div>
-                        
-                        <div class="pm-menu-item-desc">
-                        	<p class="pm-menu-item-title">linguini</p>
-                            <p class="pm-menu-item-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada orci nec tortor tincidunt. </p>
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /menu item -->
-                
-                <!-- menu item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                    <div class="pm-menu-item-container">
-                    	<div class="pm-menu-item-img-container" style="background-image:url(img/menu/item4.jpg);">
-                        	<div class="pm-menu-item-price">
-                        	  <p>$15.99</p></div>
-                        </div>
-                        
-                        <div class="pm-menu-item-desc">
-                        	<p class="pm-menu-item-title">paste penne</p>
-                            <p class="pm-menu-item-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada orci nec tortor tincidunt. </p>
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /menu item -->
-                
-                <!-- menu item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                    <div class="pm-menu-item-container">
-                    	<div class="pm-menu-item-img-container" style="background-image:url(img/menu/item5.jpg);">
-                        	<div class="pm-menu-item-price"><p>$8.99</p></div>
-                        </div>
-                        
-                        <div class="pm-menu-item-desc">
-                        	<p class="pm-menu-item-title">calzone</p>
-                            <p class="pm-menu-item-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada orci nec tortor tincidunt. </p>
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /menu item -->
-                
+                <?php } ?>
             </div>
         </div>
         <!-- Menu filter system end -->

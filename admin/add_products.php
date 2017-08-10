@@ -70,7 +70,7 @@ if (!isset($_POST['submit']))  {
                                 </div>
                                 
                                 <div class="input-field col s12">
-                                   <input id="product_price" type="text" class="validate" name="product_price" onkeypress="return isNumberKey(event)" required>
+                                   <input id="product_price" type="text" class="validate" name="product_price" required>
                                    <label for="product_price">Product Price</label>
                                 </div>
                                 
@@ -98,21 +98,22 @@ if (!isset($_POST['submit']))  {
                                     Product Images : <br /><br />
                                     <div class="input_fields_wrap">
                                         <div>
-                                            <input type="file" id="product_images" name="product_images[]" accept="image/*" required> 
-                                            <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a>
+                                            <input type="file" id="product_images" name="product_images[]" accept="image/*" required>
+                                            <p>(Please upload this size images 900*400)</p> 
+                                            <!-- <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a> -->
                                         </div><br/>
                                     </div>
                                 </div>
 
                                 <?php $getStatus = getAllData('user_status'); ?>
-                                    <div class="input-field col s12">
-                                        <select name="status" required>
-                                            <option value="">Select Status</option>
-                                            <?php while($row = $getStatus->fetch_assoc()) {  ?>
-                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
+                                <div class="input-field col s12">
+                                    <select name="status" required>
+                                        <option value="">Select Status</option>
+                                        <?php while($row = $getStatus->fetch_assoc()) {  ?>
+                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
 
                                 <div class="input-field col s12">
                                     <input type="submit" name="submit" value="Submit" class="waves-effect waves-light btn teal">
@@ -176,23 +177,23 @@ $(document).ready(function() {
         }
     });
     //End
-    //Add multi images for products
-    var max_fields      = 5; //maximum input boxes allowed
-    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-    var add_button      = $(".add_field_button"); //Add button ID
+    // //Add multi images for products
+    // var max_fields      = 5; //maximum input boxes allowed
+    // var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    // var add_button      = $(".add_field_button"); //Add button ID
    
-    var x = 1; //initlal text box count
-    $(add_button).click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-            x++; //text box increment
-            $(wrapper).append('<div><input type="file" required name="product_images[]" accept="image/*"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
-        }
-    });
+    // var x = 1; //initlal text box count
+    // $(add_button).click(function(e){ //on add input button click
+    //     e.preventDefault();
+    //     if(x < max_fields){ //max input box allowed
+    //         x++; //text box increment
+    //         $(wrapper).append('<div><input type="file" required name="product_images[]" accept="image/*"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+    //     }
+    // });
    
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
+    // $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+    //     e.preventDefault(); $(this).parent('div').remove(); x--;
+    // })
     //End date should be greater than Start date
     $("#deal_end_date").change(function () {
         var startDate = document.getElementById("deal_start_date").value;

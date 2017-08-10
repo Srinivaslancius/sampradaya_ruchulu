@@ -68,6 +68,7 @@ $id = $_GET['bid'];
                                 
                                 <div class="input-field col s6">
                                    Banner : <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" onchange="loadFile(event)">
+                                   <p>(Please upload this size images 1920*800)</p>
                                 </div>
 
                                 <div class="input-field col s12">

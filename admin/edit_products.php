@@ -9,7 +9,7 @@ if (!isset($_POST['submit']))  {
     //echo "<pre>"; print_r($_POST); die;
     //Save data into database
     $product_name = $_POST['product_name'];
-    $category_id[] = explode(',',$_POST['category_id']);
+    $category_id = implode(',',$_POST['category_id']);
     $product_price = $_POST['product_price'];
     $quantity = $_POST['quantity'];
     $product_info = $_POST['product_info'];
@@ -82,7 +82,7 @@ if (!isset($_POST['submit']))  {
                                 </div>
 
                                 <div class="input-field col s12">
-                                    <input id="product_price" type="text" class="validate" name="product_price" onkeypress="return isNumberKey(event)" required value="<?php echo $getAllProductsData['product_price']; ?>">
+                                    <input id="product_price" type="text" class="validate" name="product_price" required value="<?php echo $getAllProductsData['product_price']; ?>">
                                     <label for="price">Product Price</label>
                                 </div>
 
@@ -122,11 +122,13 @@ if (!isset($_POST['submit']))  {
                                         <div>
                                         <?php if($getImages->num_rows > 0){ ?>
                                             <input type="file" name="product_images[]" accept="image/*" >
+                                            <p>(Please upload this size images 900*400)</p>
                                         <?php } else { ?>
                                         <img id="output" width="80" height="80">
                                             <input type="file" name="product_images[]" accept="image/*" required >
+                                            <p>(Please upload this size images 900*400)</p>
                                         <?php } ?>
-                                        <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a></div><br/>
+                                        <!-- <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a> --></div><br/>
                                     </div>
                                 </div>
 
@@ -228,23 +230,23 @@ $(document).ready(function() {
     });
     //End
 
-    //Add multi images for products
-    var max_fields      = 5; //maximum input boxes allowed
-    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-    var add_button      = $(".add_field_button"); //Add button ID
+    // //Add multi images for products
+    // var max_fields      = 5; //maximum input boxes allowed
+    // var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    // var add_button      = $(".add_field_button"); //Add button ID
    
-    var x = 1; //initlal text box count
-    $(add_button).click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-            x++; //text box increment
-            $(wrapper).append('<div><input type="file" required name="product_images[]" accept="image/*"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
-        }
-    });
+    // var x = 1; //initlal text box count
+    // $(add_button).click(function(e){ //on add input button click
+    //     e.preventDefault();
+    //     if(x < max_fields){ //max input box allowed
+    //         x++; //text box increment
+    //         $(wrapper).append('<div><input type="file" required name="product_images[]" accept="image/*"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+    //     }
+    // });
    
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
+    // $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+    //     e.preventDefault(); $(this).parent('div').remove(); x--;
+    // })
     //End date should be greater than Start date
     $("#deal_end_date").change(function () {
         var startDate = document.getElementById("deal_start_date").value;

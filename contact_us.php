@@ -2,7 +2,7 @@
 <?php $getContactData = getIndividualDetails('2',"content_pages","id"); ?>
                 
         <!-- SUB-HEADER area -->
-        <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
+        <div class="pm-sub-header-container-contact pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
         	
             <div class="pm-sub-header-title-container">
             	<p class="pm-sub-header-title"><span>Contact Us</span></p>
