@@ -57,7 +57,7 @@
      function getAllDataWithLimit($table,$limit,$status)
     {
         global $conn;
-        $sql="select * from `$table` WHERE status = '$status' ORDER BY id DESC LIMIT 0,$limit ";
+       echo $sql="select * from `$table` WHERE status = '$status' ORDER BY id DESC LIMIT 0,$limit ";
         $result = $conn->query($sql);            
         return $result;
     }

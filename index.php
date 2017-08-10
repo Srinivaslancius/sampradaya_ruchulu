@@ -1,6 +1,7 @@
 <?php include_once 'main_header.php'; ?>
 <?php $getAllActiveMenus = getAllDataCheckActive('categories',0); ?>
 <?php $getAllActiveBanners = getAllDataCheckActive('banners',0); ?>
+<?php $getAllActiveProducts = getAllDataWithLimit('products',3,0); ?>
         <!-- SLIDER AREA -->
         
         <div class="pm-pulse-container" id="pm-pulse-container">
@@ -42,20 +43,21 @@
         <div class="container pm-containerPadding-top-90">
             <div class="row">
             
+            <?php while($getProductsData = $getAllActiveProducts->fetch_assoc()) { ?>
                 <div class="col-lg-4 col-md-4 col-sm-12 pm-center pm-column-spacing">
                     
                     <div class="pm-image-container">
-                        <img src="img/home/image1.jpg" alt="image1">
+                        <img src="uploads/product_images/<?php echo $getProductsData['image']; ?>" alt="image1">
                     </div>
                     
-                    <h6>say hello to Sampradaya Ruchulu</h6>
+                    <h6><?php echo $getProductsData['product_name']; ?></h6>
                     
-                    <p>A powerful restaurant theme for restaurants, bars and catering companies.</p>
+                    <p><?php echo $getProductsData['product_info']; ?></p>
                     
                     <a href="cart.php" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                     
                 </div>
-                
+            <?php } ?>
             </div>
         </div>
         <!-- Overview boxes end -->
