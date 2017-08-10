@@ -47,6 +47,16 @@
 
                     <li class="no-padding <?php if($page_name == 'catering_types.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="catering_types.php"><i class="material-icons">settings_input_svideo</i>Catering Types</a></li>
 
+                    <li class="no-padding ">
+                        <a class="collapsible-header waves-effect waves-grey <?php if($page_name == 'events.php' || $page_name == 'events.php') { echo "active"; } ?>"><i class="material-icons">apps</i>Events <i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                               <li><a href="book_an_event.php">Booked Events</a></li>
+                               <li><a href="book_an_catering.php">Booked Caterings</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="no-padding <?php if($page_name == 'content_pages.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="content_pages.php"><i class="material-icons">content_copy</i>Content Pages</a></li>
 
                     <li class="no-padding <?php if($page_name == 'products.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="products.php"><i class="material-icons">cloud_upload</i>Products</a></li>
