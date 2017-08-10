@@ -70,15 +70,13 @@ $id = $_GET['bid'];
                                    Image : <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" onchange="loadFile(event)">
                                 </div>
 
-                               <?php $getStatus = getAllData('user_status'); ?>
-                                    <div class="input-field col s12">
-                                        <select name="status" required >
-                                            <option value="" >Choose your Status</option> 
-                                            <?php while($row = $getStatus->fetch_assoc()) {  ?>
-                                                <option <?php if($row['id'] == $getGallery1['status']) { echo "Selected"; } ?> value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div> 
+                               <div class="input-field col s12">
+                                    <select name="status" required>
+                                        <option value="" disabled selected>Choose your status</option>
+                                        <option value="0" <?php if($getGallery1['status'] == 0) { echo "Selected"; }?>>Active</option>
+                                        <option value="1" <?php if($getGallery1['status'] == 1) { echo "Selected"; }?>>In Active</option>                                       
+                                    </select>
+                                </div>
 
                                 <div class="input-field col s12">
                                     <input type="submit" name="submit" value="Submit" class="waves-effect waves-light btn teal">

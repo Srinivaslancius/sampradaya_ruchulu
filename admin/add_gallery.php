@@ -54,15 +54,13 @@
                                    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" onchange="loadFile(event)" required>         
                                 </div>
 
-                                <?php $getStatus = getAllData('user_status'); ?>
-                                    <div class="input-field col s12">
-                                        <select name="status" required>
-                                            <option value="">Select Status</option>
-                                            <?php while($row = $getStatus->fetch_assoc()) {  ?>
-                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>                           
+                                <div class="input-field col s12">
+                                    <select name="status" required>
+                                        <option value="" disabled selected>Choose your status</option>
+                                        <option value="0">Active</option>
+                                        <option value="1">In Active</option>                                        
+                                    </select>                                    
+                                </div>                           
                                 
                                 <div class="input-field col s12">
                                     <input type="submit" name="submit" value="Submit" class="waves-effect waves-light btn teal">
