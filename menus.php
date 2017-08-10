@@ -2,6 +2,7 @@
 <?php 
 $getAllActiveMenus = getAllDataCheckActive('categories',0); 
 $id= $_GET['id'];
+$sqlMultiple="SELECT * FROM products WHERE category_id IN ($id)";
 ?>
 
         <!-- SUB-HEADER area -->
