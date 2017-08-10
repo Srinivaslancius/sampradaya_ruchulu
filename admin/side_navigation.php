@@ -41,6 +41,8 @@
                     </li>
                     <li class="no-padding <?php if($page_name == 'banners.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="banners.php"><i class="material-icons">collections</i>Banners</a></li>
 
+                    <li class="no-padding <?php if($page_name == 'gallery.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="gallery.php"><i class="material-icons">collections</i>Gallery</a></li>
+
                     <li class="no-padding <?php if($page_name == 'categories.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="categories.php"><i class="material-icons">settings_input_svideo</i>Categories</a></li>
 
                     <li class="no-padding <?php if($page_name == 'event_types.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="event_types.php"><i class="material-icons">settings_input_svideo</i>Event Types</a></li>
