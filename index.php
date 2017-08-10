@@ -47,7 +47,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 pm-center pm-column-spacing">
                     
                     <div class="pm-image-container">
-                        <img src="uploads/product_images/<?php echo $getProductsData['image']; ?>" alt="image1">
+                        <img src="uploads/product_images/<?php echo $getProductsData['product_image']; ?>" alt="image1">
                     </div>
                     
                     <h6><?php echo $getProductsData['product_name']; ?></h6>
