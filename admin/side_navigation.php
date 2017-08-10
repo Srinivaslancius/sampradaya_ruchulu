@@ -35,11 +35,13 @@
                         <div class="collapsible-body">
                             <ul>
                                <li><a href="admin_users.php">Admin Users</a></li>
-                               <li><a href="users.php">Users</a></li>
+                               <!-- <li><a href="users.php">Users</a></li> -->
                             </ul>
                         </div>
                     </li>
                     <li class="no-padding <?php if($page_name == 'banners.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="banners.php"><i class="material-icons">collections</i>Banners</a></li>
+
+                    <li class="no-padding <?php if($page_name == 'gallery.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="gallery.php"><i class="material-icons">collections</i>Gallery</a></li>
 
                     <li class="no-padding <?php if($page_name == 'categories.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="categories.php"><i class="material-icons">settings_input_svideo</i>Categories</a></li>
 
