@@ -68,7 +68,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
   <div class="pm-mobile-global-menu">
                     
     <div class="pm-mobile-global-menu-logo">
-        <a href="index.php"><img src="img/vienna-logo.png" alt="Sampradaya Ruchulu Restaurant"></a> 
+        <a href="index.php"><img src="img/sampradaya_logo.png" alt="Sampradaya Ruchulu Restaurant"></a> 
     </div>   
     
     <ul class="sf-menu pm-nav">
@@ -142,7 +142,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         
                         <div class="pm-header-logo-container">
-                            <a href="index.php"><img src="img/vienna-logo.png" class="img-responsive pm-header-logo" alt="Sampradaya Ruchulu Restaurant"></a> 
+                            <a href="index.php"><img src="img/sampradaya_logo.png" class="img-responsive pm-header-logo" alt="Sampradaya Ruchulu Restaurant"></a> 
                         </div>
                         
                         <div class="pm-header-mobile-btn-container">

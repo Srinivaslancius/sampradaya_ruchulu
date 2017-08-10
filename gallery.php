@@ -25,7 +25,7 @@
                     
                         <!-- Featured panel header -->
                         <div class="pm-featured-header-title-container news">
-                            <p class="pm-featured-header-title">Showcasing the best of Vienna</p>
+                            <p class="pm-featured-header-title">Showcasing the best of Sampradaya Ruchulu</p>
                             <p class="pm-featured-header-message">Browse our stunning showcase of beautiful photos</p>
                         </div>
                         <!-- Featured panel header end -->
