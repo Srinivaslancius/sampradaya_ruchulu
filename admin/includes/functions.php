@@ -54,10 +54,10 @@
     }
 
     /* Common function for get data using limit */
-     function getAllDataWithLimit($table,$limit)
+     function getAllDataWithLimit($table,$limit,$status)
     {
         global $conn;
-        $sql="select * from `$table` ORDER BY id DESC LIMIT 0,4 ";
+        $sql="select * from `$table` WHERE status = '$status' ORDER BY id DESC LIMIT 0,$limit ";
         $result = $conn->query($sql);            
         return $result;
     }

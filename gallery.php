@@ -1,5 +1,5 @@
-
 <?php include_once 'main_header.php'; ?>
+<?php $getAllActiveGallery = getAllDataCheckActive('gallery',0); ?>
 <link rel="stylesheet" type="text/css" href="js/prettyphoto/css/prettyPhoto.css" />
                 
         <!-- SUB-HEADER area -->
@@ -35,77 +35,24 @@
                 </div><!-- /.col-lg-12 -->
                 
                 <!-- gallery item -->
+                <?php while($getGalleryData = $getAllActiveGallery->fetch_assoc()) { ?>
                 <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
                 
                     <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/1.jpg);">
+                        <div class="pm-gallery-item-img-container" style="background-image:url(uploads/gallery_images/<?php echo $getGalleryData['image']; ?>);">
                             <span></span>
                             <div class="pm-gallery-item-img-quote">
-                               <p><a href="img/gallery/1.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></p>
+                               <p><a href="uploads/gallery_images/<?php echo $getGalleryData['image']; ?>" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></p>
                             </div>                            
                         </div>
                         
                         <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Suspendisse gravida</p>
+                            <p class="pm-gallery-item-name"><?php echo $getGalleryData['title']; ?></p>
                         </div>
                     </div>
                     
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/1.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                               <p><a href="img/gallery/1.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></p>
-                            </div>                            
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Suspendisse gravida</p>
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/1.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                               <p><a href="img/gallery/1.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></p>
-                            </div>                            
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Suspendisse gravida</p>
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/1.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                               <p><a href="img/gallery/1.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></p>
-                            </div>                            
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Suspendisse gravida</p>
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                
-                
-               
-               
+                </div><!-- /.col-lg-4 -->    
+                <?php } ?>            
            
             </div>
         </div>

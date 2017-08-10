@@ -3499,3 +3499,11 @@ header.fixed .pm-header-logo {
     background-repeat:no-repeat;
     position:relative;
 }
+
+.pm-sub-header-container-contact {	
+	height:340px;
+    width:100%;
+    background-image:url(../img/header/5.jpg);
+    background-repeat:no-repeat;
+    position:relative;
+}
