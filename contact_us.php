@@ -1,6 +1,6 @@
 <?php include_once 'main_header.php'; ?>
 <?php $getContactData = getIndividualDetails('2',"content_pages","id");  
-$getSiteSettingsData = getIndividualDetails('1',"site_settings","id"); ?>
+ ?>
                 
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
