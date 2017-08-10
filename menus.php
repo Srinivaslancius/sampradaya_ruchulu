@@ -54,7 +54,7 @@ $getAllProductData = $conn->query($sqlMultiple);
                 <!-- menu item -->
                 <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
                     <div class="pm-menu-item-container">
-                    	<div class="pm-menu-item-img-container" style="background-image:url(uploads/product_images/<?php echo $getAllProducts['product_name']; ?>);">
+                    	<div class="pm-menu-item-img-container" style="background-image:url(uploads/product_images/<?php echo $getAllProducts['product_image']; ?>);">
                         	<div class="pm-menu-item-price"><p>$14.99</p></div>
                         </div>
                         
