@@ -3490,3 +3490,12 @@ header.fixed .pm-header-logo {
 	padding:0px;
 	margin:0px;	
 }
+
+/* custom styles - harish reddy and phani kumar sir (10/08/2017)*/
+.pm-sub-header-container1 {
+    height:340px;
+    width:100%;
+    background-image:url(../img/slider/slide2.jpg);
+    background-repeat:no-repeat;
+    position:relative;
+}
