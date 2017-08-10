@@ -92,17 +92,8 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-lg-12">
-                            
-                            	<div class="pm_captcha_box">
-                                    <p>Security Code:</p>
-                                    <img src="js/ajax-eventform/CaptchaSecurityImages.php?width=100&height=40&characters=5" /><br />
-                                    <div style="width:96px;">
-                                        <div style="padding-top:2px; width:86px;">
-                                            <input class="pm_s_security_code pm-form-textfield" name="security_code" type="text" id="security_code" maxlength="5" />
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-lg-12">                            
+                            	
                                 <div id="pm-event-form-response"></div>
                             
                                  <input type="submit" class="pm-rounded-submit-btn pm-primary" value="send request" id="pm-event-form-btn" />

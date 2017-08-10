@@ -1,5 +1,5 @@
-
 <?php include_once 'main_header.php'; ?>
+<?php $getAllActiveGallery = getAllDataCheckActive('gallery',0); ?>
 <link rel="stylesheet" type="text/css" href="js/prettyphoto/css/prettyPhoto.css" />
                 
         <!-- SUB-HEADER area -->
@@ -25,224 +25,38 @@
                     
                         <!-- Featured panel header -->
                         <div class="pm-featured-header-title-container news">
-                            <p class="pm-featured-header-title">Showcasing the best of Vienna</p>
+                            <p class="pm-featured-header-title">Showcasing the best of Sampradaya Ruchulu</p>
                             <p class="pm-featured-header-message">Browse our stunning showcase of beautiful photos</p>
                         </div>
                         <!-- Featured panel header end -->
-                        
-                        <!-- Filter menu -->
-                        <div class="pm-isotope-filter-container">
-                            <ul class="pm-isotope-filter-system">
-                                <li class="pm-isotope-filter-system-expand">Expand <i class="fa fa-angle-down"></i></li>
-                                <li><a href="#">Events</a></li>
-                                <li><a href="#">Catering</a></li>
-                                <li><a href="#" class="current">Restaurant</a></li>
-                            </ul>
-                        </div>
-                        <!-- Filter menu end -->
                     
                     </div>
                     
                 </div><!-- /.col-lg-12 -->
                 
                 <!-- gallery item -->
+                <?php while($getGalleryData = $getAllActiveGallery->fetch_assoc()) { ?>
                 <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
                 
                     <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/1.jpg);">
+                        <div class="pm-gallery-item-img-container" style="background-image:url(uploads/gallery_images/<?php echo $getGalleryData['image']; ?>);">
                             <span></span>
                             <div class="pm-gallery-item-img-quote">
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                            </div>
-                            <div class="pm-gallery-item-img-read-more">
-                                <a href="single-gallery-post-with-sidebar.html">View Post &raquo;</a>
-                            </div>
+                               <p><a href="uploads/gallery_images/<?php echo $getGalleryData['image']; ?>" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></p>
+                            </div>                            
                         </div>
                         
                         <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Suspendisse gravida</p>
-                                                        
-                            <div class="pm-divider"></div>
-                            
-                            <ul class="pm-gallery-social-icons">
-                                <li><a href="single-gallery-post-with-sidebar.html" class="pm-rounded-btn pm-primary small">More info</a></li>
-                                <li><a href="img/gallery/1.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></li>
-                            </ul>
-                            
+                            <p class="pm-gallery-item-name"><?php echo $getGalleryData['title']; ?></p>
                         </div>
                     </div>
                     
-                </div><!-- /.col-lg-4 -->
-                <!-- /gallery item -->
-                
-                <!-- gallery item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/2.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                            </div>
-                            <div class="pm-gallery-item-img-read-more">
-                                <a href="single-gallery-post-with-sidebar.html">View Post &raquo;</a>
-                            </div>
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Sed quis luctus</p>
-                                                        
-                            <div class="pm-divider"></div>
-                            
-                            <ul class="pm-gallery-social-icons">
-                                <li><a href="single-gallery-post-with-sidebar.html" class="pm-rounded-btn pm-primary small">More info</a></li>
-                                <li><a href="img/gallery/2.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></li>
-                            </ul>
-                            
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /gallery item -->
-                
-                <!-- gallery item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/3.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                            </div>
-                            <div class="pm-gallery-item-img-read-more">
-                                <a href="single-gallery-post-with-sidebar.html">View Post &raquo;</a>
-                            </div>
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Vivamus sit</p>
-                                                        
-                            <div class="pm-divider"></div>
-                            
-                            <ul class="pm-gallery-social-icons">
-                                <li><a href="single-gallery-post-with-sidebar.html" class="pm-rounded-btn pm-primary small">More info</a></li>
-                                <li><a href="img/gallery/3.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></li>
-                            </ul>
-                            
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /gallery item -->
-                
-                <!-- gallery item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/4.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                            </div>
-                            <div class="pm-gallery-item-img-read-more">
-                                <a href="single-gallery-post-with-sidebar.html">View Post &raquo;</a>
-                            </div>
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Nunc scelerisque</p>
-                                                        
-                            <div class="pm-divider"></div>
-                            
-                            <ul class="pm-gallery-social-icons">
-                                <li><a href="single-gallery-post-with-sidebar.html" class="pm-rounded-btn pm-primary small">More info</a></li>
-                                <li><a href="img/gallery/4.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></li>
-                            </ul>
-                            
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /gallery item -->
-                
-                <!-- gallery item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/5.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                            </div>
-                            <div class="pm-gallery-item-img-read-more">
-                                <a href="single-gallery-post-with-sidebar.html">View Post &raquo;</a>
-                            </div>
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Etiam maximus</p>
-                                                        
-                            <div class="pm-divider"></div>
-                            
-                            <ul class="pm-gallery-social-icons">
-                                <li><a href="single-gallery-post-with-sidebar.html" class="pm-rounded-btn pm-primary small">More info</a></li>
-                                <li><a href="img/gallery/5.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></li>
-                            </ul>
-                            
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /gallery item -->
-                
-                <!-- gallery item -->
-                <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
-                
-                    <div class="pm-gallery-item-container">
-                        <div class="pm-gallery-item-img-container" style="background-image:url(img/gallery/6.jpg);">
-                            <span></span>
-                            <div class="pm-gallery-item-img-quote">
-                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                            </div>
-                            <div class="pm-gallery-item-img-read-more">
-                                <a href="single-gallery-post-with-sidebar.html">View Post &raquo;</a>
-                            </div>
-                        </div>
-                        
-                        <div class="pm-gallery-item-desc">
-                            <p class="pm-gallery-item-name">Lorem Ipsum</p>
-                                                        
-                            <div class="pm-divider"></div>
-                            
-                            <ul class="pm-gallery-social-icons">
-                                <li><a href="single-gallery-post-with-sidebar.html" class="pm-rounded-btn pm-primary small">More info</a></li>
-                                <li><a href="img/gallery/6.jpg" rel="prettyPhoto[restaurant]" class="pm-rounded-btn pm-secondary small expand lightbox"><i class="fa fa-expand"></i></a></li>
-                            </ul>
-                            
-                        </div>
-                    </div>
-                    
-                </div><!-- /.col-lg-4 -->
-                <!-- /gallery item -->
-                
+                </div><!-- /.col-lg-4 -->    
+                <?php } ?>            
+           
             </div>
         </div>
-        <!-- Gallery filter system end -->
-        
-        <!-- Load more -->
-        <div class="container pm-containerPadding-bottom-80">
-            <div class="row">
-            
-                <div class="col-lg-12 pm-center">
-                    
-                    <p class="pm-isotope-page-count">Viewing 6 of 12</p>
-                    <a href="#" class="pm-rounded-btn pm-primary">Load More</a>
-                    
-                </div>
-            
-            </div>
-        </div>
-        <!-- Load more end -->
+        <!-- Gallery filter system end -->      
         
         <!-- BODY CONTENT end -->
     <?php include_once "footer_sub_content.php"; ?>

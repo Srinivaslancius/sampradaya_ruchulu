@@ -68,7 +68,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
   <div class="pm-mobile-global-menu">
                     
     <div class="pm-mobile-global-menu-logo">
-        <a href="index.php"><img src="img/vienna-logo.png" alt="Sampradaya Ruchulu Restaurant"></a> 
+        <a href="index.php"><img src="img/sampradaya_logo.png" alt="Sampradaya Ruchulu Restaurant"></a> 
     </div>   
     
     <ul class="sf-menu pm-nav">
@@ -78,7 +78,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
             <a href="#">Menus</a>
             <ul>
                 <?php while($getAllMenus1 = $getMenus1->fetch_assoc()) { ?>
-                    <li><a href="menus.php"><?php echo $getAllMenus1['category_name']; ?></a></li>
+                    <li><a href="menus.php?id=<?php echo $getAllMenus1['id']; ?>"><?php echo $getAllMenus1['category_name']; ?></a></li>
                 <?php } ?>
             </ul>
         </li>
@@ -100,15 +100,15 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                     <div class="col-lg-5 col-md-5 col-sm-6">
                         
                         <div class="pm-sub-menu-info">
-                            <p class="pm-address"><i class="fa fa-map-marker"></i> 4 Main Street, New York, NY 02489</p>
-                            <p class="pm-contact"><i class="fa fa-mobile-phone"></i> 1-(800)-555-5555</p>
+                            <!-- <p class="pm-address"><i class="fa fa-map-marker"></i> 4 Main Street, New York, NY 02489</p> -->
+                            <p class="pm-contact"><i class="fa fa-mobile-phone"></i> <?php echo $getSiteSettingsData['mobile']; ?> </p>
                         </div>
                                                 
                     </div>
                     
                     <div class="col-lg-2 col-md-2 col-sm-6 visible-lg visible-md pm-book-event">
                         <div class="pm-sub-menu-book-event">
-                            <a href="book-an-event.php">Book an Event <i class="fa fa-calendar"></i></a>
+                            <a href="book-an-event.php">Book a Table <i class="fa fa-calendar"></i></a>
                         </div>
                     </div>
                     
@@ -142,7 +142,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         
                         <div class="pm-header-logo-container">
-                            <a href="index.php"><img src="img/vienna-logo.png" class="img-responsive pm-header-logo" alt="Sampradaya Ruchulu Restaurant"></a> 
+                            <a href="index.php"><img src="img/sampradaya_logo.png" class="img-responsive pm-header-logo" alt="Sampradaya Ruchulu Restaurant"></a> 
                         </div>
                         
                         <div class="pm-header-mobile-btn-container">
@@ -163,7 +163,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                                     <a href="#">Menus</a>
                                     <ul>
                                         <?php while($getAllMenus = $getMenus->fetch_assoc()) { ?>
-                                            <li><a href="menus.php"><?php echo $getAllMenus['category_name']; ?></a></li>
+                                            <li><a href="menus.php?id=<?php echo $getAllMenus['id']; ?>"><?php echo $getAllMenus['category_name']; ?></a></li>
                                         <?php } ?>
                                     </ul>
                                 </li>

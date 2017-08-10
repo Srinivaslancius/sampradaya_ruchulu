@@ -21,7 +21,7 @@
                 	
                     <h2>hosting an event?</h2>
                     
-                    <p>Vienna can provide on-site catering for medium to large size parties and events. </p>
+                    <p>Sampradaya Ruchulu can provide on-site catering for medium to large size parties and events. </p>
                     
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet purus consectetur, rhoncus urna eget, semper sapien. Integer vehicula, dolor gravida lobortis consectetur, lorem elit mollis magna, vitae rutrum velit nulla id dui. </p>
                     
@@ -97,20 +97,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                             	
-                                <div class="pm_captcha_box">
-                                    <p>Security Code:</p>
-                                    <img src="js/ajax-cateringform/CaptchaSecurityImages.php?width=100&height=40&characters=5" /><br />
-                                    <div style="width:96px;">
-                                        <div style="padding-top:2px; width:86px;">
-                                            <input class="pm_s_security_code pm-form-textfield" name="security_code" type="text" id="security_code" maxlength="5" />
-                                        </div>
-                                    </div>
-                                </div>
                                 <div id="pm-catering-form-response"></div>
                             
                                 <input type="submit" class="pm-rounded-submit-btn pm-primary" value="send request" id="pm-catering-form-btn" />
-                                
-                                <input type="hidden" name="pm_event_email_address_contact" value="leo@pulsarmedia.ca" />
                                 
                             </div>
                         </div>

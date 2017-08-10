@@ -22,9 +22,7 @@
                         <img src="uploads/banner_images/<?php echo $getBannerData['banner']; ?>" alt="img01" />
                     
                         <div class="pm-holder">
-                            <div class="pm-caption">
-                                  <h1><span><?php echo $getBannerData['title']; ?></span></h1>
-                            </div>
+                            
                         </div>
                     
                     </li>
@@ -50,7 +48,7 @@
                         <img src="img/home/image1.jpg" alt="image1">
                     </div>
                     
-                    <h6>say hello to vienna</h6>
+                    <h6>say hello to Sampradaya Ruchulu</h6>
                     
                     <p>A powerful restaurant theme for restaurants, bars and catering companies.</p>
                     
@@ -66,7 +64,7 @@
                     
                     <h6>we serve authentic cuisine</h6>
                     
-                    <p>Come experience Vienna for yourself...we’ve been told it’s an unforgettable experience</p>
+                    <p>Come experience Sampradaya Ruchulu for yourself...we’ve been told it’s an unforgettable experience</p>
                     
                     <a href="menus.html" class="pm-rounded-btn animated pm-primary">View our Menus <i class="fa fa-angle-right"></i></a>
                     
@@ -110,7 +108,7 @@
                             <ul class="pm-isotope-filter-system">
                                 <li class="pm-isotope-filter-system-expand">Expand <i class="fa fa-angle-down"></i></li>
                                 <?php while($getAllMen = $getAllActiveMenus->fetch_assoc()) { ?>
-                                    <li><a href="menus.php"><?php echo $getAllMen['category_name']; ?></a></li>
+                                    <li><a href="menus.php?id=<?php echo $getAllMen['id']; ?>"><?php echo $getAllMen['category_name']; ?></a></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -124,7 +122,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
                     <div class="pm-menu-item-container">
                         <div class="pm-menu-item-img-container" style="background-image:url(img/menu/item1.jpg);">
-                            <div class="pm-menu-item-price"><p>$14.99</p></div>
+                            <div class="pm-menu-item-price"><p>&#2352; 14.99</p></div>
                         </div>
                         
                         <div class="pm-menu-item-desc">
@@ -141,7 +139,7 @@
                     <div class="pm-menu-item-container">
                         <div class="pm-menu-item-img-container" style="background-image:url(img/menu/item2.jpg);">
                             <div class="pm-menu-item-price">
-                              <p>$12.99</p></div>
+                              <p>&#2352; 12.99</p></div>
                         </div>
                         
                         <div class="pm-menu-item-desc">
@@ -158,7 +156,7 @@
                     <div class="pm-menu-item-container">
                         <div class="pm-menu-item-img-container" style="background-image:url(img/menu/item3.jpg);">
                             <div class="pm-menu-item-price">
-                              <p>$13.99</p></div>
+                              <p>&#2352; 13.99</p></div>
                         </div>
                         
                         <div class="pm-menu-item-desc">

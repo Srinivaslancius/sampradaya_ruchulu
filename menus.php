@@ -1,5 +1,9 @@
 <?php include_once 'main_header.php'; ?>
-                
+<?php 
+$getAllActiveMenus = getAllDataCheckActive('categories',0); 
+$id= $_GET['id'];
+?>
+
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
         	
@@ -33,9 +37,9 @@
                         <div class="pm-isotope-filter-container">
                         	<ul class="pm-isotope-filter-system">
                             	<li class="pm-isotope-filter-system-expand">Expand <i class="fa fa-angle-down"></i></li>
-                            	<li><a href="#">Breakfast</a></li>
-                                <li><a href="#">Lunch</a></li>
-                                <li><a href="#" class="current">Dinner</a></li>
+                            	<?php while($getAllMen = $getAllActiveMenus->fetch_assoc()) { ?>
+                                    <li><a href="menus.php"><?php echo $getAllMen['category_name']; ?></a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <!-- Filter menu end -->
