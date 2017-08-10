@@ -21,7 +21,7 @@
 <main class="mn-inner">
     <div class="row">
         <div class="col s12">
-            <div class="page-title">Events</div>
+            <div class="page-title">Catering</div>
         </div>
         <div class="col s12 m12 l2"></div>
         <div class="col s12 m12 l8">
