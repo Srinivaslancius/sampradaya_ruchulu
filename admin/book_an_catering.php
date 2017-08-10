@@ -8,8 +8,8 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Booked Events</span>
-                                <?php $getData = getAllData('book_an_event'); $i=1;?>
+                                <span class="card-title">Booked Caterings</span>
+                                <?php $getData = getAllData('book_an_catering'); $i=1;?>
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
@@ -17,7 +17,8 @@
                                             <th>Name</th>
                                             <th>Email </th>
                                             <th>Mobile</th>
-                                            <th>Event Date</th>                                            
+                                            <th>Catering Date</th>                                            
+                                            
                                         </tr>
                                     </thead>                                    
                                     <tbody>
@@ -27,9 +28,9 @@
                                             <td><?php echo $row['first_name'];?></td>
                                             <td><?php echo $row['email'];?></td>
                                             <td><?php echo $row['mobile'];?></td>
-                                            <td><?php echo $row['event_date'];?></td>
+                                            <td><?php echo $row['catering_date'];?></td>
                                         </tr>               
-                                        <?php $i++;} ?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
