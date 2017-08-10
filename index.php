@@ -1,5 +1,6 @@
 <?php include_once 'main_header.php'; ?>
 <?php $getAllActiveMenus = getAllDataCheckActive('categories',0); ?>
+<?php $getAllActiveBanners = getAllDataCheckActive('banners',0); ?>
         <!-- SLIDER AREA -->
         
         <div class="pm-pulse-container" id="pm-pulse-container">
@@ -15,49 +16,19 @@
                 <ul class="pm-slides-container" id="pm_slides_container">
                     
                     <!-- FULL WIDTH slides -->
-                    <li data-thumb="img/slider/1a.jpg" class="pmslide_0"><img src="img/slider/slide1.jpg" alt="img01" />
+                    <?php while($getBannerData = $getAllActiveBanners->fetch_assoc()) { ?>
+                    <li class="pmslide_0">
+
+                        <img src="uploads/banner_images/<?php echo $getBannerData['banner']; ?>" alt="img01" />
                     
                         <div class="pm-holder">
                             <div class="pm-caption">
-                                  <h1><span>Welcome to Vienna</span></h1>
-                                  <span class="pm-caption-decription">
-                                    A premium restaurant theme 
-                                  </span>
-                                  <a href="menus.html" class="pm-slide-btn animated">View our menus <i class="fa fa-chevron-right"></i></a>
+                                  <h1><span><?php echo $getBannerData['title']; ?></span></h1>
                             </div>
                         </div>
                     
                     </li>
-                    
-                    <li data-thumb="img/slider/2a.jpg" class="pmslide_1"><img src="img/slider/slide2.jpg" alt="img02" />
-                        
-                        <div class="pm-holder">
-                            <div class="pm-caption">
-                                  <h1><span>Witness the beauty</span></h1>
-                                  <span class="pm-caption-decription">
-                                    Browse our gallery and see what makes Vienna great!
-                                  </span>
-                                  <a href="gallery.html" class="pm-slide-btn animated">View our Gallery <i class="fa fa-chevron-right"></i></a>
-                                  
-                            </div>
-                        </div>
-                                            
-                    </li>
-                    
-                    <li data-thumb="img/slider/3a.jpg" class="pmslide_2"><img src="img/slider/slide3.jpg" alt="img02" />
-                        
-                        <div class="pm-holder">
-                            <div class="pm-caption">
-                                  <h1><span>Book with us!</span></h1>
-                                  <span class="pm-caption-decription">
-                                    Book your next private party or event with Vienna
-                                  </span>
-                                  <a href="book-an-event.html" class="pm-slide-btn animated">Book Your Event Now <i class="fa fa-chevron-right"></i></a>
-                                  
-                            </div>
-                        </div>
-                                            
-                    </li>
+                    <?php } ?>
                                     
                 </ul>
                

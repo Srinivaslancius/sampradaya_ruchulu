@@ -1,4 +1,6 @@
 <?php include_once 'main_header.php'; ?>
+<?php $getContactData = getIndividualDetails('2',"content_pages","id");  
+ ?>
                 
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
@@ -26,18 +28,19 @@
         	<div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 pm-column-spacing">
                 
-                      <h6>Address</h6>
-                      <p>4 Main Street<br />New York, NY USA <br />02489</p>
+                      <h6><?php echo $getContactData['title']; ?></h6>
+                    
+                    <?php echo $getContactData['description']; ?>
                       
                       <div class="pm-divider" style="margin:20px 0;"></div>
                       
                       <h6>Telephone</h6>
-                      <p><strong>Restaurant:</strong> 1 (800) 555-5555<br /> <strong>Fax:</strong> 1 (800) 555-5556</p>
+                      <p><strong>Restaurant:</strong> <?php echo $getSiteSettingsData['mobile']; ?></p>
                       
                       <div class="pm-divider" style="margin:20px 0;"></div>
                       
                       <h6>Email</h6>
-                      <p><a href="mailto:info@viennarestaurant.com">info@viennarestaurant.com</a></p>
+                      <p><a href="mailto:<?php echo $getSiteSettingsData['email']; ?>"><?php echo $getSiteSettingsData['email']; ?></a></p>
                       
                       <div class="pm-divider" style="margin:20px 0;"></div>
                       
