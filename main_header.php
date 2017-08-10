@@ -100,15 +100,15 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                     <div class="col-lg-5 col-md-5 col-sm-6">
                         
                         <div class="pm-sub-menu-info">
-                            <p class="pm-address"><i class="fa fa-map-marker"></i> 4 Main Street, New York, NY 02489</p>
-                            <p class="pm-contact"><i class="fa fa-mobile-phone"></i> 1-(800)-555-5555</p>
+                            <!-- <p class="pm-address"><i class="fa fa-map-marker"></i> 4 Main Street, New York, NY 02489</p> -->
+                            <p class="pm-contact"><i class="fa fa-mobile-phone"></i> <?php echo $getSiteSettingsData['mobile']; ?> </p>
                         </div>
                                                 
                     </div>
                     
                     <div class="col-lg-2 col-md-2 col-sm-6 visible-lg visible-md pm-book-event">
                         <div class="pm-sub-menu-book-event">
-                            <a href="book-an-event.php">Book an Event <i class="fa fa-calendar"></i></a>
+                            <a href="book-an-event.php">Book a Table <i class="fa fa-calendar"></i></a>
                         </div>
                     </div>
                     

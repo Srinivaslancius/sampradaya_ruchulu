@@ -1,5 +1,5 @@
   
-        <div class="pm-fat-footer">
+      <!--  <div class="pm-fat-footer">
         	
             <div class="container">
                 <div class="row">
@@ -12,4 +12,4 @@
                 </div>	
             </div>
             
-        </div>
+        </div> -->

@@ -1,5 +1,6 @@
 <?php include_once 'main_header.php'; ?>
-                
+<?php $getAllActiveMenus = getAllDataCheckActive('categories',0); ?>
+
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
         	
