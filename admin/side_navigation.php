@@ -35,7 +35,7 @@
                         <div class="collapsible-body">
                             <ul>
                                <li><a href="admin_users.php">Admin Users</a></li>
-                               <li><a href="users.php">Users</a></li>
+                               <!-- <li><a href="users.php">Users</a></li> -->
                             </ul>
                         </div>
                     </li>
