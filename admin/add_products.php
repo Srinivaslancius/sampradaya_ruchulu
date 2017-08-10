@@ -16,13 +16,17 @@ if (!isset($_POST['submit']))  {
     $created_at = date("Y-m-d h:i:s");
     $created_by = $_SESSION['admin_user_id'];
     //save product images into product_images table    
-    
-    $sql1 = "INSERT INTO products (`product_name`,`category_id`,`product_price`,`quantity`,`product_info`,`availability_id`,`status`,`created_by`,`created_at`) VALUES ('$product_name','$category_id','$product_price','$quantity', '$product_info','$availability_id','$status','$created_by','$created_at')";
-    $result1 = $conn->query($sql1);
-    $last_id = $conn->insert_id;
 
-    $product_images = $_FILES['product_images']['name'];
-    foreach($product_images as $key=>$value){
+    $product_images1 = $_FILES['product_images']['name'];
+    $file_tmp = $_FILES["product_images"]["tmp_name"];
+    $file_destination = '../uploads/product_images/' . $product_images1;
+    move_uploaded_file($file_tmp, $file_destination);     
+    
+    $sql1 = "INSERT INTO products (`product_name`,`category_id`,`product_price`,`quantity`,`product_info`,`availability_id`,`status`,`created_by`,`created_at`,`product_image` ) VALUES ('$product_name','$category_id','$product_price','$quantity', '$product_info','$availability_id','$status','$created_by','$created_at','$product_images1')";
+    $result1 = $conn->query($sql1);
+    $last_id = $conn->insert_id;    
+    
+    /*foreach($product_images as $key=>$value){
 
         $product_images1 = $_FILES['product_images']['name'][$key];
         $file_tmp = $_FILES["product_images"]["tmp_name"][$key];
@@ -30,7 +34,7 @@ if (!isset($_POST['submit']))  {
         move_uploaded_file($file_tmp, $file_destination);        
         $sql = "INSERT INTO product_images ( `product_id`,`product_image`) VALUES ('$last_id','$product_images1')";
         $result = $conn->query($sql);
-    }
+    }*/
     
     if( $result1 == 1){
     echo "<script>alert('Data Updated Successfully');window.location.href='products.php';</script>";
@@ -98,7 +102,7 @@ if (!isset($_POST['submit']))  {
                                     Product Images : <br /><br />
                                     <div class="input_fields_wrap">
                                         <div>
-                                            <input type="file" id="product_images" name="product_images[]" accept="image/*" required>
+                                            <input type="file" id="product_images" name="product_images" accept="image/*" required>
                                             <p>(Please upload this size images 900*400)</p> 
                                             <!-- <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a> -->
                                         </div><br/>
@@ -106,14 +110,14 @@ if (!isset($_POST['submit']))  {
                                 </div>
 
                                 <?php $getStatus = getAllData('user_status'); ?>
-                                <div class="input-field col s12">
-                                    <select name="status" required>
-                                        <option value="">Select Status</option>
-                                        <?php while($row = $getStatus->fetch_assoc()) {  ?>
-                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                                    <div class="input-field col s12">
+                                        <select name="status" required>
+                                            <option value="">Select Status</option>
+                                            <?php while($row = $getStatus->fetch_assoc()) {  ?>
+                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
 
                                 <div class="input-field col s12">
                                     <input type="submit" name="submit" value="Submit" class="waves-effect waves-light btn teal">
