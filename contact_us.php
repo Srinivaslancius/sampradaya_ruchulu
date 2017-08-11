@@ -18,7 +18,7 @@ $msgClass = '';
                 $msgClass = 'errordiv';
             }else{
                 // Recipient email
-                $toEmail = 'gvr2203@example.com';
+                $toEmail = '<?php echo $getSiteSettingsData["email"]; ?>';
                 $emailSubject = 'Contact Request Submitted by '.$name;
                 $htmlContent = '<h2>Contact Request Submitted</h2>
                     <h4>Name</h4><p>'.$name.'</p>
