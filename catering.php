@@ -16,9 +16,9 @@ if (!isset($_POST['submit']))  {
    
     $sql = "INSERT INTO book_an_catering (`first_name`, `mobile`,`email`, `no_of_guests`, `catering_type_id`,`catering_time`,`catering_date`,`description`) VALUES ('$first_name','$mobile','$email','$no_of_guests','$catering_type_id','$catering_time','$catering_date','$description')";
     if($conn->query($sql) === TRUE){
-       echo "<script>alert('Data Updated Successfully');window.location.href='book-an-catering.php';</script>";
+       echo "<script>alert('Data Updated Successfully');window.location.href='catering.php';</script>";
     } else {
-       echo "<script>alert('Data Updation Failed');window.location.href='book-an-catering';</script>";
+       echo "<script>alert('Data Updation Failed');window.location.href='catering.php';</script>";
     }
 }
 ?>            
