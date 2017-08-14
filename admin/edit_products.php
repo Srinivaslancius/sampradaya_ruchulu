@@ -120,7 +120,7 @@ if (!isset($_POST['submit']))  {
                                 </div> 
 
                                 <div class="input-field col s6">
-                                   Image :  <input type="file" name="product_images" accept="image/*">
+                                   Image :  <input id="product_image" type="file" name="product_images" accept="image/*">
                                    <p>(Please upload this size images 1920*800)</p>
                                 </div>
 
