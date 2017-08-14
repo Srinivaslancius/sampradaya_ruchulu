@@ -67,7 +67,41 @@ $msgClass = '';
         <div class="container pm-containerPadding-top-60 pm-containerPadding-bottom-60">
         	<div class="row">
                 <div class="col-lg-12">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2881306572453!2d78.37904041436377!3d17.44591810570754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93de32844057%3A0x7fbdb09406d44f7a!2sLancius+IT+Solutions!5e0!3m2!1sen!2sin!4v1502368230182" width="320" height="260" frameborder="0" style="border:4px"></iframe>
+                    <div id="map" style="display:block; height: 350px;"></div>
+                        <script src="http://maps.google.com/maps/api/js?key=AIzaSyA04qekzxWtnZq6KLkabMN_4abcJt9nCDk"
+                                type="text/javascript"></script>
+                        <script type="text/javascript">
+                               var locations = [
+                                 ['maxcure hospital', 17.446740, 78.380109, 4],
+                                 ['RatnaDeep super market', 17.446139, 78.384774, 5],
+                                 ['image hospital', 17.444446, 78.386108, 3]
+                                 
+                               ];
+
+                               var map = new google.maps.Map(document.getElementById('map'), {
+                                 zoom: 15,
+                                 center: new google.maps.LatLng( 17.4458,78.3774),
+                                 mapTypeId: google.maps.MapTypeId.ROADMAP
+                               });
+
+                               var infowindow = new google.maps.InfoWindow();
+
+                               var marker, i;
+
+                               for (i = 0; i < locations.length; i++) {  
+                                 marker = new google.maps.Marker({
+                                   position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                   map: map
+                                 });
+
+                                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                   return function() {
+                                     infowindow.setContent(locations[i][0]);
+                                     infowindow.open(map, marker);
+                                   }
+                                 })(marker, i));
+                               }
+                        </script>
                 </div>
             </div>
         </div>
