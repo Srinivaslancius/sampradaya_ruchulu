@@ -30,7 +30,7 @@
                                             <td><?php echo $row['mobile'];?></td>
                                             <td><?php echo $row['catering_date'];?></td>
                                         </tr>               
-                                        <?php } ?>
+                                        <?php $i++;} ?>
                                     </tbody>
                                 </table>
                             </div>
