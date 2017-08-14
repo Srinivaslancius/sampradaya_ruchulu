@@ -4,7 +4,7 @@
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
         	
             <div class="pm-sub-header-title-container">
-            	<p class="pm-sub-header-title"><span>About Us</span></p>
+            	<p class="pm-sub-header-title"><span>View Cart</span></p>
                 <p class="pm-sub-header-message">Meet the Sampradaya Ruchulu team</p>
             </div>
             

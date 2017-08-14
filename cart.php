@@ -153,7 +153,7 @@ $res=$conn->query($sql1);
                         
                         <div class="pm-cart-totals-buttons">
                             <input type="submit" value="Update Cart" class="pm-rounded-submit-btn pm-primary" style="margin-bottom:0px;" />
-                            <a href="checkout.html" class="pm-rounded-btn pm-primary" style="margin-bottom:0px;">Checkout</a>
+                            <a href="checkout.php" class="pm-rounded-btn pm-primary" style="margin-bottom:0px;">Checkout</a>
                         </div>
                         
                     </div><!-- /.pm-cart-totals -->
