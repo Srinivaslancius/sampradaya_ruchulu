@@ -70,7 +70,7 @@ if (!isset($_POST['submit']))  {
                             
                             	<input name="first_name" class="pm-textfield" type="text" placeholder="Name *" id="event-form-first-name" required>	
                                 	
-                                <input name="email" class="pm-textfield" type="email" placeholder="Email address *" id="event-form-email-address" required>	
+                                <input name="email" class="pm-textfield" type="email" placeholder="Email address *" id="event-form-email-address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>	
 
                                 <input name="mobile" class="pm-textfield" type="text" placeholder="Phone Number" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)">
                             
@@ -124,8 +124,6 @@ if (!isset($_POST['submit']))  {
                     </form>
                     
                 </div>
-            
-            	
             
             </div>
         </div>
