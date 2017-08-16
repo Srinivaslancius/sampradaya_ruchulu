@@ -63,7 +63,7 @@
                 </div>
             <?php } ?>
             </div>
-        </div>
+        </div>  
         <!-- Overview boxes end -->
         
         <!-- Menu filter system -->
