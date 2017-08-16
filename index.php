@@ -1,4 +1,4 @@
-<?php include_once 'main_header.php'; ?>
+<?php include_once 'main_header.php'; error_reporting(0); ?>
 <?php $getAllActiveMenus = getAllDataCheckActive('categories',0); ?>
 <?php $getAllActiveBanners = getAllDataCheckActive('banners',0); ?>
 <?php $getAllActiveProducts = getAllDataWithLimit('products',3,0); ?>
@@ -57,7 +57,7 @@
                         <a href="cart.php?pid=<?php echo $getProductsData['id']; ?>" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                     <?php } else { ?>
                         <a href="login.php" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
-                        <div class="pm-menu-item-price"><p>&#2352; <?php echo $getProductsData['product_price']; ?></p></div>
+                        <div class="pm-menu-item-price"><p>&#2352; 14.99</p></div>
                     <?php } ?>
                     
                 </div>
@@ -108,9 +108,9 @@
                             <p class="pm-menu-item-title"><?php echo $getProductsData['product_name']; ?></p>
                             <p class="pm-menu-item-excerpt"><?php echo $getProductsData['product_info']; ?> </p>
                             <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
-                            <a href="cart.php?pid=<?php echo $getProductsData['id']; ?>" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                            <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } else { ?>
-                            <a href="login.php" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                            <a data-toggle="modal" data-target="#myModal" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -129,4 +129,57 @@
             
         </div>
 
+      <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" 
+                           data-dismiss="modal">
+                               <span aria-hidden="true">&times;</span>
+                               <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Log In
+                        </h4>
+                    </div>
+                    
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label  class="col-sm-2 control-label"
+                                      for="inputEmail3">Mobile</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" 
+                                id="inputEmail3" placeholder="Please Enter Mobile Number" required/>
+                            </div>
+                          </div>                  
+                          <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-10">
+                              <button type="submit" class="btn btn-primary">Sign in</button>
+                            </div>
+                          </div>
+                        </form>               
+                        
+                    </div>
+                    
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close
+                    </button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript">
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').focus()
+    })
+    </script>
     <?php include_once 'footer.php'; ?>

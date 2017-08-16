@@ -45,6 +45,28 @@
     <script src="js/jquery-migrate-1.1.1.js"></script>
     <script src="js/pulse/jquery.PMSlider.js"></script>        
     <p id="back-top" class="visible-lg visible-md visible-sm"> </p>
+
+    <script type="text/javascript">
+    $(".pay_now_cart").click(function(){
+       
+     var product_id = $(this).attr('data-product-id');
+     var product_price=$(this).attr('data-product-price');     
+
+     $.ajax({
+          type:"post",
+          url:"savecart.php",
+          data:"product_id="+product_id+"&product_price="+product_price,              
+          success:function(result){      
+            if(result == 0) {
+                alert("Your Item Failed");
+            } 
+            window.location.href = "cart.php";
+          }
+
+        });
+     
+    });
+    </script>
     
   </body>
 </html>
