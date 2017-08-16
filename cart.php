@@ -1,13 +1,5 @@
 <?php include_once 'main_header.php'; ?>
-<?php $id = $_GET['pid']; ?>
-<?php $mobile_session="8887776665"; 
-/*$sql = "INSERT INTO cart ( `user_id`,`product_name`) VALUES ('$mobile_session','$id')";
-if($conn->query($sql) === TRUE){
-    echo "success";
-}*/
-$sql1="SELECT * from cart WHERE user_id=2147483647";
-$res=$conn->query($sql1);
-?>
+<?php $session_mobile = $_SESSION['session_mobile']; ?>
                 
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
@@ -25,41 +17,30 @@ $res=$conn->query($sql1);
         
         <div class="container pm-containerPadding-top-80 pm-containerPadding-bottom-40">
             <div class="row">
-              
-
+            
                 <div class="col-lg-12">
                     
-                   <?php $sub_total=0; if ($res->num_rows > 0) { ?>
-
                     <div class="pm-cart-info-container">
                         
-                        <div class="col-lg-12">
+                        <div class="row">
+                        
+                            <div class="col-lg-12">
                                 <div class="pm-cart-info-title">
-                                  <h3>You have added <?php echo $res->num_rows;  ?> item in your cart</h3>
+                                  <h3>You have 1 item in your cart</h3>
                                 </div>
                             </div>
-
-                        <?php while($getProductsData = $res->fetch_assoc()) { 
-                                $getProTitle =  getIndividualDetails($getProductsData['product_name'],'products','id');
-                                $sub_total +=$getProTitle['product_price'];
-                                ?>
-
-                        <div class="row">                        
-                            
-
-                            <?php //$getAllActiveProducts = getAllDataWithLimit('products',3,0); ?>
-                                                      <div class="col-lg-4 col-md-2 col-sm-3 pm-cart-info-column">
-                                <img src="<?php echo $base_url . 'uploads/product_images/'.$getProTitle['product_image'] ?>" height="50" width="50" id="output" /> 
+                        
+                            <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column">
+                                <img src="img/store/item.jpg" width="50" height="50"> 
                             </div>
                             
-                            <div class="col-lg-3 col-md-2 col-sm-3 pm-cart-info-column text">
-                                <a href="#"><?php echo $getProTitle['product_name']?></a>
+                            <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
+                                <a href="#">WOO SINGLE #1</a>
                             </div>
                             
-                            <div class="col-lg-4 col-md-2 col-sm-3 pm-cart-info-column text">
-                                <p>Price: <?php echo $getProTitle['product_price']; ?></p>
+                            <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
+                                <p>Price: $9</p>
                             </div>
-
                             
                             <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column quantity">
                                 <div class="quantity buttons_added pm-checkout-quantity">
@@ -71,17 +52,18 @@ $res=$conn->query($sql1);
                                 </div><!-- quantity buttons end -->
                             </div>
                             
+                            <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
+                                <p>Sub-Total: $9</p>
+                            </div>
+                            
                             <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column">
-                                <a href="cart_delete.php?did=<?php echo $getProductsData['id']?>" class="pm-rounded-btn pm-primary pm-cart-remove">Remove</a>
+                                <a href="#" class="pm-rounded-btn pm-primary pm-cart-remove">Remove</a>
                             </div>
                         
                         </div><!-- /.row -->
-                        <?php } ?>
                         
                     </div><!-- /.pm-cart-info-container -->
-                    <?php  } else { ?>
-                    No Items Found
-                    <?php } ?>
+                    
                 </div><!-- /.col-lg-12 -->
             
             </div>
@@ -90,12 +72,8 @@ $res=$conn->query($sql1);
         <div class="container pm-containerPadding-bottom-80">
             <div class="row">
                 
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    
-                    
-                </div>
                 
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-12 col-md-12 col-sm-8">
                     
                     <div class="pm-cart-totals">
                         
@@ -113,7 +91,7 @@ $res=$conn->query($sql1);
                             
                             <div class="col-lg-8 col-md-6 col-sm-6">
                                 <div class="pm-cart-totals-column">
-                                    <p>&#2352; <?php echo $sub_total; ?></p>
+                                    <p>$9</p>
                                 </div>
                             </div>
                         
@@ -129,7 +107,7 @@ $res=$conn->query($sql1);
                             
                             <div class="col-lg-8 col-md-6 col-sm-6">
                                 <div class="pm-cart-totals-column">
-                                    <p>&#2352; <?php echo $shipping=5; ?></p>
+                                    <p>$7.99</p>
                                 </div>
                             </div>
                         
@@ -145,7 +123,7 @@ $res=$conn->query($sql1);
                             
                             <div class="col-lg-8 col-md-6 col-sm-6">
                                 <div class="pm-cart-totals-column">
-                                    <p>&#2352; <?php echo $sub_total +$shipping; ?></p>
+                                    <p>$16.99</p>
                                 </div>
                             </div>
                         
@@ -153,7 +131,7 @@ $res=$conn->query($sql1);
                         
                         <div class="pm-cart-totals-buttons">
                             <input type="submit" value="Update Cart" class="pm-rounded-submit-btn pm-primary" style="margin-bottom:0px;" />
-                            <a href="checkout.php" class="pm-rounded-btn pm-primary" style="margin-bottom:0px;">Checkout</a>
+                            <a href="checkout.html" class="pm-rounded-btn pm-primary" style="margin-bottom:0px;">Checkout</a>
                         </div>
                         
                     </div><!-- /.pm-cart-totals -->
@@ -163,7 +141,6 @@ $res=$conn->query($sql1);
             </div>
         </div>
         
-        <!-- BODY CONTENT end -->
-      <?php include_once "footer_sub_content.php"; ?>
+       
         
-      <?php include_once 'footer.php'; ?>
+    <?php include_once 'footer.php'; ?>
