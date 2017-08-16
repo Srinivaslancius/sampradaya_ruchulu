@@ -54,9 +54,9 @@
                     
                     <p><?php echo $getProductsData['product_info']; ?></p>
                     <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
-                        <a href="cart.php?pid=<?php echo $getProductsData['id']; ?>" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                        <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                     <?php } else { ?>
-                        <a href="login.php" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                        <a href="#" data-toggle="modal" data-target="#myModal" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                         <div class="pm-menu-item-price"><p>&#2352; 14.99</p></div>
                     <?php } ?>
                     
@@ -110,7 +110,7 @@
                             <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
                             <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } else { ?>
-                            <a data-toggle="modal" data-target="#myModal" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#myModal" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -148,20 +148,38 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         
-                        <form class="form-horizontal" role="form">
-                          <div class="form-group">
-                            <label  class="col-sm-2 control-label"
-                                      for="inputEmail3">Mobile</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" 
-                                id="inputEmail3" placeholder="Please Enter Mobile Number" required/>
+                        <form class="form-horizontal" role="form" autocomplete="off" method="post">
+
+                            <div class="send_opt_div">
+                                  <div class="form-group">
+                                    <label  class="col-sm-2 control-label" for="inputEmail3">Mobile</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" 
+                                        id="verify_mobile" name="verify_mobile" placeholder="Please Enter Mobile Number"  onkeypress="return isNumberKey(event)" required maxlength="10"/>
+                                    </div>
+                                  </div>                  
+                                  <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-10">
+                                      <button type="button" class="btn btn-primary check_login">Send OTP</button>
+                                    </div>
+                                  </div>
                             </div>
-                          </div>                  
-                          <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-10">
-                              <button type="submit" class="btn btn-primary">Sign in</button>
+                          <!-- OTP Verified here -->
+                            <div class="verify_opt_div" style="display:none">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label" for="inputEmail3">OTP</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" 
+                                        id="verify_otp"  id="verify_otp" maxlength="5" placeholder="Enter OTP" onkeypress="return isNumberKey(event)"required />
+                                    </div>                                    
+                                </div>
+                                <p class="show_msg" style="color:#32CD32; text-align:center"></p>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-10">
+                                      <button type="button" class="btn btn-primary verify_opt_mobile">Send OTP</button>
+                                    </div>
+                                </div>                             
                             </div>
-                          </div>
                         </form>               
                         
                     </div>
@@ -181,5 +199,6 @@
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').focus()
     })
+
     </script>
     <?php include_once 'footer.php'; ?>

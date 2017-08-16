@@ -66,6 +66,74 @@
         });
      
     });
+
+    //check login functionlaity
+    $(".check_login").click(function(){
+      if($('#verify_mobile').val()==''){
+        alert("Please Enter Valid Mobile Number");
+        return false;
+      } else {
+        $('.send_opt_div').hide();
+        var mobile = $('#verify_mobile').val();        
+        $.ajax({
+            type:"post",
+            url:"save_otp.php",
+            data:"mobile="+mobile,              
+            success:function(result){              
+              if(result == 1) {
+                $('.verify_opt_div').show();
+                $('.show_msg').html("Check Your Mobile For The OTP");
+              }
+            }
+        });
+        
+      }        
+    }); 
+    $(".verify_opt_mobile").click(function(){
+       var mobile = $('#verify_mobile').val();
+       var otp = $('#verify_otp').val();
+          if(otp!='') {
+            $.ajax({
+            type:"post",
+            url:"verify_otp.php",
+            data:"mobile="+mobile+"&otp="+otp,              
+            success:function(result){          
+              if(result == 1) {
+                  $('.show_msg').html("OTP Verified");
+                  $(".show_msg").css("color","#32CD32");
+                  $.ajax({
+                    type: "POST",
+                    data:"mobile="+mobile+"&otp="+otp,
+                    url: 'update_verify_user.php',
+                    success: function(data){
+                        window.location.href = "index.php";
+                    }
+                });
+              } else {
+                $('#verify_otp').val('');
+                $('.show_msg').html("Invalid OTP!");
+                $(".show_msg").css("color","#ff0000");
+                return false;
+              }
+              //window.location.href = "index.php";
+            }
+
+          });
+        } else {
+          alert("Please Enter Valid OTP");
+          return false;
+        }
+        
+
+    }); 
+
+     function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    
     </script>
     
   </body>
