@@ -1,4 +1,5 @@
 <?php include_once 'main_header.php'; ?>
+<?php $session_mobile = $_SESSION['session_mobile']; ?>
                 
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
