@@ -53,7 +53,7 @@
                     
                     <h6><?php echo $getProductsData['product_name']; ?></h6>
                     
-                    <p><?php echo $getProductsData['product_info']; ?></p>
+                    <p><?php echo substr($getProductsData['product_info'],0,150); ?></p>
                     <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
                         <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                     <?php } else { ?>
@@ -107,7 +107,7 @@
                         
                         <div class="pm-menu-item-desc">
                             <p class="pm-menu-item-title"><?php echo $getProductsData['product_name']; ?></p>
-                            <p class="pm-menu-item-excerpt"><?php echo $getProductsData['product_info']; ?> </p>
+                            <p class="pm-menu-item-excerpt"><?php echo substr($getProductsData['product_info'],0,125); ?> </p>
                             <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
                             <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } else { ?>
