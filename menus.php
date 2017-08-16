@@ -62,7 +62,7 @@ $getAllProductData = $conn->query($sqlMultiple);
                         	<p class="pm-menu-item-title"><?php echo $getAllProducts['product_name']; ?></p>
                             <p class="pm-menu-item-excerpt"><?php echo $getAllProducts['product_info']; ?> </p>
                             <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
-                            <a href="cart.php?pid=<?php echo $getProductsData['id']; ?>" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                            <a href="cart.php?pid=<?php echo $getAllProducts['id']; ?>" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } else { ?>
                             <a href="login.php" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } ?>
