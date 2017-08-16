@@ -10,7 +10,7 @@
       $res=$conn->query($sql1);
 
 ?>
-                
+        <form name="cart_form" method="post" action="update_cart.php">        
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
             
@@ -30,6 +30,9 @@
             
                 <div class="col-lg-12">
                     <?php $sub_total=0; if ($res->num_rows > 0) { ?>
+                    <?php if(isset($_GET['suc']) && $_GET['suc']!='') { 
+                        echo "<p style='color:#32CD32; text-align:center'>Your cart items updated successfully</p>";
+                    } ?>
                     <div class="pm-cart-info-container">
 
                         <div class="col-lg-12">
@@ -41,7 +44,11 @@
                         <?php while($getProductsData = $res->fetch_assoc()) { 
                               $getProData =  getIndividualDetails($getProductsData['product_id'],'products','id');
                               $sub_total +=$getProData['product_price'];
-                         ?>
+                        ?>
+                            <input type="hidden" name="cart_id[]" value="<?php echo $getProductsData['id']; ?>">
+                            <input type="hidden" name="product_price[]" value="<?php echo $getProductsData['product_price']; ?>">
+
+
                             <div class="row">
                             
                                 <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column">
@@ -58,12 +65,12 @@
                                 
                                 <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column quantity">
                                     <div class="quantity buttons_added pm-checkout-quantity">
-                                        <input type="number" size="4" class="input-text qty cart text" title="Qty" value="1" name="quantity" min="1" step="1" >                                                                                                
+                                        <input type="number" size="4" class="input-text qty cart text" title="Qty" value="<?php echo $getProductsData['product_quantity']; ?>" name="product_quantity[]" min="1" step="1" >                                                                                                
                                     </div><!-- quantity buttons end -->
                                 </div>
                                 
                                 <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
-                                    <p>Sub-Total: &#2352; <?php echo $getProductsData['product_price']; ?></p>
+                                    <p>Sub-Total: &#2352; <?php echo $getProductsData['product_total_price']; ?></p>
                                 </div>
                                 
                                 <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column">
@@ -83,6 +90,7 @@
             
             </div>
         </div>
+        
         <?php if ($res->num_rows > 0) { ?>
             <div class="container pm-containerPadding-bottom-80">
                 <div class="row">
@@ -145,8 +153,8 @@
                             </div><!-- /.row -->
                             
                             <div class="pm-cart-totals-buttons">
-                                <input type="submit" value="Update Cart" class="pm-rounded-submit-btn pm-primary" style="margin-bottom:0px;" />
-                                <a href="checkout.html" class="pm-rounded-btn pm-primary" style="margin-bottom:0px;">Checkout</a>
+                                <input type="submit" name="submit" value="Update Cart" class="pm-rounded-submit-btn pm-primary" style="margin-bottom:0px;" />
+                                <a href="checkout.php" class="pm-rounded-btn pm-primary" style="margin-bottom:0px;">Checkout</a>
                             </div>
                             
                         </div><!-- /.pm-cart-totals -->
@@ -156,6 +164,6 @@
                 </div>
             </div>
         <?php } ?>
-       
+       </form>
         
     <?php include_once 'footer.php'; ?>
