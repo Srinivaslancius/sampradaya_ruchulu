@@ -1,5 +1,9 @@
 <?php include_once 'main_header.php'; ?>
-                
+        <?php
+            if($_SESSION['session_mobile'] == ''){
+                header ("Location: logout.php");
+            } 
+        ?>       
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
             
