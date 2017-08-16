@@ -20,18 +20,30 @@ if (!isset($_POST['submit']))  {
     //save product images into product_images table    
 
     $product_images1 = $_FILES['product_images']['name'];
-    $file_tmp = $_FILES["product_images"]["tmp_name"];
-    $file_destination = '../uploads/product_images/' . $product_images1;
-    move_uploaded_file($file_tmp, $file_destination); 
-    
-    $sql1 = "UPDATE products SET product_name = '$product_name',category_id ='$category_id',product_price ='$product_price',quantity = '$quantity',product_info = '$product_info',availability_id = '$availability_id',status = '$status',product_image = '$product_images1' WHERE id = '$id'"; 
-    
-    if ($conn->query($sql1) === TRUE) {
+    if($product_images1 !='') {
+        $target_dir = "../uploads/product_images/";
+        $target_file = $target_dir . basename($_FILES["product_images"]["name"]);       
+        $getImgUnlink = getImageUnlink('product_image','products','id',$id,$target_dir);
+        if(move_uploaded_file($_FILES["product_images"]["tmp_name"], $target_file)){ 
+        
+        $sql1 = "UPDATE products SET product_name = '$product_name',category_id ='$category_id',product_price ='$product_price',quantity = '$quantity',product_info = '$product_info',availability_id = '$availability_id',status = '$status',product_image = '$product_images1' WHERE id = '$id'"; 
+        
+            if ($conn->query($sql1) === TRUE) {
+                echo "<script>alert('Data Updated Successfully');window.location.href='products.php';</script>";
+            } else {
+                echo "<script>alert('Data Updation Failed');window.location.href='products.php';</script>";
+            }
+        }else{
+            echo "Sorry, there was an error uploading your file.";
+        }
+    } else {
+     $sql1 = "UPDATE products SET product_name = '$product_name',category_id ='$category_id',product_price ='$product_price',quantity = '$quantity',product_info = '$product_info',availability_id = '$availability_id',status = '$status'WHERE id = '$id'"; 
+     if ($conn->query($sql1) === TRUE) {
         echo "<script>alert('Data Updated Successfully');window.location.href='products.php';</script>";
     } else {
         echo "<script>alert('Data Updation Failed');window.location.href='products.php';</script>";
     }
-    $result1=$conn->query($sql1);
+}
 
     /*$product_images = $_FILES['product_images']['name'];
     foreach($product_images as $key=>$value){
