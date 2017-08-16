@@ -60,7 +60,7 @@
                                 </div>
                                 
                                 <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column">
-                                    <a href="cart_delete.php?did=<?php echo $getProductsData['id']?>" class="pm-rounded-btn pm-primary pm-cart-remove">Remove</a>
+                                    <a href="cart_delete.php?did=<?php echo $getProductsData['id']?>" class="pm-rounded-btn pm-primary pm-cart-remove" onclick="return confirm('Are you sure you want to remove item from cart?')">Remove</a>
                                 </div>
                             
                             </div><!-- /.row -->
