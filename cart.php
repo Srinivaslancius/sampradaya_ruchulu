@@ -114,7 +114,7 @@
                             
                             <div class="col-lg-8 col-md-6 col-sm-6">
                                 <div class="pm-cart-totals-column">
-                                    <p>&#2352; <?php echo $shipping=5; ?></p>
+                                    <p>&#2352; <?php echo $shipping=$getSiteSettingsData['delivery_charges']; ?></p>
                                 </div>
                             </div>
                         
