@@ -1,4 +1,4 @@
-<?php
+    <?php
 ob_start();
 include "admin/includes/config.php";
 include "admin/includes/functions.php"; 
@@ -121,6 +121,11 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                             <li><a href="about_us.php">About Us</a></li>
                             <li><a href="contact_us.php">Contact Us</a></li>                            
                             <li class="pm-cart-btn-li"><a href="cart.php" class="pm-cart-btn"><i class="fa fa-shopping-cart"></i></a></li>
+
+                            <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
+                                <li>| <a>Guest</a></li>
+                                <li>| <a href="logout.php">Logout</a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                     
