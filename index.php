@@ -57,6 +57,7 @@
                         <a href="cart.php?pid=<?php echo $getProductsData['id']; ?>" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                     <?php } else { ?>
                         <a href="login.php" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                        <div class="pm-menu-item-price"><p>&#2352; 14.99</p></div>
                     <?php } ?>
                     
                 </div>
@@ -100,7 +101,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6 pm-column-spacing">
                     <div class="pm-menu-item-container">
                         <div class="pm-menu-item-img-container" style="background-image:url(uploads/product_images/<?php echo $getProductsData['product_image']; ?>);">
-                            <div class="pm-menu-item-price"><p>&#2352; 14.99</p></div>
+                            <div class="pm-menu-item-price"><p>&#2352; <?php echo $getProductsData['product_price']; ?></p></div>
                         </div>
                         
                         <div class="pm-menu-item-desc">
