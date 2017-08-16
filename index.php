@@ -48,6 +48,7 @@
                     
                     <div class="pm-image-container">
                         <img src="uploads/product_images/<?php echo $getProductsData['product_image']; ?>" alt="image1">
+                        <div class="pm-menu-item-price"><p>&#2352; <?php echo $getProductsData['product_price']; ?></p></div>
                     </div>
                     
                     <h6><?php echo $getProductsData['product_name']; ?></h6>
@@ -57,7 +58,7 @@
                         <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                     <?php } else { ?>
                         <a href="#" data-toggle="modal" data-target="#myModal" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
-                        <div class="pm-menu-item-price"><p>&#2352; 14.99</p></div>
+                        <div class="pm-menu-item-price"><p>&#2352; <?php echo $getProductsData['product_price']; ?></p></div>
                     <?php } ?>
                     
                 </div>
