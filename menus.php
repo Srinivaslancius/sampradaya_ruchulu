@@ -62,9 +62,9 @@ $getAllProductData = $conn->query($sqlMultiple);
                         	<p class="pm-menu-item-title"><?php echo $getAllProducts['product_name']; ?></p>
                             <p class="pm-menu-item-excerpt"><?php echo $getAllProducts['product_info']; ?> </p>
                             <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
-                            <a href="cart.php?pid=<?php echo $getAllProducts['id']; ?>" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                            <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } else { ?>
-                            <a href="login.php" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#myModal" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } ?>
                         </div>
                     </div>                    
@@ -78,5 +78,76 @@ $getAllProductData = $conn->query($sqlMultiple);
         <!-- BODY CONTENT end -->
         
        <?php include_once "footer_sub_content.php"; ?>
+        
+      <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" 
+                           data-dismiss="modal">
+                               <span aria-hidden="true">&times;</span>
+                               <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Log In
+                        </h4>
+                    </div>
+                    
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        
+                        <form class="form-horizontal" role="form" autocomplete="off" method="post">
+
+                            <div class="send_opt_div">
+                                  <div class="form-group">
+                                    <label  class="col-sm-2 control-label" for="inputEmail3">Mobile</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" 
+                                        id="verify_mobile" name="verify_mobile" placeholder="Please Enter Mobile Number"  onkeypress="return isNumberKey(event)" required maxlength="10"/>
+                                    </div>
+                                  </div>                  
+                                  <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-10">
+                                      <button type="button" class="btn btn-primary check_login">Send OTP</button>
+                                    </div>
+                                  </div>
+                            </div>
+                          <!-- OTP Verified here -->
+                            <div class="verify_opt_div" style="display:none">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label" for="inputEmail3">OTP</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" 
+                                        id="verify_otp"  id="verify_otp" maxlength="5" placeholder="Enter OTP" onkeypress="return isNumberKey(event)"required />
+                                    </div>                                    
+                                </div>
+                                <p class="show_msg" style="color:#32CD32; text-align:center"></p>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-10">
+                                      <button type="button" class="btn btn-primary verify_opt_mobile">Send OTP</button>
+                                    </div>
+                                </div>                             
+                            </div>
+                        </form>               
+                        
+                    </div>
+                    
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close
+                    </button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('#myModal').on('shown.bs.modal', function () {
+              $('#myInput').focus()
+            })
+        </script>
         
        <?php include_once 'footer.php'; ?>
