@@ -72,6 +72,15 @@
         return $noRows;
     }
 
+     function getRowsCountWithUsermobile($table,$mobile)
+    {
+        global $conn;
+        $sql="select * from `$table` WHERE `user_mobile` = '$mobile' ";
+        $result = $conn->query($sql);
+        $noRows = $result->num_rows;        
+        return $noRows;
+    }
+
     /* Common function for get count for rows */
      function getRowsCount($table)
     {
