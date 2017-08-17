@@ -1,6 +1,7 @@
 <?php include_once 'main_header.php'; error_reporting(0);?>
 
-<?php         
+<?php
+header( "refresh:10;url=index.php" );
  if($_SESSION['session_mobile'] == '') {
     header ("Location: logout.php");
 }
@@ -38,7 +39,8 @@ $res1 = $res->fetch_array();
                         <p>Your Order#is:<strong><?php echo $orderId; ?></strong></p>
                         <p>Billing&Shipping Information:</p>
                         <p><?php echo $res1['district']; ?></p>
-                        <p><?php echo $res1['pin_code']; ?></p>
+                        <p>Pincode - <?php echo $res1['pin_code']; ?></p>
+                        <p>You will be redirected to the Home in 10 seconds.</p>
                 </div>
                 
             
