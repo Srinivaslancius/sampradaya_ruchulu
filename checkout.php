@@ -25,37 +25,41 @@
             <div class="container pm-containerPadding-bottom-40">
                 <div class="row">
                 
-                    <div class="col-lg-6">
-                    
-                        <h3 class="pm-primary">Billing Details</h3>
-                        <?php
-                                $getLocations = getAllDataCheckActive('lkp_locations',0);
-                            ?>
-                        <label for="pm-country-list">Location *</label>
-                        <select name="location_name" required>
-                            <option value="">Select Location</option>
-                                    <?php while($row = $getLocations->fetch_assoc()) {  ?>
-                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['location_name']; ?></option>
-                                    <?php } ?>
-                            </select>
-                      
-                      <label for="pm-first-name-field">Name *</label>
-                        <input name="name" class="pm-textfield" type="text" required>
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <h3 class="pm-primary" style = "text-align:center">Billing Details</h3>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <?php
+                                        $getLocations = getAllDataCheckActive('lkp_locations',0);
+                                    ?>
+                                <label for="pm-country-list">Location *</label>
+                                <select name="location_name" required>
+                                    <option value="">Select Location</option>
+                                            <?php while($row = $getLocations->fetch_assoc()) {  ?>
+                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['location_name']; ?></option>
+                                            <?php } ?>
+                                    </select>
+                              
+                                <label for="pm-first-name-field">Name *</label>
+                                <input name="name" class="pm-textfield" type="text" required>
 
-                    <label for="pm-phone-field">Phone *</label>
-                    <input name="pm-phone-field" class="pm-textfield" type="text" value="<?php echo $_SESSION['session_mobile'];?>">
-                        
-                      <label for="pm-address-field">Address *</label>
-                        <input name="pm-address-field" class="pm-textfield" type="text" required>
-                        
-                      <label for="pm-town-field">Town / City *</label>
-                        <input name="pm-town-field" class="pm-textfield" type="text" required>
-                        
-                      <label for="pm-zip-field">Zip *</label>
-                        <input name="pm-zip-field" class="pm-textfield" type="text" required>
-                        
-                      <label for="pm-email-address-field">Email Address *</label>
-                        <input name="pm-email-address-field" class="pm-textfield" type="text" required>
+                                <label for="pm-phone-field">Phone *</label>
+                                <input name="pm-phone-field" class="pm-textfield" type="text" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required value="<?php echo $_SESSION['session_mobile'];?>">
+                                    
+                                <label for="pm-address-field">Address *</label>
+                                <input name="pm-address-field" class="pm-textfield" type="text" required>
+                            </div>    
+                            <div class="col-lg-6 col-md-6 col-sm-6">    
+                                <label for="pm-town-field">Town / City *</label>
+                                <input name="pm-town-field" class="pm-textfield" type="text" required>
+                                    
+                                <label for="pm-zip-field">Zip *</label>
+                                <input name="pm-zip-field" class="pm-textfield" type="text" required maxlength="6"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)">
+                                    
+                                <label for="pm-email-address-field">Email Address *</label>
+                                <input name="pm-email-address-field" class="pm-textfield" type="text" required>
+                             </div>   
+                        </div>    
                         
                   </div>
                 
@@ -102,7 +106,7 @@
                         
                             <ul class="pm-payment-options">
                                 <li>
-                                    <input name="pm-selected-payment[]" type="radio" value="" checked="checked" required>
+                                    <input name="pm-selected-payment[]" type="radio" value=""  required>
                                     <label for="direct-transfer">Cash and Delivery</label>
                                 </li>
                             </ul>
