@@ -1,4 +1,4 @@
-    <?php
+<?php
 ob_start();
 include "admin/includes/config.php";
 include "admin/includes/functions.php"; 
