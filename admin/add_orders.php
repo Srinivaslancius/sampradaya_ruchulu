@@ -9,8 +9,8 @@ if (!isset($_POST['submit']))  {
 
     $mobile = $_POST['mobile'];
     $order_date = date("Y-m-d h:i:s");
-    $status = $_POST['status'];
-    $sql = "INSERT INTO orders (`mobile`,`order_date`, `status`) VALUES ('$mobile','$order_date','$status')";
+    $status = $_POST['order_status'];
+    $sql = "INSERT INTO orders (`mobile`,`order_date`, `order_status`) VALUES ('$mobile','$order_date','$status')";
     if($conn->query($sql) === TRUE){
        echo "<script>alert('Data Updated Successfully');window.location.href='orders.php';</script>";
     } else {
@@ -26,30 +26,21 @@ if (!isset($_POST['submit']))  {
             <div class="col s12 m12 l8">
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title">Admin Users</span><br>
+                        <span class="card-title">Orders</span><br>
                         <div class="row">
                            <form class="col s12" method="post">
                                 <div class="row">
                                     
-                                    <div class="input-field col s6">
-                                        <input id="admin_name" autofocus="autofocus" type="text" class="validate" name="admin_name" required>
-                                        <label for="admin_name">Name</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="admin_email" type="email" class="validate" name="admin_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                                        <label for="admin_email">Email</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="admin_password" type="password" class="validate" name="admin_password" required>
-                                        <label for="admin_password">Password</label>
-                                    </div>
-                                    <?php $getStatus = getAllData('user_status'); ?>
                                     <div class="input-field col s12">
-                                        <select name="status" required>
-                                            <option value="">Select Status</option>
-                                            <?php while($row = $getStatus->fetch_assoc()) {  ?>
-                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
-                                            <?php } ?>
+                                        <input id="mobile" autofocus="autofocus" type="text" class="validate" name="mobile" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
+                                        <label for="mobile">Mobile</label>
+                                    </div>
+                                    
+                                    <div class="input-field col s12">
+                                        <select name="order_status" required>
+                                            <option value="" disabled selected>Choose your status</option>
+                                            <option value="0">Active</option>
+                                            <option value="1">In Active</option>   
                                         </select>
                                     </div>
 
@@ -70,3 +61,11 @@ if (!isset($_POST['submit']))  {
     </main>
 
 <?php include_once 'footer.php'; ?>
+<script type="text/javascript">
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+</script>
