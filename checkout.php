@@ -30,7 +30,7 @@ $res=$conn->query($sql1);
         
         <!-- SUB-HEADER area end -->      
         
-        <form action="post">
+        <form method="post">
         
             <div class="container pm-containerPadding-bottom-40">
                 <div class="row">
@@ -44,11 +44,11 @@ $res=$conn->query($sql1);
                                     ?>
                                 <label for="pm-country-list">Location *</label>
                                 <select name="location_name" required>
-                                    <option value="">Select Location</option>
-                                            <?php while($row = $getLocations->fetch_assoc()) {  ?>
-                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['location_name']; ?></option>
-                                            <?php } ?>
-                                    </select>
+                                <option value="">Select Location</option>
+                                    <?php while($row = $getLocations->fetch_assoc()) {  ?>
+                                        <option value="<?php echo $row['location_name']; ?>"><?php echo $row['location_name']; ?></option>
+                                    <?php } ?>
+                                </select>
                               
                                 <label for="pm-first-name-field">Name *</label>
                                 <input name="name" class="pm-textfield" type="text" required>
@@ -92,6 +92,7 @@ $res=$conn->query($sql1);
                                   $getProData =  getIndividualDetails($getProductsData['product_id'],'products','id');
                                   $sub_total +=$getProductsData['product_total_price'];
                                 ?>
+                                <input type="hidden" name="product_id[]" value="<?php echo $getProductsData['product_id']; ?>">
                                 
                                 <p class="title"><?php echo $getProData['product_name']?> × <?php echo $getProductsData['product_quantity']; ?></p> <br />
                                 <p class="price">&#2352; <?php echo $getProductsData['product_total_price']; ?></p><br />
