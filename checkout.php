@@ -1,13 +1,28 @@
-<?php include_once 'main_header.php';
-    if (!isset($_POST['submit']))  {
-            echo "";
+<?php include_once 'main_header.php'; ?>
+    <?php
+        if($_SESSION['session_mobile'] == ''){
+            header ("Location: logout.php");
+        } 
+    ?> 
+    <?php 
+        error_reporting(0);
+        if (!isset($_POST['submit']))  {
+                    echo "";
+                } else  { 
+
+            $first_name = $_POST['first_name'];
+            $mobile = $_POST['mobile'];
+            $email = $_POST['email'];
+                       
+            $sql = "INSERT INTO orders (`first_name`, `mobile`,`email`, `no_of_guests`, `catering_type_id`,`catering_time`,`catering_date`,`description`) VALUES ('$first_name','$mobile','$email','$no_of_guests','$catering_type_id','$catering_time','$catering_date','$description')";
+            if($conn->query($sql) === TRUE){
+               echo "<script>alert('Data Updated Successfully');window.location.href='catering.php';</script>";
+            } else {
+               echo "<script>alert('Data Updation Failed');window.location.href='catering.php';</script>";
+            }
         }
- ?>
-        <?php
-            if($_SESSION['session_mobile'] == ''){
-                header ("Location: logout.php");
-            } 
-        ?>       
+    ?>
+    
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
             
@@ -23,11 +38,11 @@
         <form action="post">
         
             <div class="container pm-containerPadding-bottom-40">
-                <div class="row">
                 
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <h3 class="pm-primary" style = "text-align:center">Billing Details</h3>
+                        <div class="col-lg-12">
+                                <h3 class="pm-primary" style = "text-align:center;margin-top:10px">Billing Details</h3>
+                        </div>  
+                        <div class="row">  
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <?php
                                         $getLocations = getAllDataCheckActive('lkp_locations',0);
@@ -41,10 +56,10 @@
                                     </select>
                               
                                 <label for="pm-first-name-field">Name *</label>
-                                <input name="name" class="pm-textfield" type="text" required>
+                                <input name="first_name" class="pm-textfield" type="text" required>
 
-                                <label for="pm-phone-field">Phone *</label>
-                                <input name="pm-phone-field" class="pm-textfield" type="text" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required value="<?php echo $_SESSION['session_mobile'];?>">
+                                <label for="mobile">Phone *</label>
+                                <input name="mobile" class="pm-textfield" type="text" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required value="<?php echo $_SESSION['session_mobile'];?>">
                                     
                                 <label for="pm-address-field">Address *</label>
                                 <input name="pm-address-field" class="pm-textfield" type="text" required>
@@ -60,10 +75,6 @@
                                 <input name="pm-email-address-field" class="pm-textfield" type="text" required>
                              </div>   
                         </div>    
-                        
-                  </div>
-                
-                </div>
             </div>
             
             <div class="container">
