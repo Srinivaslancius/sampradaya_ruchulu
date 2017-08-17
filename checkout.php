@@ -98,7 +98,7 @@ $res=$conn->query($sql1);
                                 <input type="hidden" name="product_total_price[]" value="<?php echo $getProductsData['product_total_price']; ?>">
                                 <input type="hidden" name="product_quantity[]" value="<?php echo $getProductsData['product_quantity']; ?>">
                                 <input type="hidden" name="cart_sub_total" value="<?php echo $sub_total; ?>">
-                                <input type="hidden" name="order_total" value="<?php echo $sub_total +$shipping; ?>">
+                                <input type="hidden" name="order_total" value="<?php echo $sub_total +$getSiteSettingsData['delivery_charges']; ?>">
                                 
                                 <p class="title"><?php echo $getProData['product_name']?> × <?php echo $getProductsData['product_quantity']; ?></p> <br />
                                 <p class="price">&#2352; <?php echo $getProductsData['product_total_price']; ?></p><br />
