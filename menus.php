@@ -62,7 +62,7 @@ $getAllProductData = $conn->query($sqlMultiple);
                         	<p class="pm-menu-item-title"><?php echo $getAllProducts['product_name']; ?></p>
                             <p class="pm-menu-item-excerpt"><?php echo $getAllProducts['product_info']; ?> </p>
                             <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
-                            <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getProductsData['id']) ?>" data-product-price="<?php echo encryptPassword($getProductsData['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
+                            <a href="#" class="pm-rounded-btn animated pm-primary pay_now_cart"  data-product-id="<?php echo encryptPassword($getAllProducts['id']) ?>" data-product-price="<?php echo encryptPassword($getAllProducts['product_price']); ?>">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } else { ?>
                             <a href="#" data-toggle="modal" data-target="#myModal" class="pm-rounded-btn animated pm-primary">Add To Cart <i class="fa fa-angle-right"></i></a>
                             <?php } ?>
