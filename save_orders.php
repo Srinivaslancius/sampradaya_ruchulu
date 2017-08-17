@@ -25,7 +25,7 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	    $res = $conn->query($sql);
 	}
 	
-    header('Location: thankyou.php');   
+    header("Location: thankyou.php?odi=".$order_id."");
 
 }
 

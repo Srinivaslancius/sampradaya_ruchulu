@@ -1,16 +1,15 @@
-<?php include_once 'main_header.php'; ?>
+<?php include_once 'main_header.php'; error_reporting(0);?>
 
 <?php         
-      if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') {
-        $session_mobile = $_SESSION['session_mobile'];
-      } else {
-        $session_mobile = '0';
-      }    
-      $sql1="SELECT id,product_id,product_price,product_quantity,product_total_price,user_mobile from cart WHERE user_mobile='$session_mobile'";
-      $res=$conn->query($sql1);
-
+ if($_SESSION['session_mobile'] == '') {
+    header ("Location: logout.php");
+}
+$orderId = $_GET['odi'];
+$sql ="SELECT * from `orders` WHERE order_id='$orderId'";
+$res = $conn->query($sql);
+$res1 = $res->fetch_array();
 ?>
-        <form name="cart_form" method="post" action="update_cart.php">        
+              
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
             
@@ -36,10 +35,10 @@
                     <h3 style="color:green">Your order has been received</h3></strong>
                         <hr class="message-inner-separator">
                         <p>Thank you for your purchase</p>
-                        <p>Your Order#is:212345</p>
-                        <p>Billing&Shipping Information:ABCD</p>
-                        <p>Yousafguda,</p>
-                        <p>Hyderabad - 500045</p>
+                        <p>Your Order#is:<strong><?php echo $orderId; ?></strong></p>
+                        <p>Billing&Shipping Information:</p>
+                        <p><?php echo $res1['district']; ?></p>
+                        <p><?php echo $res1['pin_code']; ?></p>
                 </div>
                 
             

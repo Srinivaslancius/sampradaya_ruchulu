@@ -8,7 +8,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                 <a href="add_orders.php" style="float:right">Add Order</a>
+                                 <!-- <a href="add_orders.php" style="float:right">Add Order</a> -->
                                 <span class="card-title">Orders</span>
                                 <?php $getData = getAllData('orders');?>
                                 
