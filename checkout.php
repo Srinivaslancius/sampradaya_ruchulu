@@ -1,4 +1,8 @@
-<?php include_once 'main_header.php'; ?>
+<?php include_once 'main_header.php';
+    if (!isset($_POST['submit']))  {
+            echo "";
+        }
+ ?>
         <?php
             if($_SESSION['session_mobile'] == ''){
                 header ("Location: logout.php");
@@ -105,7 +109,7 @@
                                                     
                             <div class="pm-clear-element">
                                 <div class="pm-divider clearfix"></div>
-                                <input name="" type="button" value="process order" class="pm-rounded-submit-btn pm-primary" />
+                                <input name="submit" type="submit" value="process order" class="pm-rounded-submit-btn pm-primary" />
                             </div>
                             
                         </div>
