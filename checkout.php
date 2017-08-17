@@ -133,7 +133,7 @@ $res=$conn->query($sql1);
                         
                             <ul class="pm-payment-options">
                                 <li>
-                                    <input name="pm-selected-payment[]" type="radio" value="" checked="checked" required>
+                                    <input name="pm-selected-payment" type="radio" value="" checked="checked" required>
                                     <label for="direct-transfer">Cash and Delivery</label>
                                 </li>
                             </ul>
