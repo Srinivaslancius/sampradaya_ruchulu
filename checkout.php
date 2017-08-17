@@ -21,8 +21,27 @@
                echo "<script>alert('Data Updation Failed');window.location.href='catering.php';</script>";
             }
         }
+<<<<<<< HEAD
     ?>
     
+=======
+ ?>
+<?php
+    if($_SESSION['session_mobile'] == ''){
+        header ("Location: logout.php");
+    } 
+?>    
+
+<?php         
+if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') {
+$session_mobile = $_SESSION['session_mobile'];
+} else {
+$session_mobile = '0';
+}    
+$sql1="SELECT id,product_id,product_price,product_quantity,product_total_price,user_mobile from cart WHERE user_mobile='$session_mobile'";
+$res=$conn->query($sql1);
+?>   
+>>>>>>> f4f6504524b22c32207b3764b0dcc324e97d2632
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
             
@@ -85,19 +104,31 @@
                         <h3 class="pm-primary">Order Summary</h3>
                         
                         <div class="pm-order-summary-container">
-                            
+
                             <ul class="pm-order-summary">
+                               
                                 <li>
-                                    <p class="title">Woo Single × 1</p>
-                                    <p class="price">$9</p>
+                                 <?php $sub_total=0;  while($getProductsData = $res->fetch_assoc()) { 
+                                  $getProData =  getIndividualDetails($getProductsData['product_id'],'products','id');
+                                  $sub_total +=$getProductsData['product_total_price'];
+                                ?>
+                                
+                                <p class="title"><?php echo $getProData['product_name']?> × <?php echo $getProductsData['product_quantity']; ?></p> <br />
+                                <p class="price">&#2352; <?php echo $getProductsData['product_total_price']; ?></p><br />
+                                <?php } ?>
                                 </li>
+                                
                                 <li>
                                     <p class="label">Cart Sub-Total</p>
-                                    <p class="price">$9</p>
+                                    <p class="price">&#2352; <?php echo $sub_total; ?></p>
+                                </li>
+                                <li>
+                                    <p class="label">shipping and handling</p>
+                                    <p class="price">&#2352; <?php echo $shipping=$getSiteSettingsData['delivery_charges']; ?></p>
                                 </li>
                                 <li>
                                     <p class="label">Order Total</p>
-                                    <p class="price">$9</p>
+                                    <p class="price">&#2352; <?php echo $sub_total +$shipping; ?></p>
                                 </li>
                             </ul>
                                                         
