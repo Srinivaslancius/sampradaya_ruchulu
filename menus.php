@@ -1,4 +1,4 @@
-<?php include_once 'main_header.php'; ?>
+<?php include_once 'main_header.php'; error_reporting(0);?>
 <?php 
 $getAllActiveMenus = getAllDataCheckActive('categories',0); 
 $id= $_GET['id'];
