@@ -45,6 +45,8 @@
 
                     <li class="no-padding <?php if($page_name == 'categories.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="categories.php"><i class="material-icons">settings_input_svideo</i>Categories</a></li>
 
+                    <li class="no-padding <?php if($page_name == 'orders.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="orders.php"><i class="material-icons">settings_input_svideo</i>Orders</a></li>
+
                     <li class="no-padding <?php if($page_name == 'event_types.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="event_types.php"><i class="material-icons">settings_input_svideo</i>Event Types</a></li>
 
                     <li class="no-padding <?php if($page_name == 'catering_types.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="catering_types.php"><i class="material-icons">settings_input_svideo</i>Catering Types</a></li>
