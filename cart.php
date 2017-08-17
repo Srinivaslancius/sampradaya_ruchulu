@@ -43,7 +43,7 @@
                         
                         <?php while($getProductsData = $res->fetch_assoc()) { 
                               $getProData =  getIndividualDetails($getProductsData['product_id'],'products','id');
-                              $sub_total +=$getProData['product_price'];
+                              $sub_total +=$getProductsData['product_total_price'];
                         ?>
                             <input type="hidden" name="cart_id[]" value="<?php echo $getProductsData['id']; ?>">
                             <input type="hidden" name="product_price[]" value="<?php echo $getProductsData['product_price']; ?>">

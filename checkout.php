@@ -1,5 +1,9 @@
 <?php include_once 'main_header.php'; ?>
-                
+        <?php
+            if($_SESSION['session_mobile'] == ''){
+                header ("Location: logout.php");
+            } 
+        ?>       
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
             
@@ -32,22 +36,22 @@
                             </select>
                       
                       <label for="pm-first-name-field">Name *</label>
-                        <input name="name" class="pm-textfield" type="text">
+                        <input name="name" class="pm-textfield" type="text" required>
 
                     <label for="pm-phone-field">Phone *</label>
                     <input name="pm-phone-field" class="pm-textfield" type="text" value="<?php echo $_SESSION['session_mobile'];?>">
                         
                       <label for="pm-address-field">Address *</label>
-                        <input name="pm-address-field" class="pm-textfield" type="text">
+                        <input name="pm-address-field" class="pm-textfield" type="text" required>
                         
                       <label for="pm-town-field">Town / City *</label>
-                        <input name="pm-town-field" class="pm-textfield" type="text">
+                        <input name="pm-town-field" class="pm-textfield" type="text" required>
                         
                       <label for="pm-zip-field">Zip *</label>
-                        <input name="pm-zip-field" class="pm-textfield" type="text">
+                        <input name="pm-zip-field" class="pm-textfield" type="text" required>
                         
                       <label for="pm-email-address-field">Email Address *</label>
-                        <input name="pm-email-address-field" class="pm-textfield" type="text">
+                        <input name="pm-email-address-field" class="pm-textfield" type="text" required>
                         
                   </div>
                 
@@ -94,7 +98,7 @@
                         
                             <ul class="pm-payment-options">
                                 <li>
-                                    <input name="pm-selected-payment[]" type="radio" value="" checked="checked">
+                                    <input name="pm-selected-payment[]" type="radio" value="" checked="checked" required>
                                     <label for="direct-transfer">Cash and Delivery</label>
                                 </li>
                             </ul>
