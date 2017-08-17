@@ -24,7 +24,9 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 		$sql = "INSERT INTO orders (`first_name`, `mobile`,`email`, `district`, `address1`,`pin_code`,`product_id`,`product_name`,`product_price`,`product_total_price`,`cart_sub_total`,`order_total`,`order_date`,`product_quantity`,`payment_status`,`order_status`,`order_id`) VALUES ('$name','$mobile','$email','$location_name','$address','$zipcode','" . $_POST["product_id"][$i] . "','" . $_POST["product_name"][$i] . "','" . $_POST["product_price"][$i] . "','" . $_POST["product_total_price"][$i] . "','$cart_sub_total','$order_total','$order_date','" . $_POST["product_quantity"][$i] . "','1','1','$order_id')";
 	    $res = $conn->query($sql);
 	}
-	
+	$sessionMobile = $_SESSION['session_mobile'];
+	$delCart ="DELETE FROM cart WHERE user_mobile = '$sessionMobile' ";
+	$conn->query($delCart);
     header("Location: thankyou.php?odi=".$order_id."");
 
 }
