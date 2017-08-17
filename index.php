@@ -171,7 +171,7 @@
                                     <label  class="col-sm-2 control-label" for="inputEmail3">OTP</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" 
-                                        id="verify_otp"  id="verify_otp" maxlength="5" placeholder="Enter OTP" onkeypress="return isNumberKey(event)"required />
+                                        id="verify_otp"  id="verify_otp" maxlength="4" placeholder="Enter OTP" onkeypress="return isNumberKey(event)"required />
                                     </div>                                    
                                 </div>
                                 <p class="show_msg" style="color:#32CD32; text-align:center"></p>

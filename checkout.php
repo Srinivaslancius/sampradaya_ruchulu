@@ -17,6 +17,15 @@ $session_mobile = '0';
 }    
 $sql1="SELECT id,product_id,product_price,product_quantity,product_total_price,user_mobile from cart WHERE user_mobile='$session_mobile'";
 $res=$conn->query($sql1);
+
+$getUsersData =  getIndividualDetails($_SESSION['session_mobile'],'users','user_mobile');
+
+if($getUsersData['user_name']!='') {  $user_name = $getUsersData['user_name'];  } else { $user_name = ''; } 
+if(isset($getUsersData['user_email'])) { $user_email = $getUsersData['user_email']; } else { $user_email = ''; }
+if(isset($getUsersData['town'])) { $town = $getUsersData['town']; } else { $town = ''; }
+if(isset($getUsersData['pincode'])) { $pincode = $getUsersData['pincode']; }  else { $pincode = ''; }
+if(isset($getUsersData['user_address'])) { $user_address = $getUsersData['user_address']; }  else { $user_address = ''; }
+
 ?>   
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
@@ -51,23 +60,23 @@ $res=$conn->query($sql1);
                                 </select>
                               
                                 <label for="pm-first-name-field">Name *</label>
-                                <input name="name" class="pm-textfield" type="text" required>
+                                <input name="name" class="pm-textfield" type="text" required value="<?php echo $user_name; ?>">
 
                                 <label for="pm-phone-field">Phone *</label>
                                 <input name="pm-phone-field" class="pm-textfield" type="text" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required value="<?php echo $_SESSION['session_mobile'];?>">
                                     
                                 <label for="pm-address-field">Address *</label>
-                                <input name="pm-address-field" class="pm-textfield" type="text" required>
+                                <input name="pm-address-field" class="pm-textfield" type="text" required value="<?php echo $user_address; ?>">
                             </div>    
                             <div class="col-lg-6 col-md-6 col-sm-6">    
                                 <label for="pm-town-field">Town / City *</label>
-                                <input name="pm-town-field" class="pm-textfield" type="text" required>
+                                <input name="pm-town-field" class="pm-textfield" type="text" required value="<?php echo $town; ?>">
                                     
                                 <label for="pm-zip-field">Zip *</label>
-                                <input name="pm-zip-field" class="pm-textfield" type="text" required maxlength="6"  onkeypress="return isNumberKey(event)">
+                                <input name="pm-zip-field" class="pm-textfield" type="text" required maxlength="6"  onkeypress="return isNumberKey(event)" value="<?php echo $pincode; ?>">
                                     
                                 <label for="pm-email-address-field">Email Address *</label>
-                                <input name="pm-email-address-field" class="pm-textfield" type="text" required>
+                                <input name="pm-email-address-field" class="pm-textfield" type="text" required  value="<?php echo $user_email; ?>">
                              </div>   
                         </div>    
                         

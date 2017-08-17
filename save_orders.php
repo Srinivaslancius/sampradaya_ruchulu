@@ -25,6 +25,9 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	    $res = $conn->query($sql);
 	}
 	$sessionMobile = $_SESSION['session_mobile'];
+
+	$updateUserTable = "UPDATE users SET user_name='$name',user_email='$email',town='$location_name',pincode='$zipcode',user_address='$address' WHERE user_mobile='$sessionMobile' ";
+	$conn->query($updateUserTable);
 	$delCart ="DELETE FROM cart WHERE user_mobile = '$sessionMobile' ";
 	$conn->query($delCart);
     header("Location: thankyou.php?odi=".$order_id."");
