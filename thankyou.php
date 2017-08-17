@@ -33,13 +33,15 @@
                 </div>
                 <div class="container text-center" style="color:#008000; font-size:65px;">
                     <span class="glyphicon glyphicon glyphicon-ok"></span>
+                    <h3 style="color:green">Your order has been received</h3></strong>
+                        <hr class="message-inner-separator">
+                        <p>Thank you for your purchase</p>
+                        <p>Your Order#is:212345</p>
+                        <p>Billing&Shipping Information:ABCD</p>
+                        <p>Yousafguda,</p>
+                        <p>Hyderabad - 500045</p>
                 </div>
-                <div class="container text-center two">
-                    <p> Your coupon is on its way to your email.But it first...</p>
-                    <a href="#">Click here to book your appointment online instantly. It only takes a minute.</a>
-                    <br><br>
-                    <p> We can't wait to meet and your 'do!</p>
-                </div>
+                
             
             </div>
         </div>
