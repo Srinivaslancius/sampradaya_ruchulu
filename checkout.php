@@ -30,7 +30,7 @@ $res=$conn->query($sql1);
         
         <!-- SUB-HEADER area end -->      
         
-        <form method="post">
+        <form method="post" action="save_orders.php" id="pm-event-form">
         
             <div class="container pm-containerPadding-bottom-40">
                 <div class="row">
@@ -64,7 +64,7 @@ $res=$conn->query($sql1);
                                 <input name="pm-town-field" class="pm-textfield" type="text" required>
                                     
                                 <label for="pm-zip-field">Zip *</label>
-                                <input name="pm-zip-field" class="pm-textfield" type="text" required maxlength="6"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)">
+                                <input name="pm-zip-field" class="pm-textfield" type="text" required maxlength="6"  onkeypress="return isNumberKey(event)">
                                     
                                 <label for="pm-email-address-field">Email Address *</label>
                                 <input name="pm-email-address-field" class="pm-textfield" type="text" required>
@@ -93,6 +93,10 @@ $res=$conn->query($sql1);
                                   $sub_total +=$getProductsData['product_total_price'];
                                 ?>
                                 <input type="hidden" name="product_id[]" value="<?php echo $getProductsData['product_id']; ?>">
+                                <input type="hidden" name="product_price[]" value="<?php echo $getProductsData['product_price']; ?>">
+                                <input type="hidden" name="product_name[]" value="<?php echo $getProData['product_name']; ?>">
+                                <input type="hidden" name="product_total_price[]" value="<?php echo $getProductsData['product_total_price']; ?>">
+
                                 
                                 <p class="title"><?php echo $getProData['product_name']?> × <?php echo $getProductsData['product_quantity']; ?></p> <br />
                                 <p class="price">&#2352; <?php echo $getProductsData['product_total_price']; ?></p><br />
