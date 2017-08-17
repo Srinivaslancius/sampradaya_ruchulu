@@ -40,8 +40,9 @@ $id = $_GET['oid'];
                                     <div class="input-field col s12">
                                         <select name="order_status" required>
                                             <option value="" disabled selected>Choose your status</option>
-                                            <option value="0" <?php if($getOrders1['order_status'] == 0) { echo "Selected"; }?>>Active</option>
-                                            <option value="1" <?php if($getOrders1['order_status'] == 1) { echo "Selected"; }?>>In Active</option> 
+                                            <option value="0" <?php if($getOrders1['order_status'] == 1) { echo "Selected"; }?>>Pending</option>
+                                            <option value="1" <?php if($getOrders1['order_status'] == 2) { echo "Selected"; }?>>Completed</option>
+                                            <option value="1" <?php if($getOrders1['order_status'] == 3) { echo "Selected"; }?>>Cancelled</option>  
                                         </select>
                                     </div>
 
