@@ -23,7 +23,7 @@
                 }
                 .table1-footer .table1-cell{
                     border-bottom: 0;
-                    padding-top:15px;
+                    padding-top:4px;
                 }
                 .table1-header {
                     font-weight: bold;
@@ -39,15 +39,16 @@
                             <div class="card-content">
                                  <!-- <a href="add_orders.php" style="float:right">Add Order</a> -->
                                 <span class="card-title">Orders</span>
-                                <?php $sql ="SELECT * from orders GROUP BY order_id";
+                                <?php $sql ="SELECT * from orders GROUP BY order_id  ORDER BY id DESC";
                                     $res = $conn->query($sql);
-                                    // $res1 = $res->fetch_array();
+                                    $i=1; 
                                 ?>
                                 
                                     
                                     <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
+                                            <th>id</th>
                                             <th>Name</th>
                                             <th>Order Id</th>
                                             <th>Mobile No</th>
@@ -59,6 +60,7 @@
                                     <tbody>
                                         <?php while($res1 = $res->fetch_assoc()) { ?>
                                         <tr>
+                                            <td><?php echo $i;?></td>
                                             <td><?php echo $res1['first_name'];?></td>
                                             <td><?php echo $res1['order_id'];?></td>
                                             <td><?php echo $res1['mobile'];?></td>
@@ -91,13 +93,13 @@
                                                             <div class="table1-row table1-footer">
                                                                 <div class="table1-cell"><?php echo $res1['address1'];?></div>
                                                                 <div class="table1-cell"></div>
-                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"></div>
                                                                 <div class="table1-cell"><?php echo $res1['address1'];?></div>
                                                             </div>
                                                             <div class="table1-row table1-footer">
                                                                 <div class="table1-cell"><?php echo $res1['district'];?></div>
                                                                 <div class="table1-cell"></div>
-                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"></div>
                                                                 <div class="table1-cell"><?php echo $res1['district'];?></div>
                                                             </div>
                                                             <div class="table1-row table1-footer">
@@ -122,6 +124,12 @@
                                                                 <div class="table1-cell"><?php echo $getAllProInfo['product_total_price']; ?></div>
                                                             </div>
                                                             <?php } ?>
+                                                            <div class="table1-row table1-header" style="width:100%">
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell">Order Total</div>
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell"></div>
+                                                            </div>
                                                             <div class="table1-row table1-footer">
                                                                 <div class="table1-cell">Sub Total</div>
                                                                 <div class="table1-cell"></div>
@@ -154,7 +162,7 @@
 
                                         </tr>
                                          
-                                        <?php } ?>
+                                        <?php $i++;} ?>
                                     </tbody>
                                 </table>
                             </div>
