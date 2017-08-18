@@ -145,7 +145,7 @@ if(isset($getUsersData['user_address'])) { $user_address = $getUsersData['user_a
                             <ul class="pm-payment-options">
                                 <li>
                                     <input name="pm-selected-payment" type="radio" value="" checked="checked" required>
-                                    <label for="direct-transfer">Cash and Delivery</label>
+                                    <label for="direct-transfer">Cash On Delivery</label>
                                 </li>
                             </ul>
                                                     
