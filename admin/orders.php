@@ -39,15 +39,16 @@
                             <div class="card-content">
                                  <!-- <a href="add_orders.php" style="float:right">Add Order</a> -->
                                 <span class="card-title">Orders</span>
-                                <?php $sql ="SELECT * from orders GROUP BY order_id";
+                                <?php $sql ="SELECT * from orders GROUP BY order_id  ORDER BY id DESC";
                                     $res = $conn->query($sql);
-                                    // $res1 = $res->fetch_array();
+                                    $i=1; 
                                 ?>
                                 
                                     
                                     <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
+                                            <th>id</th>
                                             <th>Name</th>
                                             <th>Order Id</th>
                                             <th>Mobile No</th>
@@ -59,6 +60,7 @@
                                     <tbody>
                                         <?php while($res1 = $res->fetch_assoc()) { ?>
                                         <tr>
+                                            <td><?php echo $i;?></td>
                                             <td><?php echo $res1['first_name'];?></td>
                                             <td><?php echo $res1['order_id'];?></td>
                                             <td><?php echo $res1['mobile'];?></td>
@@ -129,7 +131,7 @@
 
                                         </tr>
                                          
-                                        <?php } ?>
+                                        <?php $i++;} ?>
                                     </tbody>
                                 </table>
                             </div>
