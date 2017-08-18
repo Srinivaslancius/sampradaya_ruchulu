@@ -2,7 +2,7 @@
            
             <?php include_once 'side_navigation.php';?>
             <style>
-                .table {
+                .table1 {
                     display: table;
                     border: 1px solid #808080;
                     text-align: center;
@@ -12,20 +12,20 @@
                     margin-bottom: 0;
                 }
 
-                .table-row {
+                .table1-row {
                     display: table-row;
                 }
 
-                .table-cell {
+                .table1-cell {
                     display: table-cell;
                     border-bottom: 1px solid #b2b2b2;
                     padding: 6px;
                 }
-                .table-footer .table-cell{
+                .table1-footer .table1-cell{
                     border-bottom: 0;
-                    padding-top:25px;
+                    padding-top:15px;
                 }
-                .table-header {
+                .table1-header {
                     font-weight: bold;
                     background-color: #d8d8d8;
                 }
@@ -75,49 +75,74 @@
                                                     </div>
                                                     <div class="modal-body" >
                                                     
-                                                        <h5 class="modal-title-set"><b>Name:</b><?php echo $res1['first_name'];?></h5>
-                                                        <h5 class="modal-title-set"><b>Order Id :</b><?php echo $res1['order_id']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Mobile :</b><?php echo $res1['mobile']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Order Date :</b><?php echo $res1['order_date']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Email :</b><?php echo $res1['email']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Address :</b><?php echo $res1['address1']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Pin Code :</b><?php echo $res1['pin_code']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Status :</b><?php if ($res1['order_status']==1) { echo "Pending" ;} elseif($res1['order_status']==2) { echo "Completed" ;} else{ echo "Cancelled";}?></h5>
-                                                        <div class="table">
-                                                            <div class="table-row table-header">
-                                                                <div class="table-cell">Item Name</div>
-                                                                <div class="table-cell">Quantity</div>
-                                                                <div class="table-cell">Price</div>
-                                                                <div class="table-cell">Total</div>
+                                                        
+                                                        <div class="table1" style="width:100%">
+
+                                                            <div class="table1-row table1-header" >
+                                                                <div class="table1-cell">Shipping</div>
+                                                                <div class="table1-cell">Order Id</div>
+                                                                <div class="table1-cell">Order Status</div>
+                                                                <div class="table1-cell">Billing</div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['first_name'];?></div>
+                                                                <div class="table1-cell"><?php echo $res1['order_id']; ?></div>
+                                                                 <div class="table1-cell"><?php if ($res1['order_status']==1) { echo "Pending" ;} elseif($res1['order_status']==2) { echo "Completed" ;} else{ echo "Cancelled";} ?></div>
+                                                                <div class="table1-cell"><?php echo $res1['first_name'];?></div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['address1'];?></div>
+                                                                <div class="table1-cell"></div>
+                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['address1'];?></div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['district'];?></div>
+                                                                <div class="table1-cell"></div>
+                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['district'];?></div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['pin_code'];?></div>
+                                                                <div class="table1-cell"></div>
+                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['pin_code'];?></div>
+                                                            </div>
+
+                                                            <div class="table1-row table1-header">
+                                                                <div class="table1-cell">Item Name</div>
+                                                                <div class="table1-cell">Quantity</div>
+                                                                <div class="table1-cell">Price</div>
+                                                                <div class="table1-cell">Total</div>
                                                             </div>
                                                             <?php $proInfo = getAllDataWhere('orders','order_id',$res1['order_id']); ?>
                                                             <?php while($getAllProInfo = $proInfo->fetch_assoc()) { ?>
-                                                            <div class="table-row">
-                                                                <div class="table-cell"><?php echo $getAllProInfo['product_name']; ?></div>
-                                                                <div class="table-cell"><?php echo $getAllProInfo['product_quantity']; ?></div>
-                                                                <div class="table-cell"><?php echo $getAllProInfo['product_price']; ?></div>
-                                                                <div class="table-cell"><?php echo $getAllProInfo['product_total_price']; ?></div>
+                                                            <div class="table1-row">
+                                                                <div class="table1-cell"><?php echo $getAllProInfo['product_name']; ?></div>
+                                                                <div class="table1-cell"><?php echo $getAllProInfo['product_quantity']; ?></div>
+                                                                <div class="table1-cell"><?php echo $getAllProInfo['product_price']; ?></div>
+                                                                <div class="table1-cell"><?php echo $getAllProInfo['product_total_price']; ?></div>
                                                             </div>
                                                             <?php } ?>
-                                                            <div class="table-row table-footer">
-                                                                <div class="table-cell">Sub Total</div>
-                                                                <div class="table-cell"></div>
-                                                                <div class="table-cell"><?php echo $res1['cart_sub_total']; ?></div>                        
-                                                                <div class="table-cell"></div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell">Sub Total</div>
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['cart_sub_total']; ?></div>                        
+                                                                <div class="table1-cell"></div>
                                                             </div>  
 
-                                                            <div class="table-row table-footer">
-                                                                <div class="table-cell">Shipping and Handling</div>
-                                                                <div class="table-cell"></div>
-                                                                <div class="table-cell"><?php echo $getSiteSettingsData['delivery_charges']; ?></div>                        
-                                                                <div class="table-cell"></div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell">Shipping and Handling</div>
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $getSiteSettingsData['delivery_charges']; ?></div>                        
+                                                                <div class="table1-cell"></div>
                                                             </div>
 
-                                                            <div class="table-row table-footer">
-                                                                <div class="table-cell">Order Total</div>
-                                                                <div class="table-cell"></div>
-                                                                <div class="table-cell"><?php echo $res1['order_total']; ?></div>                        
-                                                                <div class="table-cell"></div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell">Order Total</div>
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['order_total']; ?></div>                        
+                                                                <div class="table1-cell"></div>
                                                             </div>                                                         
                                                         </div>
                                                     </div>

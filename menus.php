@@ -2,7 +2,7 @@
 <?php 
 $getAllActiveMenus = getAllDataCheckActive('categories',0); 
 $id= $_GET['id'];
-$sqlMultiple="SELECT * FROM products WHERE category_id LIKE '%$id%'";
+$sqlMultiple="SELECT * FROM products WHERE availability_id=0 AND status=0 AND category_id LIKE '%$id%'";
 $getAllProductData = $conn->query($sqlMultiple);
 ?>
 

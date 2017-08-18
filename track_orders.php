@@ -32,7 +32,7 @@
         }
         .table-footer .table-cell{
             border-bottom: 0;
-            padding-top:25px;
+            padding-top:10px;
         }
         .table-header {
             font-weight: bold;
@@ -57,26 +57,30 @@
             <div class="row">
             
                 <div class="col-lg-12">
-                    <div class="pm-cart-info-container">
+                    <div class="">
                                                
                         <?php while($res1 = $res->fetch_assoc()) { ?>
                             
                             <div class="row">
-                                                
-                                <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
-                                    <p>Name :<?php echo $res1['first_name']?></p>
-                                </div>
-                                
-                                <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
-                                    <p>Order Id :<?php echo $res1['order_id']; ?></p>
+
+                                <div class="table">
+                                    <div class="table-row table-header">
+                                        <div class="table-cell">Order Id</div>
+                                        <div class="table-cell">Order Date</div>
+                                        <div class="table-cell">Mobile Number</div>
+                                        <div class="table-cell">View</div>
+                                        
+                                    </div>
+                                    <div class="table-row table-footer">
+                                        <div class="table-cell"><?php echo $res1['order_id'];?></div>
+                                        <div class="table-cell"><?php echo $res1['order_date']; ?></div>
+                                        <div class="table-cell"><?php echo $res1['mobile']; ?></div>
+                                        <div class="table-cell"> <a class="click_view" data-modalId="<?php echo $res1['id']?>" href="#">View</a></div>
+                                    </div>                                                
                                 </div>
 
                                 <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
-                                    <p>Mobile no :<?php echo $res1['mobile']; ?></p>
-                                </div>
-
-                                <div class="col-lg-2 col-md-2 col-sm-2 pm-cart-info-column text">
-                                    <a class="click_view" data-modalId="<?php echo $res1['id']?>" href="#">View</a>
+                                   
                                 </div>
                                 <div id="myModal_<?php echo $res1['id']; ?>" class="modal fade" >
                                             <div class="modal-dialog" Style="margin-top:10%;">
@@ -87,7 +91,39 @@
                                                     <div class="modal-body" >
                                                     <!-- Product Information -->
                                                         <div class="table">
+
                                                             <div class="table-row table-header">
+                                                                <div class="table-cell">Shipping</div>
+                                                                <div class="table-cell">Order Id</div>
+                                                                <div class="table-cell">Order Status</div>
+                                                                <div class="table-cell">Billing</div>
+                                                            </div>
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell"><?php echo $res1['first_name'];?></div>
+                                                                <div class="table-cell"><?php echo $res1['order_id']; ?></div>
+                                                                 <div class="table-cell"><?php if ($res1['order_status']==1) { echo "Pending" ;} elseif($res1['order_status']==2) { echo "Completed" ;} else{ echo "Cancelled";} ?></div>
+                                                                <div class="table-cell"><?php echo $res1['first_name'];?></div>
+                                                            </div>
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell"><?php echo $res1['address1'];?></div>
+                                                                <div class="table-cell"></div>
+                                                                 <div class="table-cell"></div>
+                                                                <div class="table-cell"><?php echo $res1['address1'];?></div>
+                                                            </div>
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell"><?php echo $res1['district'];?></div>
+                                                                <div class="table-cell"></div>
+                                                                 <div class="table-cell"></div>
+                                                                <div class="table-cell"><?php echo $res1['district'];?></div>
+                                                            </div>
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell"><?php echo $res1['pin_code'];?></div>
+                                                                <div class="table-cell"></div>
+                                                                 <div class="table-cell"></div>
+                                                                <div class="table-cell"><?php echo $res1['pin_code'];?></div>
+                                                            </div>
+
+                                                            <div class="table-row" style=" background-color: #DCDCDC;font-weight:bold; font-size:15px;">
                                                                 <div class="table-cell">Item Name</div>
                                                                 <div class="table-cell">Quantity</div>
                                                                 <div class="table-cell">Price</div>
@@ -102,6 +138,12 @@
                                                                 <div class="table-cell"><?php echo $getAllProInfo['product_total_price']; ?></div>
                                                             </div>
                                                             <?php } ?>
+                                                            <div class="table-row table-header">
+                                                                <div class="table-cell"></div>
+                                                                <div class="table-cell">Order Total</div>
+                                                                <div class="table-cell"></div>
+                                                                <div class="table-cell"></div>
+                                                            </div>
                                                             <div class="table-row table-footer">
                                                                 <div class="table-cell">Sub Total</div>
                                                                 <div class="table-cell"></div>
