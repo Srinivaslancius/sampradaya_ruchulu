@@ -23,7 +23,7 @@
                 }
                 .table1-footer .table1-cell{
                     border-bottom: 0;
-                    padding-top:25px;
+                    padding-top:15px;
                 }
                 .table1-header {
                     font-weight: bold;
@@ -73,15 +73,40 @@
                                                     </div>
                                                     <div class="modal-body" >
                                                     
-                                                        <h5 class="modal-title-set"><b>Name:</b><?php echo $res1['first_name'];?></h5>
-                                                        <h5 class="modal-title-set"><b>Order Id :</b><?php echo $res1['order_id']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Mobile :</b><?php echo $res1['mobile']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Order Date :</b><?php echo $res1['order_date']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Email :</b><?php echo $res1['email']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Address :</b><?php echo $res1['address1']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Pin Code :</b><?php echo $res1['pin_code']."<br>"; ?></h5>
-                                                        <h5 class="modal-title-set"><b>Status :</b><?php if ($res1['order_status']==1) { echo "Pending" ;} elseif($res1['order_status']==2) { echo "Completed" ;} else{ echo "Cancelled";}?></h5>
+                                                        
                                                         <div class="table1" style="width:100%">
+
+                                                            <div class="table1-row table1-header" >
+                                                                <div class="table1-cell">Shipping</div>
+                                                                <div class="table1-cell">Order Id</div>
+                                                                <div class="table1-cell">Order Status</div>
+                                                                <div class="table1-cell">Billing</div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['first_name'];?></div>
+                                                                <div class="table1-cell"><?php echo $res1['order_id']; ?></div>
+                                                                 <div class="table1-cell"><?php if ($res1['order_status']==1) { echo "Pending" ;} elseif($res1['order_status']==2) { echo "Completed" ;} else{ echo "Cancelled";} ?></div>
+                                                                <div class="table1-cell"><?php echo $res1['first_name'];?></div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['address1'];?></div>
+                                                                <div class="table1-cell"></div>
+                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['address1'];?></div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['district'];?></div>
+                                                                <div class="table1-cell"></div>
+                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['district'];?></div>
+                                                            </div>
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell"><?php echo $res1['pin_code'];?></div>
+                                                                <div class="table1-cell"></div>
+                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['pin_code'];?></div>
+                                                            </div>
+
                                                             <div class="table1-row table1-header">
                                                                 <div class="table1-cell">Item Name</div>
                                                                 <div class="table1-cell">Quantity</div>
