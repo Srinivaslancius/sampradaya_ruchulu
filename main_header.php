@@ -91,6 +91,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
 
     <?php $sql ="SELECT * from orders GROUP BY order_id";
       $res = $conn->query($sql);
+      $res1 = $res->fetch_assoc();
       ?>
         <!-- Sub-header -->
         <div class="pm-sub-menu-container">
@@ -126,7 +127,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                             <?php if(isset($_SESSION['session_mobile']) && $_SESSION['session_mobile']!='') { ?>
                                 <li class="pm-cart-btn-li"><a href="cart.php" class="pm-cart-btn"><i class="fa fa-shopping-cart"></i> (<?php echo $getCount = getRowsCountWithUsermobile('cart',$_SESSION['session_mobile']);  ?>)</a></li>
                                 <li>| <a>Guest</a></li>
-                                <li>| <a href="track_orders.php?tid=<?php echo $res1['order_id'];?>Track Orders</a></li>
+                                <li>| <a href="track_orders.php">Track Orders</a></li>
                                 <li>| <a href="logout.php">Logout</a></li>
                             <?php } else { ?>
                             <li class="pm-cart-btn-li"><a href="cart.php" class="pm-cart-btn"><i class="fa fa-shopping-cart"></i></a></li>
