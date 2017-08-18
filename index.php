@@ -131,7 +131,7 @@
         </div>
 
       <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal fade" id="myModal" role="dialog" style="top:138px; text-align:center">
               <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
@@ -142,7 +142,7 @@
                                <span class="sr-only">Close</span>
                         </button>
                         <h4 class="modal-title" id="myModalLabel">
-                            Log In
+                            Login
                         </h4>
                     </div>
                     

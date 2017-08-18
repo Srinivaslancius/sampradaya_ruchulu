@@ -80,7 +80,7 @@ $getAllProductData = $conn->query($sqlMultiple);
        <?php include_once "footer_sub_content.php"; ?>
         
       <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal fade" id="myModal" role="dialog" style="top:138px; text-align:center">
               <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
