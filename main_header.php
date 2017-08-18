@@ -89,7 +89,10 @@ $getMenus1 = getAllDataCheckActive('categories',0);
         
   </div><!-- /pm-mobile-nav-overlay -->    
 
-    
+    <?php $sql ="SELECT * from orders GROUP BY order_id";
+      $res = $conn->query($sql);
+      $res1 = $res->fetch_assoc();
+      ?>
         <!-- Sub-header -->
         <div class="pm-sub-menu-container">
         
