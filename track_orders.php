@@ -6,7 +6,7 @@
       } else {
         $session_mobile = '0';
       }    
-      $sql ="SELECT * from orders group by order_id";
+      $sql ="SELECT * from orders where mobile='$session_mobile' group by order_id";
       $res = $conn->query($sql);
 
 ?>
