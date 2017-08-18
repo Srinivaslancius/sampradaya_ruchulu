@@ -10,6 +10,35 @@
       $res = $conn->query($sql);
 
 ?>
+<style>
+        .table {
+            display: table;
+            border: 1px solid #808080;
+            text-align: center;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            padding: 0px;
+            margin-bottom: 0;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            border-bottom: 1px solid #b2b2b2;
+            padding: 6px;
+        }
+        .table-footer .table-cell{
+            border-bottom: 0;
+            padding-top:25px;
+        }
+        .table-header {
+            font-weight: bold;
+            background-color: #d8d8d8;
+        }
+    </style>
         <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
             
@@ -56,32 +85,53 @@
                                                     <p class="modal-title" style="text-align:center; font-weight:bold;"><b>Order Information</b></p>
                                                     </div>
                                                     <div class="modal-body" >
-                                                    
-                                                        <p class="modal-title-set"><b>Name:</b><?php echo $res1['first_name'];?></p>
-                                                        <p class="modal-title-set"><b>Order Id :</b><?php echo $res1['order_id']."<br>"; ?></p>
-                                                        <p class="modal-title-set"><b>Mobile :</b><?php echo $res1['mobile']."<br>"; ?></p>
-                                                        <p class="modal-title-set"><b>Order Date :</b><?php echo $res1['order_date']."<br>"; ?></p>
-                                                        <p class="modal-title-set"><b>Email :</b><?php echo $res1['email']."<br>"; ?></p>
-                                                        <p class="modal-title-set"><b>Address :</b><?php echo $res1['address1']."<br>"; ?></p>
-                                                        <p class="modal-title-set"><b>Pin Code :</b><?php echo $res1['pin_code']."<br>"; ?></p>
-                                                        <p class="modal-title-set"><b>Status :</b><?php if ($res1['order_status']==1) { echo "Pending" ;} elseif($res1['order_status']==2) { echo "Completed" ;} else{ echo "Cancelled";}?></p>
-                                                    <p style="text-align:center; font-weight:bold;">Product Information</p>
-                                                    <?php $proInfo = getAllDataWhere('orders','order_id',$res1['order_id']); ?>
-                                                    <?php while($getAllProInfo = $proInfo->fetch_assoc()) { ?>
-                                                    <p> <?php echo $getAllProInfo['product_name']; ?> - <?php echo $getAllProInfo['product_quantity']; ?> - <?php echo $getAllProInfo['product_price']; ?>- <?php echo $getAllProInfo['product_total_price']; ?></p>
-                                                    <?php } ?>
-                                                    <p>Sub Total : <?php echo $res1['cart_sub_total']."<br>"; ?></p>
-                                                    <p>Shipping and Handling : <?php echo $getSiteSettingsData['delivery_charges']."<br>"; ?></p>
-                                                    <p>Order Total : <?php echo $res1['order_total']."<br>"; ?></p>
+                                                    <!-- Product Information -->
+                                                        <div class="table">
+                                                            <div class="table-row table-header">
+                                                                <div class="table-cell">Item Name</div>
+                                                                <div class="table-cell">Quantity</div>
+                                                                <div class="table-cell">Price</div>
+                                                                <div class="table-cell">Total</div>
+                                                            </div>
+                                                            <?php $proInfo = getAllDataWhere('orders','order_id',$res1['order_id']); ?>
+                                                            <?php while($getAllProInfo = $proInfo->fetch_assoc()) { ?>
+                                                            <div class="table-row">
+                                                                <div class="table-cell"><?php echo $getAllProInfo['product_name']; ?></div>
+                                                                <div class="table-cell"><?php echo $getAllProInfo['product_quantity']; ?></div>
+                                                                <div class="table-cell"><?php echo $getAllProInfo['product_price']; ?></div>
+                                                                <div class="table-cell"><?php echo $getAllProInfo['product_total_price']; ?></div>
+                                                            </div>
+                                                            <?php } ?>
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell">Sub Total</div>
+                                                                <div class="table-cell"></div>
+                                                                <div class="table-cell"><?php echo $res1['cart_sub_total']; ?></div>                        
+                                                                <div class="table-cell"></div>
+                                                            </div>  
+
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell">Shipping and Handling</div>
+                                                                <div class="table-cell"></div>
+                                                                <div class="table-cell"><?php echo $getSiteSettingsData['delivery_charges']; ?></div>                        
+                                                                <div class="table-cell"></div>
+                                                            </div>
+
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell">Order Total</div>
+                                                                <div class="table-cell"></div>
+                                                                <div class="table-cell"><?php echo $res1['order_total']; ?></div>                        
+                                                                <div class="table-cell"></div>
+                                                            </div>                                                         
+                                                        </div>
+                                                        <!-- End Product Information -->
                                                     </div>
                                                     <div class="modal-footer" >
-                                                          <button type="button" class="btn" data-dismiss="modal" style="background-color:#f00; color:#fff">Close</button>
+                                                        <button type="button" class="btn" data-dismiss="modal" style="background-color:#f00; color:#fff">Print</button>
+                                                        <button type="button" class="btn" data-dismiss="modal" style="background-color:#f00; color:#fff">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                
                                                             
                             </div><!-- /.row -->
                         <?php } ?>
