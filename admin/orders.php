@@ -23,7 +23,7 @@
                 }
                 .table1-footer .table1-cell{
                     border-bottom: 0;
-                    padding-top:15px;
+                    padding-top:4px;
                 }
                 .table1-header {
                     font-weight: bold;
@@ -93,13 +93,13 @@
                                                             <div class="table1-row table1-footer">
                                                                 <div class="table1-cell"><?php echo $res1['address1'];?></div>
                                                                 <div class="table1-cell"></div>
-                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"></div>
                                                                 <div class="table1-cell"><?php echo $res1['address1'];?></div>
                                                             </div>
                                                             <div class="table1-row table1-footer">
                                                                 <div class="table1-cell"><?php echo $res1['district'];?></div>
                                                                 <div class="table1-cell"></div>
-                                                                 <div class="table1-cell"></div>
+                                                                <div class="table1-cell"></div>
                                                                 <div class="table1-cell"><?php echo $res1['district'];?></div>
                                                             </div>
                                                             <div class="table1-row table1-footer">
@@ -124,6 +124,12 @@
                                                                 <div class="table1-cell"><?php echo $getAllProInfo['product_total_price']; ?></div>
                                                             </div>
                                                             <?php } ?>
+                                                            <div class="table1-row table1-header" style="width:100%">
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell">Order Total</div>
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell"></div>
+                                                            </div>
                                                             <div class="table1-row table1-footer">
                                                                 <div class="table1-cell">Sub Total</div>
                                                                 <div class="table1-cell"></div>
