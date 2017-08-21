@@ -65,6 +65,8 @@
 
                     <li class="no-padding <?php if($page_name == 'products.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="products.php"><i class="material-icons">cloud_upload</i>Dishes</a></li>
 
+                    <li class="no-padding <?php if($page_name == 'locations.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="locations.php"><i class="material-icons">cloud_upload</i>Locations</a></li>
+
                    <!-- <li class="no-padding <?php if($page_name == 'customer_enqueries.php') { echo "active"; } ?>"><a class="waves-effect waves-grey" href="customer_enqueries.php"><i class="material-icons">contact_mail</i>Customer Enqueries</a></li> -->
 
                 </ul>

@@ -72,8 +72,8 @@ if(isset($getUsersData['user_address'])) { $user_address = $getUsersData['user_a
                                 <label for="pm-town-field">Town / City *</label>
                                 <input name="pm-town-field" class="pm-textfield" type="text" required value="<?php echo $town; ?>">
                                     
-                                <label for="pm-zip-field">Zip *</label>
-                                <input name="pm-zip-field" class="pm-textfield" type="text" required maxlength="6"  onkeypress="return isNumberKey(event)" value="<?php echo $pincode; ?>">
+                                <!-- <label for="pm-zip-field">Zip *</label>
+                                <input name="pm-zip-field" class="pm-textfield" type="text" required maxlength="6"  onkeypress="return isNumberKey(event)" value="<?php echo $pincode; ?>"> -->
                                     
                                 <label for="pm-email-address-field">Email Address *</label>
                                 <input name="pm-email-address-field" class="pm-textfield" type="text" required  value="<?php echo $user_email; ?>">

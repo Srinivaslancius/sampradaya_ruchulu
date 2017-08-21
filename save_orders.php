@@ -9,7 +9,6 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	$mobile = $_POST["pm-phone-field"];
 	$address = $_POST["pm-address-field"];
 	$city = $_POST["pm-town-field"];
-	$zipcode = $_POST["pm-zip-field"];
 	$email = $_POST["pm-email-address-field"];
 	$cart_sub_total = $_POST["cart_sub_total"];
 	$order_total = $_POST["order_total"];
@@ -23,12 +22,12 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 
 	$productsCount = count($_POST["product_id"]);
 	for($i=0;$i<$productsCount;$i++) {
-		$sql = "INSERT INTO orders (`first_name`, `mobile`,`email`, `district`, `address1`,`pin_code`,`product_id`,`product_name`,`product_price`,`product_total_price`,`cart_sub_total`,`order_total`,`order_date`,`product_quantity`,`payment_status`,`order_status`,`order_id`) VALUES ('$name','$mobile','$email','$location_name','$address','$zipcode','" . $_POST["product_id"][$i] . "','" . $_POST["product_name"][$i] . "','" . $_POST["product_price"][$i] . "','" . $_POST["product_total_price"][$i] . "','$cart_sub_total','$order_total','$order_date','" . $_POST["product_quantity"][$i] . "','1','1','$order_id')";
+		$sql = "INSERT INTO orders (`first_name`, `mobile`,`email`, `district`, `address1`,`product_id`,`product_name`,`product_price`,`product_total_price`,`cart_sub_total`,`order_total`,`order_date`,`product_quantity`,`payment_status`,`order_status`,`order_id`) VALUES ('$name','$mobile','$email','$location_name','$address','" . $_POST["product_id"][$i] . "','" . $_POST["product_name"][$i] . "','" . $_POST["product_price"][$i] . "','" . $_POST["product_total_price"][$i] . "','$cart_sub_total','$order_total','$order_date','" . $_POST["product_quantity"][$i] . "','1','1','$order_id')";
 	    $res = $conn->query($sql);
 	}
 	$sessionMobile = $_SESSION['session_mobile'];
 
-	$updateUserTable = "UPDATE users SET user_name='$name',user_email='$email',town='$location_name',pincode='$zipcode',user_address='$address' WHERE user_mobile='$sessionMobile' ";
+	$updateUserTable = "UPDATE users SET user_name='$name',user_email='$email',town='$location_name',user_address='$address' WHERE user_mobile='$sessionMobile' ";
 	$conn->query($updateUserTable);
 	$delCart ="DELETE FROM cart WHERE user_mobile = '$sessionMobile' ";
 	$conn->query($delCart);
