@@ -102,7 +102,8 @@ if (!isset($_POST['submit']))  {
                                     Product Images : <br /><br />
                                     <div class="input_fields_wrap">
                                         <div>
-                                            <input type="file" id="product_images" name="product_images" accept="image/*" required>
+                                           <img id="output" height="100" width="100"/>
+                                            <input type="file" id="product_images" name="product_images" accept="image/*" onchange="loadFile(event)" required>
                                             <p>(Please upload this size images 900*400)</p> 
                                             <!-- <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a> -->
                                         </div><br/>
