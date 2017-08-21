@@ -12,12 +12,12 @@
         <!-- model pop-up Script for all pages with bootstrap js -->
         <script src="assets/js/bootstrap.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
+            //$(document).ready(function(){
                 $(".click_view").click(function(){
                     var modalId = $(this).attr('data-modalId');
                     $("#myModal_"+modalId).modal('show');  
                 });                  
-            });
+            //});
         </script>
         <!--code for image refresh-->
         <script>
