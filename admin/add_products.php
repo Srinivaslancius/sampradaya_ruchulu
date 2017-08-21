@@ -46,7 +46,7 @@ if (!isset($_POST['submit']))  {
 <main class="mn-inner">
     <div class="row">
         <div class="col s12">
-            <div class="page-title">Products</div>
+            <div class="page-title">Dishes</div>
         </div>
         <div class="col s12 m12 l2"></div>
         <div class="col s12 m12 l8">

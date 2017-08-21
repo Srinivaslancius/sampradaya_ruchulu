@@ -8,8 +8,8 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                 <a href="add_products.php" style="float:right">Add Product</a>
-                                <span class="card-title">Products</span>
+                                 <a href="add_products.php" style="float:right">Add Dishes</a>
+                                <span class="card-title">Dishes</span>
                                 <?php $getData = getAllDataWithActiveRecent('products'); $i=1; ?>
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
