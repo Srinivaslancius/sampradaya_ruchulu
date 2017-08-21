@@ -8,11 +8,10 @@ $id = $_GET['oid'];
             echo "";
     } else  {            
 
-            $mobile = $_POST['mobile'];
-            $order_date = date("Y-m-d h:i:s");
+            $order_id = $_POST['order_id'];            
             $order_status = $_POST['order_status'];
             
-            $sql = "UPDATE `orders` SET mobile='$mobile',order_status = '$order_status' WHERE id = '$id' ";
+            $sql = "UPDATE `orders` SET order_status = '$order_status' WHERE order_id = '$order_id' ";
             if($conn->query($sql) === TRUE){
                echo "<script>alert('Data Updated Successfully');window.location.href='orders.php';</script>";
             } else {
@@ -37,6 +36,7 @@ $id = $_GET['oid'];
                                         <input id="mobile" type="text" class="validate" name="mobile" required value="<?php echo $getOrders1['mobile'];?>">
                                         <label for="mobile">Mobile</label>
                                     </div>
+                                    <input type="hidden" name="order_id" value="<?php echo $getOrders1['order_id']?>">
                                     <div class="input-field col s12">
                                         <select name="order_status" required>
                                             <option value="" disabled selected>Choose your status</option>

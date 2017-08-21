@@ -2,7 +2,7 @@
 <?php 
 $getAllActiveMenus = getAllDataCheckActive('categories',0); 
 $id= $_GET['id'];
-$sqlMultiple="SELECT * FROM products WHERE category_id LIKE '%$id%'";
+$sqlMultiple="SELECT * FROM products WHERE availability_id=0 AND status=0 AND category_id LIKE '%$id%'";
 $getAllProductData = $conn->query($sqlMultiple);
 ?>
 
@@ -80,7 +80,7 @@ $getAllProductData = $conn->query($sqlMultiple);
        <?php include_once "footer_sub_content.php"; ?>
         
       <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal fade" id="myModal" role="dialog" style="top:138px; text-align:center">
               <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
