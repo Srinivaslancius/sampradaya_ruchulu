@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">Booked Events</span>
-                        <?php $getData = getAllData('book_an_event'); $i=1;?>
+                        <?php $getData = getAll('book_an_event'); $i=1;?>
                         <table id="example" class="display responsive-table datatable-example">
                             <thead>
                                 <tr>
@@ -17,9 +17,9 @@
                                     <th>Name</th>
                                     <th>Email </th>
                                     <th>Mobile</th>
-                                    <th>Event Date</th>                                            
+                                    <th>Event Date</th>
                                 </tr>
-                            </thead>                                    
+                            </thead>
                             <tbody>
                                 <?php while ($row = $getData->fetch_assoc()) { ?>
                                 <tr>
