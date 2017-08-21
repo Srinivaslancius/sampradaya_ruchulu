@@ -9,7 +9,9 @@
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">Booked Events</span>
+
                         <?php $getData = getAllDataWithActiveRecent('book_an_event'); $i=1;?>
+
                         <table id="example" class="display responsive-table datatable-example">
                             <thead>
                                 <tr>

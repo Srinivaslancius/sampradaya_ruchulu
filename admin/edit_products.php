@@ -100,7 +100,7 @@ if (!isset($_POST['submit']))  {
                                 </div>
 
                                 <div class="input-field col s12">
-                                    <input id="product_price" type="text" class="validate" name="product_price" required value="<?php echo $getAllProductsData['product_price']; ?>">
+                                    <input id="product_price" type="text" class="validate" name="product_price" required value="<?php echo number_format($getAllProductsData['product_price'],2,'.',','); ?>">
                                     <label for="price">Product Price</label>
                                 </div>
 
@@ -132,7 +132,7 @@ if (!isset($_POST['submit']))  {
                                 </div> 
 
                                 <div class="input-field col s6">
-                                   Image :  <input id="product_image" type="file" name="product_images" accept="image/*">
+                                   Image :  <input id="product_image" type="file" name="product_images" accept="image/*" onchange="loadFile(event)">
                                    <p>(Please upload this size images 1920*800)</p>
                                 </div>
 
