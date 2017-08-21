@@ -39,7 +39,6 @@ $res1 = $res->fetch_array();
                         <p>Your Order#is:<strong><?php echo $orderId; ?></strong></p>
                         <p>Billing&Shipping Information:</p>
                         <p><?php echo $res1['district']; ?></p>
-                        <p>Pincode - <?php echo $res1['pin_code']; ?></p>
                         <p>You will be redirected to the Home in 10 seconds.</p>
                 </div>
                 
