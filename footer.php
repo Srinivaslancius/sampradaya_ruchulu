@@ -7,7 +7,7 @@
                         <div class="pm-footer-social-info-container">
                             <h4 style="color:#fff">Follow us </h4>
                             <ul class="pm-footer-social-icons">
-                                <li title="Twitter" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['tw_link']; ?>"  target="_blank"><i class="fa fa-twitter tw"></i></a></li>
+                                <li title="Twitter" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>"  target="_blank"><i class="fa fa-twitter tw"></i></a></li>
                                 <li title="Facebook" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['fb_link']; ?>"  target="_blank"><i class="fa fa-facebook fb"></i></a></li>
                             </ul>
                         </div>

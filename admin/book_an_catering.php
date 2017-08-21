@@ -9,7 +9,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Booked Caterings</span>
-                                <?php $getData = getAllData('book_an_catering'); $i=1;?>
+                                <?php $getData = getAllDataWithActiveRecent('book_an_catering'); $i=1;?>
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
