@@ -8,7 +8,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                 <a href="add_content_pages.php" style="float:right">Add Contents</a>
+                                <!-- <a href="add_content_pages.php" style="float:right">Add Contents</a> -->
                                 <span class="card-title">Content Pages</span>
                                 <?php $getData = getAllDataWithActiveRecent('content_pages'); $i=1; ?>
                                 <table id="example" class="display responsive-table datatable-example">
