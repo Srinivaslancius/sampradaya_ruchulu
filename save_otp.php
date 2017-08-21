@@ -24,7 +24,7 @@ if(!empty($_POST['mobile']) && !empty($_POST['mobile']))  {
 			$succ = "0";
 		}
 	}
-	$message = urlencode('OTP for SAMPRADAYA RUCHULU Registration is '.$user_otp.'. Do not share it with any one.'); // Message text required to deliver on mobile number
+	$message = urlencode('OTP from SAMPRADAYA RUCHULU Registration is '.$user_otp.'. Do not share it with any one.'); // Message text required to deliver on mobile number
 	$sendSMS = sendMobileOTP($message,$user_mobile);
 	echo $succ;	  
 }
