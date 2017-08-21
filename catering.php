@@ -26,7 +26,7 @@ if (!isset($_POST['submit']))  {
 <div class="pm-sub-header-container pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
     
     <div class="pm-sub-header-title-container">
-        <p class="pm-sub-header-title"><span>Book an Catering</span></p>
+        <p class="pm-sub-header-title"><span>Book Catering</span></p>
         <p class="pm-sub-header-message">host your event with the best restaurant in town</p>
     </div>
     
@@ -49,7 +49,7 @@ if (!isset($_POST['submit']))  {
                 
                 <p>Morbi eu mattis justo, vitae porta orci. Sed et est a elit ultrices posuere. Fusce nibh enim, sollicitudin sed orci vitae, mollis elementum risus. Aliquam hendrerit, dui quis tincidunt ultrices, purus nisl aliquet enim, at eleifend nisi ante et justo.</p>
                 
-                <a href="#catering-form" class="pm-rounded-btn pm-primary pm-page-scroll">Book your event now &nbsp;<i class="fa fa-angle-down"></i></a>
+                <a href="#catering-form" class="pm-rounded-btn pm-primary pm-page-scroll">Book &nbsp;<i class="fa fa-angle-down"></i></a>
                 
             </div>
         
@@ -60,7 +60,7 @@ if (!isset($_POST['submit']))  {
         <div class="row">
         
             <div class="col-lg-12 pm-column-spacing">
-                <h2>EVENT form</h2>
+                <h2>CATERING form</h2>
                 
                 <form action="#" method="post" id="pm-event-form">
                 
@@ -82,21 +82,21 @@ if (!isset($_POST['submit']))  {
                                 $getCaterings = getAllDataCheckActive('catering_types',0);
                             ?>
                             <select name="catering_type_id" required>
-                                    <option value="">Select Event</option>
+                                    <option value="">Select Catering</option>
                                     <?php while($row = $getCaterings->fetch_assoc()) {  ?>
                                         <option value="<?php echo $row['id']; ?>"><?php echo $row['catering_type']; ?></option>
                                     <?php } ?>
                             </select>
                             
-                            <input name="catering_date" class="pm-textfield event-form-datepicker" type="text" placeholder="Date of Event *" id="datepicker" required>
+                            <input name="catering_date" class="pm-textfield event-form-datepicker" type="text" placeholder="Date of Catering *" id="datepicker" required>
 
-                            <input name="no_of_guests" class="pm-textfield" type="text" placeholder="Number of Guests (Maximum of 50) *" id="event-form-guests-field" required> 
+                            <input name="no_of_guests" class="pm-textfield" type="text" placeholder="Number of Guests (Maximum of 50) *" id="event-form-guests-field" onkeypress="return isNumberKey(event)" required> 
                         
                         </div><!-- /.col-lg-4 -->
                         
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             
-                            <input name="catering_time" class="pm-textfield" type="text" placeholder="Time of Event (ex. 7:00pm - 9:00pm) *" id="event-form-time-field" required>  
+                            <input name="catering_time" class="pm-textfield" type="text" placeholder="Time of Catering (ex. 7:00pm - 9:00pm) *" id="event-form-time-field" required>  
                             
                         </div>
                                                 

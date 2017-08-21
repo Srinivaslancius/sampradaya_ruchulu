@@ -80,7 +80,7 @@
             url:"save_otp.php",
             data:"mobile="+mobile,              
             success:function(result){              
-              if(result == 1) {
+              if(result!='') {
                 $('.verify_opt_div').show();
                 $('.show_msg').html("Check Your Mobile For The OTP");
               }
@@ -111,7 +111,7 @@
                 });
               } else {
                 $('#verify_otp').val('');
-                $('.show_msg').html("Invalid OTP!");
+                $('.show_msg').html("Your Entered Invalid OTP!");
                 $(".show_msg").css("color","#ff0000");
                 return false;
               }

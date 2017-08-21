@@ -106,6 +106,20 @@
         return $admin_pwd;
     }
 
+    function sendMobileOTP($message,$user_mobile) {
+        global $conn;
+        $username = "succhendra";
+        $password = "succhendra@123@!";
+        $numbers = "$user_mobile"; // mobile number
+        $sender = urlencode('SAMPRA'); // assigned Sender_ID
+        //$message = urlencode('Your OTP Code is '.$user_otp.''); // Message text required to deliver on mobile number
+        $data = "username="."$username"."&password="."$password"."&to="."$numbers"."&from="."$sender"."&msg="."$message"."&type=1";
+        $data = "https://www.smsstriker.com/API/sms.php?".$data;
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,$data);
+        $response = curl_exec($ch);        
+    }
+
     function getImageUnlink($val,$table,$clause,$id,$target_dir){
         global $conn;
         $getBanner = "SELECT $val FROM $table WHERE $clause='$id' ";

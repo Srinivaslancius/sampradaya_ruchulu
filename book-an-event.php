@@ -90,7 +90,7 @@ if (!isset($_POST['submit']))  {
                                 
                                 <input name="event_date" class="pm-textfield event-form-datepicker" type="text" placeholder="Date of Event *" id="datepicker" required>
 
-                                <input name="no_of_guests" class="pm-textfield" type="text" placeholder="Number of Guests (Maximum of 50) *" id="event-form-guests-field" required>	
+                                <input name="no_of_guests" class="pm-textfield" type="text" placeholder="Number of Guests (Maximum of 50) *" id="event-form-guests-field" onkeypress="return isNumberKey(event)" required>	
                             
                             </div><!-- /.col-lg-4 -->
                             
