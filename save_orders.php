@@ -1,5 +1,7 @@
 <?php 
 include "admin/includes/config.php"; 
+include "admin/includes/functions.php"; 
+$getSiteSettingsData = getIndividualDetails('1',"site_settings","id"); 
 if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	// echo "<pre>"; print_r($_POST); die;
 	$location_name = $_POST["location_name"];
@@ -30,6 +32,16 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	$conn->query($updateUserTable);
 	$delCart ="DELETE FROM cart WHERE user_mobile = '$sessionMobile' ";
 	$conn->query($delCart);
+
+	//sms gateway integration for custome sms order paling
+	$message = urlencode('Thank You for Ordering SAMPRADAYA RUCHULU . Your Order Number is: '.$order_id.', Order Total: '.$order_total.' '); // Message text required to deliver on mobile number
+	$sendSMS = sendMobileOTP($message,$sessionMobile);
+
+
+	//sms gateway integration for custome sms order paling
+	$admin_mobile=$getSiteSettingsData['mobile'];
+	$message = urlencode('New Order Placed ,Order Number is: '.$order_id.', Order Total: '.$order_total.' '); // Message text required to deliver on mobile number
+	$sendSMS = sendMobileOTP($message,$admin_mobile);
     header("Location: thankyou.php?odi=".$order_id."");
 
 }

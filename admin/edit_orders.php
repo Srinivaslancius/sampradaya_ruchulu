@@ -10,9 +10,11 @@ $id = $_GET['oid'];
 
             $order_id = $_POST['order_id'];            
             $order_status = $_POST['order_status'];
-            
+            $mobile = $_POST['mobile'];
             $sql = "UPDATE `orders` SET order_status = '$order_status' WHERE order_id = '$order_id' ";
             if($conn->query($sql) === TRUE){
+                $message = urlencode('Delivered : Your Order was successfully delivered.'); // Message text required to deliver on mobile number
+                $sendSMS = sendMobileOTP($message,$mobile);
                echo "<script>alert('Data Updated Successfully');window.location.href='orders.php';</script>";
             } else {
                echo "<script>alert('Data Updation Failed');window.location.href='orders.php';</script>";
@@ -33,7 +35,7 @@ $id = $_GET['oid'];
                             <div class="row">
                                 <?php $getOrders = getAllDataWhere('orders', 'id', $id); $getOrders1 = $getOrders->fetch_assoc(); ?>                                    
                                     <div class="input-field col s12">
-                                        <input id="mobile" type="text" class="validate" name="mobile" required value="<?php echo $getOrders1['mobile'];?>">
+                                        <input id="mobile" type="text" class="validate" readonly name="mobile" required value="<?php echo $getOrders1['mobile'];?>">
                                         <label for="mobile">Mobile</label>
                                     </div>
                                     <input type="hidden" name="order_id" value="<?php echo $getOrders1['order_id']?>">

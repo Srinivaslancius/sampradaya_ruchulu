@@ -152,8 +152,7 @@
                                                             </div>                                                         
                                                         </div>
                                                     </div>
-                                                    <div class="modal-footer" >
-                                                        <button type="button" class="btn" data-dismiss="modal" style="background-color:#f00; color:#fff">Print</button>
+                                                    <div class="modal-footer" >                                                        
                                                         <button type="button" class="btn" data-dismiss="modal" style="background-color:#f00; color:#fff">Close</button>
                                                     </div>
                                                 </div>
