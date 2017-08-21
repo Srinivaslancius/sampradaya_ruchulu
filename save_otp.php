@@ -7,7 +7,7 @@ if(!empty($_POST['mobile']) && !empty($_POST['mobile']))  {
 	$date = date("Y-m-d h:i:s");
 	$status = 1;
 	$user_otp= rand ( 1000 , 9999 );
-		  
+	
 	$getCount = getRowsCountWithUsermobile('users',$user_mobile); 
 	if($getCount==0) {
 		$sql = "INSERT INTO users ( `user_mobile`,`user_password`, `created_at`, `status`) VALUES ('$user_mobile','$user_otp','$date', '$status')";
@@ -24,6 +24,8 @@ if(!empty($_POST['mobile']) && !empty($_POST['mobile']))  {
 			$succ = "0";
 		}
 	}
+	$message = urlencode('OTP for SAMPRADAYA RUCHULU Registration is '.$user_otp.'. Do not share it with any one.'); // Message text required to deliver on mobile number
+	$sendSMS = sendMobileOTP($message,$user_mobile);
 	echo $succ;	  
 }
 
