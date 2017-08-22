@@ -48,7 +48,13 @@ $msgClass = '';
         }
     }
 ?>
-<?php $getContactData = getIndividualDetails('2',"content_pages","id"); ?>
+<?php $getContactData = getIndividualDetails('2',"content_pages","id"); 
+  $address =$getContactData['description']; // Google HQ
+  $prepAddr = str_replace(' ','+',$address);
+  $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+  $output= json_decode($geocode);
+  $latitude = $output->results[0]->geometry->location->lat;
+  $longitude = $output->results[0]->geometry->location->lng;?>
 
       <!-- SUB-HEADER area -->
         <div class="pm-sub-header-container-contact pm-parallax-panel" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
@@ -68,39 +74,48 @@ $msgClass = '';
         	<div class="row">
                 <div class="col-lg-12">
                     <div id="map" style="display:block; height: 350px;"></div>
+                    <div id="message"><?php echo $getContactData['description']; ?></div>
                         <script src="http://maps.google.com/maps/api/js?key=AIzaSyA04qekzxWtnZq6KLkabMN_4abcJt9nCDk"
                                 type="text/javascript"></script>
                         <script type="text/javascript">
-                               var locations = [
-                                 ['maxcure hospital', 17.446740, 78.380109, 4],
-                                 ['RatnaDeep super market', 17.446139, 78.384774, 5],
-                                 ['image hospital', 17.444446, 78.386108, 3]
-                                 
-                               ];
+                            var map;
+                            var infowindow = new google.maps.InfoWindow({
+                                content: document.getElementById('message')
+                            });
+                            function initialize() {
+                                // Set static latitude, longitude value
+                                var latlng = new google.maps.LatLng(<?php echo $latitude; ?>, <?php echo $longitude; ?>);
+                                // Set map options
+                                var myOptions = {
+                                    zoom: 16,
+                                    center: latlng,
+                                    panControl: true,
+                                    zoomControl: true,
+                                    scaleControl: true,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                }
+                                // Create map object with options
+                                map = new google.maps.Map(document.getElementById("map"), myOptions);
+                            <?php
 
-                               var map = new google.maps.Map(document.getElementById('map'), {
-                                 zoom: 15,
-                                 center: new google.maps.LatLng( 17.4458,78.3774),
-                                 mapTypeId: google.maps.MapTypeId.ROADMAP
-                               });
 
-                               var infowindow = new google.maps.InfoWindow();
+                                    echo "addMarker(new google.maps.LatLng(".$latitude.", ".$longitude."), map);";
+                            ?>
+                            }
+                            function addMarker(latLng, map) {
+                                var marker = new google.maps.Marker({
+                                    position: latLng,
+                                    map: map,
+                                    draggable: true, // enables drag & drop
+                                    animation: google.maps.Animation.DROP
+                                });
+                                google.maps.event.addListener(marker, 'click', function() {
+                                    infowindow.open(map, marker);
+                                  });
 
-                               var marker, i;
-
-                               for (i = 0; i < locations.length; i++) {  
-                                 marker = new google.maps.Marker({
-                                   position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                                   map: map
-                                 });
-
-                                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                                   return function() {
-                                     infowindow.setContent(locations[i][0]);
-                                     infowindow.open(map, marker);
-                                   }
-                                 })(marker, i));
-                               }
+                                return marker;
+                            }
+                            google.maps.event.addDomListener(window, 'load', initialize);
                         </script>
                 </div>
             </div>
