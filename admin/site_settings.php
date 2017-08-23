@@ -14,6 +14,7 @@
     $gplus_link = $_POST['gplus_link'];
     $mobile = $_POST['mobile'];
     $delivery_charges = $_POST['delivery_charges'];
+    $packaging_charges = $_POST['packaging_charges'];
     $footer_text = $_POST['footer_text'];
     $address = $_POST['address'];
     if($_FILES["logo"]["name"]!='') {
@@ -33,7 +34,7 @@
         //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
 
         if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-            $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', delivery_charges='$delivery_charges', logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+            $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', delivery_charges='$delivery_charges',packaging_charges='$packaging_charges', logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
             if($conn->query($sql) === TRUE){
                echo "<script>alert('Data Updated Successfully');window.location.href='site_settings.php';</script>";
             } else {
@@ -44,7 +45,7 @@
             echo "Sorry, there was an error uploading your file.";
         }
     }  else {
-        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',delivery_charges='$delivery_charges', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',delivery_charges='$delivery_charges',packaging_charges='$packaging_charges', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script>alert('Data Updated Successfully');window.location.href='site_settings.php';</script>";
         } else {
@@ -82,11 +83,11 @@
                                 </div>
                                 <div class="input-field col s12">
                                     <input id="title" type="url" class="validate" name="twitter_link" required value="<?php echo $getSiteSettingsData['twitter_link'];?>">
-                                    <label for="title">Twitter Link</label>
+                                    <label for="title">Instagram Link</label>
                                 </div>
                                 <div class="input-field col s12">
                                     <input id="title" type="url" class="validate" name="gplus_link" required value="<?php echo $getSiteSettingsData['gplus_link'];?>">
-                                    <label for="title">Google + Link</label>
+                                    <label for="title">Youtube Link</label>
                                 </div>
                                 <div class="input-field col s12">
                                     <input id="title" type="text" class="validate" name="mobile" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required value="<?php echo $getSiteSettingsData['mobile'];?>">
@@ -96,6 +97,11 @@
                                 <div class="input-field col s12">
                                     <input id="delivery_charges" type="text" class="validate" name="delivery_charges" required value="<?php echo $getSiteSettingsData['delivery_charges'];?>">
                                     <label for="title">Delivery Charges</label>
+                                </div>
+
+                                <div class="input-field col s12">
+                                    <input id="packaging_charges" type="text" class="validate" name="packaging_charges" required value="<?php echo $getSiteSettingsData['packaging_charges'];?>">
+                                    <label for="title">Package Charges</label>
                                 </div>
 
                                 <div class="form-group">

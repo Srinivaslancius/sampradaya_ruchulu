@@ -119,12 +119,16 @@ if(isset($getUsersData['user_address'])) { $user_address = $getUsersData['user_a
                                     <p class="price">&#2352; <?php echo $sub_total; ?></p>
                                 </li>
                                 <li>
-                                    <p class="label">shipping and handling</p>
+                                    <p class="label">Delivery Charges</p>
                                     <p class="price">&#2352; <?php echo $shipping=$getSiteSettingsData['delivery_charges']; ?></p>
                                 </li>
                                 <li>
+                                    <p class="label">Packaging Charges</p>
+                                    <p class="price">&#2352; <?php echo $packaging=$getSiteSettingsData['packaging_charges']; ?></p>
+                                </li>
+                                <li>
                                     <p class="label">Order Total</p>
-                                    <p class="price">&#2352; <?php echo $sub_total +$shipping; ?></p>
+                                    <p class="price">&#2352; <?php echo $sub_total +$shipping +$packaging; ?></p>
                                 </li>
                             </ul>
                                                         

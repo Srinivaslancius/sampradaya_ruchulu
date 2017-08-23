@@ -111,7 +111,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                     
                     <div class="col-lg-2 col-md-2 col-sm-6 visible-lg visible-md pm-book-event">
                         <div class="pm-sub-menu-book-event">
-                            <a href="book-an-event.php">Book a Table <i class="fa fa-calendar"></i></a>
+                            <a href="book-an-event.php">Party Order <i class="fa fa-calendar"></i></a>
                         </div>
                     </div>
                     

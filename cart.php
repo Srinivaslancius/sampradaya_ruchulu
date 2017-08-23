@@ -124,13 +124,25 @@
                             
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="pm-cart-totals-column">
-                                        <p class="pm-cart-totals-label">shipping and handling</p>
+                                        <p class="pm-cart-totals-label">Delivery Charges</p>
                                     </div>
                                 </div>
                                 
                                 <div class="col-lg-8 col-md-6 col-sm-6">
                                     <div class="pm-cart-totals-column">
                                         <p>&#2352; <?php echo $shipping=$getSiteSettingsData['delivery_charges']; ?></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="pm-cart-totals-column">
+                                        <p class="pm-cart-totals-label">Packaging Charges</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-8 col-md-6 col-sm-6">
+                                    <div class="pm-cart-totals-column">
+                                        <p>&#2352; <?php echo $packaging=$getSiteSettingsData['packaging_charges']; ?></p>
                                     </div>
                                 </div>
                             
@@ -146,7 +158,7 @@
                                 
                                 <div class="col-lg-8 col-md-6 col-sm-6">
                                     <div class="pm-cart-totals-column">
-                                        <p>&#2352; <?php echo $sub_total +$shipping; ?></p>
+                                        <p>&#2352; <?php echo $sub_total +$shipping +$packaging; ?></p>
                                     </div>
                                 </div>
                             

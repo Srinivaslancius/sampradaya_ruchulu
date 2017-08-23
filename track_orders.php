@@ -152,9 +152,16 @@
                                                             </div>  
 
                                                             <div class="table-row table-footer">
-                                                                <div class="table-cell">Shipping and Handling</div>
+                                                                <div class="table-cell">Delivery Charges</div>
                                                                 <div class="table-cell"></div>
                                                                 <div class="table-cell"><?php echo $getSiteSettingsData['delivery_charges']; ?></div>                        
+                                                                <div class="table-cell"></div>
+                                                            </div>
+
+                                                            <div class="table-row table-footer">
+                                                                <div class="table-cell">Packaging Charges</div>
+                                                                <div class="table-cell"></div>
+                                                                <div class="table-cell"><?php echo $getSiteSettingsData['packaging_charges']; ?></div>                        
                                                                 <div class="table-cell"></div>
                                                             </div>
 
