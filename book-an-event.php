@@ -48,7 +48,7 @@ if (!isset($_POST['submit']))  {
                     
                     <?php echo $getAboutData['description']; ?>
                     
-                    <a href="#catering-form" class="pm-rounded-btn pm-primary pm-page-scroll">Book your event now &nbsp;<i class="fa fa-angle-down"></i></a>
+                    <a href="#catering-form" class="pm-rounded-btn pm-primary pm-page-scroll">Book your party Orders &nbsp;<i class="fa fa-angle-down"></i></a>
                     
                 </div>
             

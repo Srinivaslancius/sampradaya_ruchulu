@@ -179,7 +179,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                                     </ul>
                                 </li>
                                 <li><a href="gallery.php">Gallery</a></li>                                                            
-                                <li><a href="catering.php">Catering</a></li>
+                                <li><a href="catering.php">Catering & Bulk Orders</a></li>
                             
                             </ul>
                         
