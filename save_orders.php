@@ -28,18 +28,17 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	$sessionMobile = $_SESSION['session_mobile'];
 
 	$updateUserTable = "UPDATE users SET user_name='$name',user_email='$email',town='$location_name',user_address='$address' WHERE user_mobile='$sessionMobile' ";
-	$conn->query($updateUserTable);
-	$delCart ="DELETE FROM cart WHERE user_mobile = '$sessionMobile' ";
-	$conn->query($delCart);
+	$conn->query($updateUserTable);	
 
 	//sms gateway integration for custome sms order paling
 	$message = urlencode('Thank You for Ordering SAMPRADAYA RUCHULU . Your Order Number is: '.$order_id.', Order Total: '.$order_total.' '); // Message text required to deliver on mobile number
 	$sendSMS = sendMobileOTP($message,$sessionMobile);
 
-
+	$delCart ="DELETE FROM cart WHERE user_mobile = '$sessionMobile' ";
+	$conn->query($delCart);
 	//sms gateway integration for custome sms order paling
 	$admin_mobile=$getSiteSettingsData['mobile'];
-	$message = urlencode('New Order Placed ,Order Number is: '.$order_id.', Order Total: '.$order_total.' '); // Message text required to deliver on mobile number
+	$message = urlencode('New Order Placed ,Order Number is: '.$order_id.', Name : '.$name.' , Address : '.$city.' , Mobile : '.$mobile.', Order Total: '.$order_total.' '); // Message text required to deliver on mobile number
 	$sendSMS = sendMobileOTP($message,$admin_mobile);
     header("Location: thankyou.php?odi=".$order_id."");
 
