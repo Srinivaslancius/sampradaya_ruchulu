@@ -8,8 +8,8 @@
                             <h4 style="color:#fff">Follow us </h4>
                             <ul class="pm-footer-social-icons">
                                 <li title="Facebook" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['fb_link']; ?>"  target="_blank"><i class="fa fa-facebook fb"></i></a></li>
-                                <li title="Instagram" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>"  target="_blank"><i class="fa fa-instagram it"></i></a></li>
-                                <li title="Youtube" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['gplus_link']; ?>"  target="_blank"><i class="fa fa-youtube yt"></i></a></li>
+                                <li title="Instagram" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li title="Youtube" class="pm_tip_static_top"><a href="<?php echo $getSiteSettingsData['gplus_link']; ?>"  target="_blank"><i class="fa fa-youtube"></i></a></li>
                                 
                             </ul>
                         </div>
