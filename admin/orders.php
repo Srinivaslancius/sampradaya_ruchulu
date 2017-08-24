@@ -140,7 +140,14 @@
                                                             <div class="table1-row table1-footer">
                                                                 <div class="table1-cell">Delivery Charges</div>
                                                                 <div class="table1-cell"></div>
-                                                                <div class="table1-cell"><?php echo $getSiteSettingsData['delivery_charges']; ?></div>                        
+                                                                <div class="table1-cell"><?php echo $res1['delivery_charges']; ?></div>                        
+                                                                <div class="table1-cell"></div>
+                                                            </div>
+
+                                                            <div class="table1-row table1-footer">
+                                                                <div class="table1-cell">Packaging Charges</div>
+                                                                <div class="table1-cell"></div>
+                                                                <div class="table1-cell"><?php echo $res1['packaging_charges']; ?></div>                        
                                                                 <div class="table1-cell"></div>
                                                             </div>
 

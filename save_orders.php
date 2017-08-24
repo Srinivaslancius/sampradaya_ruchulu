@@ -10,6 +10,8 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	$address = $_POST["pm-address-field"];
 	$city = $_POST["pm-town-field"];
 	$email = $_POST["pm-email-address-field"];
+	$delivery_charges = $_POST["delivery_charges"];
+	$packaging_charges=$_POST["packaging_charges"];
 	$cart_sub_total = $_POST["cart_sub_total"];
 	$order_total = $_POST["order_total"];
 	$order_date = date("Y-m-d h:i:s");
@@ -22,7 +24,7 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 
 	$productsCount = count($_POST["product_id"]);
 	for($i=0;$i<$productsCount;$i++) {
-		$sql = "INSERT INTO orders (`first_name`, `mobile`,`email`, `district`, `address1`,`product_id`,`product_name`,`product_price`,`product_total_price`,`cart_sub_total`,`order_total`,`order_date`,`product_quantity`,`payment_status`,`order_status`,`order_id`) VALUES ('$name','$mobile','$email','$location_name','$address','" . $_POST["product_id"][$i] . "','" . $_POST["product_name"][$i] . "','" . $_POST["product_price"][$i] . "','" . $_POST["product_total_price"][$i] . "','$cart_sub_total','$order_total','$order_date','" . $_POST["product_quantity"][$i] . "','1','1','$order_id')";
+		$sql = "INSERT INTO orders (`first_name`, `mobile`,`email`, `district`, `address1`,`product_id`,`product_name`,`product_price`,`product_total_price`,`delivery_charges`,`packaging_charges`,`cart_sub_total`,`order_total`,`order_date`,`product_quantity`,`payment_status`,`order_status`,`order_id`) VALUES ('$name','$mobile','$email','$location_name','$address','" . $_POST["product_id"][$i] . "','" . $_POST["product_name"][$i] . "','" . $_POST["product_price"][$i] . "','" . $_POST["product_total_price"][$i] . "','" . $_POST["delivery_charges"]. "','" . $_POST["packaging_charges"] . "','$cart_sub_total','$order_total','$order_date','" . $_POST["product_quantity"][$i] . "','1','1','$order_id')";
 	    $res = $conn->query($sql);
 	}
 	$sessionMobile = $_SESSION['session_mobile'];
@@ -38,7 +40,7 @@ if(isset($_POST["submit"]) && $_POST["submit"]!="") {
 	$conn->query($delCart);
 	//sms gateway integration for custome sms order paling
 	$admin_mobile=$getSiteSettingsData['mobile'];
-	$message = urlencode('New Order Placed ,Order Number is: '.$order_id.', Name : '.$name.' , Address : '.$city.' , Mobile : '.$mobile.', Order Total: '.$order_total.' '); // Message text required to deliver on mobile number
+	$message = urlencode('New Order Placed ,Order Number is: '.$order_id.', Name : '.$name.' , Address : '.$city.' , Mobile : '.$mobile.',Order Date: '.$order_date.', Order Total: '.$order_total.' '); // Message text required to deliver on mobile number
 	$sendSMS = sendMobileOTP($message,$admin_mobile);
     header("Location: thankyou.php?odi=".$order_id."");
 

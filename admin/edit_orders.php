@@ -10,10 +10,17 @@ $id = $_GET['oid'];
 
             $order_id = $_POST['order_id'];            
             $order_status = $_POST['order_status'];
+            if($order_status==1) {
+                $checkStatus = 'Pending';
+            } else if($order_status==2){
+                $checkStatus = 'Delivered';
+            } else {
+                $checkStatus = 'Cancelled';
+            }            
             $mobile = $_POST['mobile'];
             $sql = "UPDATE `orders` SET order_status = '$order_status' WHERE order_id = '$order_id' ";
             if($conn->query($sql) === TRUE){
-                $message = urlencode('Delivered : Your Order was successfully delivered.'); // Message text required to deliver on mobile number
+                $message = urlencode('Your Order Was Successfully ' .$checkStatus); // Message text required to deliver on mobile number
                 $sendSMS = sendMobileOTP($message,$mobile);
                echo "<script>alert('Data Updated Successfully');window.location.href='orders.php';</script>";
             } else {

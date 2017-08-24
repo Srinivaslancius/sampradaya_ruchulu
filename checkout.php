@@ -107,6 +107,10 @@ if(isset($getUsersData['user_address'])) { $user_address = $getUsersData['user_a
                                 <input type="hidden" name="product_total_price[]" value="<?php echo $getProductsData['product_total_price']; ?>">
                                 <input type="hidden" name="product_quantity[]" value="<?php echo $getProductsData['product_quantity']; ?>">
                                 <input type="hidden" name="cart_sub_total" value="<?php echo $sub_total; ?>">
+
+                                <input type="hidden" name="delivery_charges" value="<?php echo $getSiteSettingsData['delivery_charges']; ?>">
+                                <input type="hidden" name="packaging_charges" value="<?php echo $getSiteSettingsData['packaging_charges']; ?>">
+
                                 <input type="hidden" name="order_total" value="<?php echo $sub_total + $getSiteSettingsData['delivery_charges']+$getSiteSettingsData['packaging_charges'] ?>">
                                 
                                 <p class="title"><?php echo $getProData['product_name']?> × <?php echo $getProductsData['product_quantity']; ?></p> <br />
