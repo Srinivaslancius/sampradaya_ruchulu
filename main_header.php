@@ -68,7 +68,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
   <div class="pm-mobile-global-menu">
                     
     <div class="pm-mobile-global-menu-logo">
-        <a href="index.php"><img src="uploads/logo/<?php echo $getSiteSettingsData['logo']; ?>" alt="Sampradaya Ruchulu Restaurant"></a> 
+        <a href="index.php"><img src="uploads/logo/<?php echo $getSiteSettingsData['logo']; ?>" style="width:100px; height:50px;" alt="Sampradaya Ruchulu Restaurant"></a> 
     </div>   
     
     <ul class="sf-menu pm-nav">
@@ -104,7 +104,7 @@ $getMenus1 = getAllDataCheckActive('categories',0);
                         
                         <div class="pm-sub-menu-info">
                             <!-- <p class="pm-address"><i class="fa fa-map-marker"></i> 4 Main Street, New York, NY 02489</p> -->
-                            <p class="pm-contact"><i class="fa fa-mobile-phone"></i> <?php echo $getSiteSettingsData['mobile']; ?> </p>
+                           <a href="tel:91<?php echo $getSiteSettingsData['mobile']; ?>"> <p class="pm-contact"><i class="fa fa-mobile-phone"></i> <?php echo $getSiteSettingsData['mobile']; ?> </p></a>
                         </div>
                                                 
                     </div>
